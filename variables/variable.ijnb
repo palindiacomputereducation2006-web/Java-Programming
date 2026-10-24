@@ -1,0 +1,113 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "a07c0207-1d7b-463d-8554-bc8a0d21c78c",
+      "cell_type": "markdown",
+      "source": "# Variables\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "a07c0207-1d7b-463d-8554-bc8a0d21c78c"
+      }
+    },
+    {
+      "id": "2c0a9dca-b38b-4530-9b89-2757c23463b2",
+      "cell_type": "code",
+      "source": "int number = 12;\r\nint number1 = 5;\r\n\r\nint sum = number1 + number; // This will cause a compilation error due to duplicate variable declaration.\r\nSystem.out.print(\"the addition of \" +number+ \" and \" +number1+ \" is : \" + sum);",
+      "metadata": {
+        "language": "java",
+        "id": "2c0a9dca-b38b-4530-9b89-2757c23463b2",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the addition of 12 and 5 is : 17"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "b9d72ae9-f7ff-4a78-8c33-5c0808f3e9b2",
+      "cell_type": "code",
+      "source": "String message = \"Hello, World!\";\r\nSystem.out.println(message);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello, World!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "f2a4cab6-0f5e-479c-b3a3-caa077a3e162",
+      "cell_type": "code",
+      "source": "Boolean isJavaFun = false;\r\n\r\nBoolean isJava = true;\r\n\r\nSystem.out.println(isJavaFun); // Output: false\r\nSystem.out.println(isJava); // Output: true",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "f169c49b-0bf4-41b5-82e5-d585d50a156f",
+      "cell_type": "code",
+      "source": "char letter = 'A';\r\nSystem.out.println(\"this is the letter i was printing : \"+letter); // Output: A\r\n\r\nchar letter = 'A';\r\nSystem.out.println(\"this is the letter i was printing : \"+letter+\" values\"); // Output: A",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "this is the letter i was printing : A\r\nthis is the letter i was printing : A values\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    }
+  ]
+}
