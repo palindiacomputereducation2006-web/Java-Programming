@@ -1,0 +1,87 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "abfa0f3b-e6cd-4b91-b924-0737bba77280",
+      "cell_type": "markdown",
+      "source": "# Conditonals Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "abfa0f3b-e6cd-4b91-b924-0737bba77280"
+      }
+    },
+    {
+      "id": "e16a0432-6568-4dc7-b310-0266517980db",
+      "cell_type": "code",
+      "source": "int a = 42;\r\n\r\n// Syntax\r\n// if(condition){\r\n\r\n// }\r\n\r\nif(a > 32){\r\n    int we = 12;\r\n    int b = 32;\r\n    int sum = we+b;\r\n    System.out.println(\"a is greater than b : \"+sum);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "5847e58d-1e78-4229-b22b-82b16473e053",
+      "cell_type": "code",
+      "source": "int a = 43;\r\n\r\n//Syntax\r\n// if(condition){\r\n\r\n// }else{\r\n\r\n// }\r\n\r\n\r\nif(a > 32){\r\n    int number = 12;\r\n    int number1 = 32;\r\n\r\n    int sum = number + number1;\r\n    System.out.println(\"a is greater than b : \"+sum);\r\n}else{\r\n    int number = 12;\r\n    int number1 = 32;\r\n\r\n    int sum = number1 - number;\r\n    System.out.println(\"a is less than b : \"+sum);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a is greater than b : 44\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "6eecdec2-48ea-4a86-a39b-92479df00468",
+      "cell_type": "code",
+      "source": "int a = 32;\r\n\r\n//Syntax\r\n// if(condition){\r\n\r\n// } else if (condition){\r\n//}\r\n\r\n//else{\r\n\r\n// }\r\n\r\n\r\nif(a > 32){\r\n    int number = 12;\r\n    int number1 = 32;\r\n\r\n    int sum = number + number1;\r\n    System.out.println(\"a is greater than b : \"+sum);\r\n}else if(a < 32){\r\n    int number = 12;\r\n    int number1 = 32;\r\n\r\n    int sum = number1 - number;\r\n    System.out.println(\"a is less than b : \"+sum);\r\n}else{\r\n    int number = 12;\r\n    int number1 = 32;\r\n\r\n    int sum = number1 * number;\r\n    System.out.println(\"a is equal to b : \"+sum);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a is equal to b : 384\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    }
+  ]
+}

@@ -46,6 +46,7 @@
       "source": "String message = \"Hello, World!\";\r\nSystem.out.println(message);",
       "metadata": {
         "language": "java",
+        "id": "b9d72ae9-f7ff-4a78-8c33-5c0808f3e9b2",
         "executionSummary": {
           "executionOrder": 2,
           "success": true
@@ -69,6 +70,7 @@
       "source": "Boolean isJavaFun = false;\r\n\r\nBoolean isJava = true;\r\n\r\nSystem.out.println(isJavaFun); // Output: false\r\nSystem.out.println(isJava); // Output: true",
       "metadata": {
         "language": "java",
+        "id": "f2a4cab6-0f5e-479c-b3a3-caa077a3e162",
         "executionSummary": {
           "executionOrder": 3,
           "success": true
@@ -92,6 +94,7 @@
       "source": "char letter = 'A';\r\nSystem.out.println(\"this is the letter i was printing : \"+letter); // Output: A\r\n\r\nchar letter = 'A';\r\nSystem.out.println(\"this is the letter i was printing : \"+letter+\" values\"); // Output: A",
       "metadata": {
         "language": "java",
+        "id": "f169c49b-0bf4-41b5-82e5-d585d50a156f",
         "executionSummary": {
           "executionOrder": 9,
           "success": true
@@ -106,6 +109,101 @@
           },
           "metadata": {},
           "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "213879b9-4bf3-4a32-832d-e24843a339f7",
+      "cell_type": "code",
+      "source": "float decimalNumber = 3.14464565f;\r\nSystem.out.println(\"this is the decimal number i was printing : \"+decimalNumber); // Output",
+      "metadata": {
+        "language": "java",
+        "id": "213879b9-4bf3-4a32-832d-e24843a339f7",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "this is the decimal number i was printing : 3.1446457\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "52b7e5e2-44d9-4496-8a99-83554723d908",
+      "cell_type": "code",
+      "source": "double decimalNumber = 3.14464565;\r\nSystem.out.println(\"this is the decimal number i was printing : \"+decimalNumber); // Output",
+      "metadata": {
+        "language": "java",
+        "id": "52b7e5e2-44d9-4496-8a99-83554723d908",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "this is the decimal number i was printing : 3.14464565\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "96b74718-458b-49c0-a9e1-0a80433ba187",
+      "cell_type": "code",
+      "source": "final float pi = 3.14f; // Use 'final' to declare a constant in Java\r\nSystem.out.println(\"this is the value of pi : \"+pi); // Output: 3.14",
+      "metadata": {
+        "language": "java",
+        "id": "96b74718-458b-49c0-a9e1-0a80433ba187",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "this is the value of pi : 3.14\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "83ae5bfd-6db1-4a33-a5dd-476ffe7ebbb7",
+      "cell_type": "code",
+      "source": "int arbaz = 321;\r\n\r\narbaz = 43232;\r\n\r\nSystem.out.println(\"this is the value of arbaz : \"+arbaz); // Output: 43232",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "this is the value of arbaz : 43232\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
         }
       ]
     }
