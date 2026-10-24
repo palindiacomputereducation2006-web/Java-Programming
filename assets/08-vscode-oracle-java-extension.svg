@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="800" height="460" fill="#1e1e1e"/>
+  <!-- title bar -->
+  <rect x="0" y="0" width="800" height="30" fill="#323233"/>
+  <text x="340" y="20" font-size="12" fill="#cccccc">Visual Studio Code</text>
+  <!-- activity bar -->
+  <rect x="0" y="30" width="48" height="430" fill="#333333"/>
+  <rect x="12" y="50" width="24" height="24" fill="none" stroke="#858585" stroke-width="2"/>
+  <circle cx="24" cy="108" r="9" fill="none" stroke="#858585" stroke-width="2"/>
+  <!-- extensions icon highlighted -->
+  <rect x="0" y="180" width="3" height="40" fill="#ffffff"/>
+  <rect x="12" y="188" width="10" height="10" fill="#ffffff"/><rect x="25" y="188" width="10" height="10" fill="#ffffff"/>
+  <rect x="12" y="201" width="10" height="10" fill="#ffffff"/><rect x="27" y="180" width="10" height="10" fill="#ffffff" transform="rotate(45 32 185)"/>
+  <circle cx="24" cy="200" r="22" fill="none" stroke="#e5a50a" stroke-width="2"/>
+  <!-- side bar -->
+  <rect x="48" y="30" width="300" height="430" fill="#252526"/>
+  <text x="62" y="54" font-size="11" fill="#bbbbbb">EXTENSIONS: MARKETPLACE</text>
+  <rect x="60" y="66" width="276" height="26" fill="#3c3c3c" stroke="#e5a50a" stroke-width="2"/>
+  <text x="68" y="84" font-size="13" fill="#ffffff">Oracle Java</text>
+  <!-- result 1 -->
+  <rect x="48" y="100" width="300" height="74" fill="#04395e"/>
+  <rect x="58" y="110" width="44" height="44" fill="#c74634"/><text x="66" y="139" font-size="14" font-weight="bold" fill="#fff">Java</text>
+  <text x="112" y="122" font-size="13" font-weight="bold" fill="#ffffff">Java</text>
+  <text x="112" y="140" font-size="11" fill="#cccccc">Java Platform Support for VS Code</text>
+  <text x="112" y="160" font-size="11" fill="#3794ff">Oracle</text>
+  <rect x="280" y="148" width="56" height="20" fill="#0e639c"/><text x="291" y="162" font-size="11" fill="#fff">Install</text>
+  <!-- result 2 -->
+  <rect x="58" y="186" width="44" height="44" fill="#5c2d91"/>
+  <text x="112" y="198" font-size="13" fill="#cccccc">Other Java extensions…</text>
+  <text x="112" y="216" font-size="11" fill="#888888">(not needed for this repo)</text>
+  <!-- detail pane -->
+  <rect x="348" y="30" width="452" height="430" fill="#1e1e1e"/>
+  <rect x="370" y="60" width="90" height="90" fill="#c74634"/><text x="388" y="113" font-size="24" font-weight="bold" fill="#fff">Java</text>
+  <text x="480" y="82" font-size="22" font-weight="bold" fill="#ffffff">Java</text>
+  <text x="480" y="104" font-size="13" fill="#3794ff">Oracle  <tspan fill="#888">|  Oracle.oracle-java</tspan></text>
+  <text x="480" y="126" font-size="12" fill="#cccccc">Java Platform Support for Visual Studio Code</text>
+  <rect x="480" y="136" width="70" height="24" fill="#0e639c" stroke="#e5a50a" stroke-width="2"/><text x="494" y="153" font-size="13" fill="#fff">Install</text>
+  <line x1="370" y1="180" x2="780" y2="180" stroke="#3c3c3c"/>
+  <text x="370" y="208" font-size="13" fill="#cccccc">• Code completion, navigation, refactoring</text>
+  <text x="370" y="232" font-size="13" fill="#cccccc">• Debugging, Maven &amp; Gradle support</text>
+  <text x="370" y="256" font-size="13" fill="#cccccc">• Interactive Java Notebooks (.ijnb)</text>
+  <text x="370" y="296" font-size="12" fill="#888888">Requires JDK 21 or newer to run</text>
+  <text x="56" y="452" font-size="10" fill="#777">Illustration</text>
+</svg>

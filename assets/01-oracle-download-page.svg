@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="800" height="460" fill="#f3f3f3"/>
+  <!-- browser chrome -->
+  <rect x="10" y="10" width="780" height="440" rx="8" fill="#ffffff" stroke="#c8c8c8"/>
+  <rect x="10" y="10" width="780" height="36" rx="8" fill="#e8e8e8"/>
+  <circle cx="30" cy="28" r="6" fill="#ff5f57"/><circle cx="50" cy="28" r="6" fill="#febc2e"/><circle cx="70" cy="28" r="6" fill="#28c840"/>
+  <rect x="95" y="17" width="600" height="22" rx="11" fill="#ffffff" stroke="#cfcfcf"/>
+  <text x="110" y="32" font-size="12" fill="#444">https://www.oracle.com/java/technologies/downloads/</text>
+  <!-- header -->
+  <rect x="10" y="46" width="780" height="40" fill="#312d2a"/>
+  <text x="30" y="72" font-size="18" font-weight="bold" fill="#ffffff">ORACLE</text>
+  <text x="130" y="72" font-size="14" fill="#e0e0e0">Java Downloads</text>
+  <!-- version tabs -->
+  <text x="30" y="118" font-size="20" font-weight="bold" fill="#222">Java SE Development Kit 27 downloads</text>
+  <rect x="30" y="132" width="70" height="28" fill="#c74634"/><text x="44" y="151" font-size="13" fill="#fff">JDK 27</text>
+  <rect x="104" y="132" width="70" height="28" fill="#eeeeee"/><text x="118" y="151" font-size="13" fill="#555">JDK 25</text>
+  <rect x="178" y="132" width="70" height="28" fill="#eeeeee"/><text x="192" y="151" font-size="13" fill="#555">JDK 21</text>
+  <!-- OS tabs -->
+  <text x="30" y="188" font-size="13" fill="#555">Linux</text>
+  <text x="90" y="188" font-size="13" fill="#555">macOS</text>
+  <text x="155" y="188" font-size="13" font-weight="bold" fill="#c74634">Windows</text>
+  <line x1="150" y1="195" x2="215" y2="195" stroke="#c74634" stroke-width="3"/>
+  <line x1="30" y1="198" x2="770" y2="198" stroke="#dddddd"/>
+  <!-- table -->
+  <text x="40" y="222" font-size="13" font-weight="bold" fill="#333">Product/file description</text>
+  <text x="300" y="222" font-size="13" font-weight="bold" fill="#333">File size</text>
+  <text x="420" y="222" font-size="13" font-weight="bold" fill="#333">Download</text>
+  <line x1="30" y1="232" x2="770" y2="232" stroke="#dddddd"/>
+  <text x="40" y="260" font-size="13" fill="#333">x64 Compressed Archive</text>
+  <text x="300" y="260" font-size="13" fill="#333">~200 MB</text>
+  <text x="420" y="260" font-size="13" fill="#1a5fb4">jdk-27_windows-x64_bin.zip</text>
+  <line x1="30" y1="275" x2="770" y2="275" stroke="#eeeeee"/>
+  <text x="40" y="303" font-size="13" fill="#333">x64 Installer</text>
+  <text x="300" y="303" font-size="13" fill="#333">~180 MB</text>
+  <text x="420" y="303" font-size="13" fill="#1a5fb4">jdk-27_windows-x64_bin.exe</text>
+  <line x1="30" y1="318" x2="770" y2="318" stroke="#eeeeee"/>
+  <!-- highlighted MSI row -->
+  <rect x="30" y="322" width="740" height="40" fill="#fff4d6" stroke="#e5a50a" stroke-width="2"/>
+  <text x="40" y="347" font-size="13" font-weight="bold" fill="#333">x64 MSI Installer</text>
+  <text x="300" y="347" font-size="13" fill="#333">~180 MB</text>
+  <text x="420" y="347" font-size="13" font-weight="bold" fill="#1a5fb4" text-decoration="underline">jdk-27_windows-x64_bin.msi</text>
+  <!-- callout -->
+  <path d="M 640 400 L 600 362" stroke="#c01c28" stroke-width="3" fill="none"/>
+  <polygon points="600,362 614,368 606,376" fill="#c01c28"/>
+  <rect x="520" y="400" width="250" height="34" rx="6" fill="#c01c28"/>
+  <text x="535" y="422" font-size="14" font-weight="bold" fill="#fff">Click the .msi link to download</text>
+  <text x="30" y="440" font-size="10" fill="#999">Illustration – sizes are approximate</text>
+</svg>

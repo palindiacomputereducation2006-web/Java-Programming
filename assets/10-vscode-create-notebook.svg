@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="800" height="340" fill="#1e1e1e"/>
+  <rect x="0" y="0" width="800" height="30" fill="#323233"/>
+  <text x="350" y="20" font-size="12" fill="#cccccc">java – Visual Studio Code</text>
+  <!-- command palette -->
+  <rect x="150" y="40" width="500" height="200" fill="#252526" stroke="#454545"/>
+  <rect x="160" y="50" width="480" height="28" fill="#3c3c3c" stroke="#0078d4"/>
+  <text x="170" y="69" font-size="13" fill="#ffffff">&gt; Java: Create New Notebook</text>
+  <rect x="151" y="86" width="498" height="26" fill="#04395e" stroke="#e5a50a" stroke-width="2"/>
+  <text x="166" y="104" font-size="13" fill="#ffffff">Java: Create New Notebook...</text>
+  <text x="166" y="140" font-size="12" fill="#888888">Only the Oracle "Java" extension adds this command.</text>
+  <text x="166" y="162" font-size="12" fill="#888888">If you don't see it, the extension isn't installed or enabled yet.</text>
+  <text x="560" y="104" font-size="11" fill="#bbbbbb">recently used</text>
+  <!-- hint -->
+  <rect x="150" y="260" width="500" height="50" rx="6" fill="#2d2d30"/>
+  <text x="166" y="281" font-size="13" fill="#cccccc">Open with <tspan font-weight="bold" fill="#ffffff">Ctrl + Shift + P</tspan>, type <tspan font-weight="bold" fill="#ffffff">Java: Create New Notebook</tspan>,</text>
+  <text x="166" y="300" font-size="13" fill="#cccccc">pick a folder and a file name (it is saved as <tspan font-weight="bold" fill="#ffffff">.ijnb</tspan>).</text>
+  <text x="10" y="334" font-size="10" fill="#777">Illustration – the exact list depends on the extension version</text>
+</svg>

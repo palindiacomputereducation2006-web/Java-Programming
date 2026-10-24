@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="800" height="460" fill="#1f4e79"/>
+  <rect x="120" y="40" width="560" height="380" fill="#ffffff" stroke="#888"/>
+  <rect x="120" y="40" width="560" height="30" fill="#f0f0f0" stroke="#888"/>
+  <text x="132" y="60" font-size="13" fill="#222">Java(TM) SE Development Kit 27 (64-bit) - Setup</text>
+  <text x="655" y="61" font-size="14" fill="#444">✕</text>
+  <rect x="121" y="71" width="170" height="300" fill="#c74634"/>
+  <circle cx="206" cy="200" r="42" fill="#ffffff"/>
+  <path d="M 186 200 L 201 216 L 228 186" stroke="#06b025" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="310" y="110" font-size="17" font-weight="bold" fill="#222">Successfully Installed</text>
+  <text x="310" y="132" font-size="17" font-weight="bold" fill="#222">Java(TM) SE Development Kit 27</text>
+  <text x="310" y="180" font-size="13" fill="#333">Click Close to exit the Setup Wizard.</text>
+  <text x="310" y="220" font-size="13" fill="#333">Installed to:</text>
+  <text x="310" y="240" font-size="13" font-family="Consolas, monospace" fill="#000">C:\Program Files\Java\jdk-27\</text>
+  <line x1="121" y1="372" x2="679" y2="372" stroke="#dddddd"/>
+  <rect x="596" y="384" width="74" height="26" fill="#e5f1fb" stroke="#0078d7" stroke-width="2"/><text x="614" y="402" font-size="13" font-weight="bold" fill="#000">Close</text>
+  <ellipse cx="633" cy="397" rx="48" ry="22" fill="none" stroke="#e5a50a" stroke-width="3"/>
+  <text x="20" y="450" font-size="10" fill="#cfe2f3">Illustration</text>
+</svg>
