@@ -7,8 +7,9 @@ This repository is a set of beginner Java lessons. They are written as **interac
 | [variables](variables/README.md) | `variable.ijnb` | Data types, declaring variables, constants (`final`), reassigning values |
 | [Operators](Operators/README.md) | `Operators.ijnb` | Comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) and logical operators (`&&`, `\|\|`, `!`) |
 | [Conditionals](Conditionals/README.md) | `conditionals.ijnb` | `if`, `if … else`, `if … else if … else` |
+| [Arrays](Arrays/README.md) | `Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method |
 
-Suggested order: **variables → Operators → Conditionals**
+Suggested order: **variables → Operators → Conditionals → Arrays**
 
 This guide has three parts:
 
@@ -213,7 +214,10 @@ java/
 ├── Operators/
 │   ├── README.md
 │   └── Operators.ijnb
-└── Conditionals/
+├── Conditionals/
+│   ├── README.md
+│   └── conditionals.ijnb
+└── Arrays/
     ├── README.md
-    └── conditionals.ijnb
+    └── Arrays.ijnb
 ```

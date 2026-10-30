@@ -17,9 +17,18 @@
       }
     },
     {
+      "id": "516fa0d9-3a7d-4d8f-8f76-8bbf3bdb3319",
+      "cell_type": "markdown",
+      "source": "# Array – properties\r\n\r\nAn array stores a **fixed number** of values of the **same type** in one variable.\r\n\r\n**Properties**\r\n- Size is fixed when the array is created; it cannot grow or shrink.\r\n- Every item has an **index** starting at `0`: `names[0]` is the first item.\r\n- `names.length` gives the number of items (a property, no brackets).\r\n- Can store primitives (`int`, `double`, `char`…) as well as objects (`String`…).\r\n- Reading an index that does not exist throws `ArrayIndexOutOfBoundsException`.\r\n- Need a list that can grow? Use `ArrayList`, `List` or `Vector` (below).",
+      "metadata": {
+        "language": "markdown",
+        "id": "516fa0d9-3a7d-4d8f-8f76-8bbf3bdb3319"
+      }
+    },
+    {
       "id": "bf1b4128-f60a-4e90-b822-c11c701ac753",
       "cell_type": "code",
-      "source": "//Syntax\r\n//data_type [] variable_name = value;\r\n\r\n\r\nString[] names = {\"Zoya\", \"Jane\", \"Doe\"};\r\nSystem.out.println(\"The first name is: \" + names[0]); // Output: The first name is: John",
+      "source": "//Syntax\r\n//data_type [] variable_name = value;\r\n\r\n\r\n// Method: type[] name = {values}\r\n// What:   creates an array; its size is fixed by the number of values (here 3)\r\n// Use:    to store a fixed number of values of the same type\r\nString[] names = {\"Zoya\", \"Jane\", \"Doe\"};\r\n// Method: name[index]  (not a method, index access)\r\n// What:   reads the item at the index; the first item is at index 0\r\n// Use:    to get one value out of the array\r\nSystem.out.println(\"The first name is: \" + names[0]); // Output: The first name is: John",
       "metadata": {
         "language": "java",
         "id": "bf1b4128-f60a-4e90-b822-c11c701ac753",
@@ -41,9 +50,66 @@
       ]
     },
     {
+      "id": "a77e0273-f7e0-423a-8c91-7525e2e7626f",
+      "cell_type": "markdown",
+      "source": "# ArrayList – properties and methods\r\n\r\n`ArrayList` is a **resizable array** from the `java.util` package.\r\n\r\n**Properties**\r\n- Size is not fixed: it grows automatically when you add items (a normal array cannot grow).\r\n- Keeps the **insertion order** and every item has an **index** starting at `0`.\r\n- Allows **duplicate** values and `null`.\r\n- Can only store **objects**, so use `Integer`, `Double`, `Character`… instead of `int`, `double`, `char`.\r\n- Default capacity is **10**; when it is full it grows by about **50%**.\r\n- **Not synchronized** (not thread-safe), which makes it faster than `Vector`.\r\n- Fast `get(index)`; slower to add/remove in the middle because items have to shift.",
+      "metadata": {
+        "language": "markdown",
+        "id": "a77e0273-f7e0-423a-8c91-7525e2e7626f"
+      }
+    },
+    {
+      "id": "3facb902-799b-468d-aeb7-ab2cb613d8d0",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//ArrayList<DataType> variable_name = new ArrayList<DataType>();\r\n\r\n//this is to create an empty ArrayList\r\nArrayList<String> fruits = new ArrayList<String>();\r\nSystem.out.println(\"The list is: \" + fruits);\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nSystem.out.println(\"The size is: \" + fruits.size());\r\n\r\n//this is to create an ArrayList with a starting capacity of 20\r\nArrayList<Integer> marks = new ArrayList<>(20);\r\nSystem.out.println(\"The marks list is: \" + marks);",
+      "metadata": {
+        "language": "java",
+        "id": "3facb902-799b-468d-aeb7-ab2cb613d8d0",
+        "executionSummary": {
+          "executionOrder": 26,
+          "success": true
+        }
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: []\r\nThe size is: 0\r\nThe marks list is: []\r\n"
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "id": "5a176b6b-cc06-4089-8c50-b7b258e79844",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<String>();\r\n\r\n//this is to add items at the end of the list\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nfruits.add(\"Apple\");\r\nfruits.add(\"Banana\");\r\nfruits.add(\"Mango\");\r\nfruits.add(\"Orange\");\r\nfruits.add(\"Banana\"); // duplicates are allowed\r\n\r\nSystem.out.println(\"The list is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "5a176b6b-cc06-4089-8c50-b7b258e79844",
+        "executionSummary": {
+          "executionOrder": 27,
+          "success": true
+        }
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Apple, Banana, Mango, Orange, Banana]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
       "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
       "cell_type": "code",
-      "source": "    //Syntax\r\n\r\n    //DataTypeList<DataType> variable_name = new DataTypeList<DataType>();\r\n\r\n    ArrayList<String> namesList = new ArrayList<String>();\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\n    System.out.println(\"The list is: \" + namesList); // Output: The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n\r\n    //this is to verify contains method\r\n    boolean is_exist = namesList.contains(\"Zoya\");\r\n    System.out.println(\"Is Zoya in the list? : \" + is_exist);\r\n\r\n    //this is to verify contains method \r\n    boolean is_exist = namesList.contains(\"arbaz\");\r\n    System.out.println(\"Is arbaz in the list? : \" + is_exist);\r\n\r\n    // this is to verify contains all method     \r\n    boolean is_exist = namesList.containsAll(Arrays.asList(\"Zoya\", \"Krishita\"));\r\n    System.out.println(\"Are Zoya and Krishita in the list? : \" + is_exist);",
+      "source": "    //Syntax\r\n\r\n    //DataTypeList<DataType> variable_name = new DataTypeList<DataType>();\r\n\r\n    ArrayList<String> namesList = new ArrayList<String>();\r\n    // Method: add(item) / add(index, item)\r\n    // What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n    // Use:    to put new values into the list\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    // Method: addAll(collection) / addAll(index, collection)\r\n    // What:   adds every item of another collection at the end, or at the given index\r\n    // Use:    to add many values in one step instead of calling add() again and again\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\n    System.out.println(\"The list is: \" + namesList); // Output: The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n\r\n    //this is to verify contains method\r\n    // Method: contains(item)\r\n    // What:   returns true if the item is in the list\r\n    // Use:    to check if a value exists before using it\r\n    boolean is_exist = namesList.contains(\"Zoya\");\r\n    System.out.println(\"Is Zoya in the list? : \" + is_exist);\r\n\r\n    //this is to verify contains method \r\n    boolean is_exist = namesList.contains(\"arbaz\");\r\n    System.out.println(\"Is arbaz in the list? : \" + is_exist);\r\n\r\n    // this is to verify contains all method     \r\n    // Method: containsAll(collection)\r\n    // What:   returns true only if EVERY item of the other collection is in the list\r\n    // Use:    to check many values at once\r\n    boolean is_exist = namesList.containsAll(Arrays.asList(\"Zoya\", \"Krishita\"));\r\n    System.out.println(\"Are Zoya and Krishita in the list? : \" + is_exist);",
       "metadata": {
         "language": "java",
         "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
@@ -67,9 +133,10 @@
     {
       "id": "99036402-51ce-472e-a76a-c22624da59f7",
       "cell_type": "code",
-      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\nSystem.out.println(\"The list is: \" + namesList);\r\n\r\n//this is to clear the list\r\nnamesList.clear();\r\nSystem.out.println(\"Is the list cleared? : \" + namesList.isEmpty());\r\nnamesList.\r\nSystem.out.println(\"The list is: \" + namesList); // Output: The list is: []\r\n// System.out.println(\"The list is: \" + namesList); // Output: The list is: []",
+      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\nSystem.out.println(\"The list is: \" + namesList);\r\n\r\n//this is to clear the list\r\n// Method: clear()\r\n// What:   removes every item; the list becomes empty but can still be used\r\n// Use:    to reset the list and start again\r\nnamesList.clear();\r\n// Method: isEmpty()\r\n// What:   returns true if the list has no items\r\n// Use:    to check before reading so you do not get an error\r\nSystem.out.println(\"Is the list cleared? : \" + namesList.isEmpty());\r\nnamesList.\r\nSystem.out.println(\"The list is: \" + namesList); // Output: The list is: []\r\n// System.out.println(\"The list is: \" + namesList); // Output: The list is: []",
       "metadata": {
         "language": "java",
+        "id": "99036402-51ce-472e-a76a-c22624da59f7",
         "executionSummary": {
           "executionOrder": 14,
           "success": true
@@ -90,9 +157,10 @@
     {
       "id": "06c9e17a-7cf9-4509-a91a-7bf60b2b3cb1",
       "cell_type": "code",
-      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\nnamesList.set(0, \"Arbaz\");\r\nnamesList.add(0,\"Zoya\");\r\nSystem.out.println(\"The list is: \" + namesList);\r\n",
+      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n// Method: set(index, item)\r\n// What:   replaces the item at the given index and returns the old value\r\n// Use:    to update a value that is already in the list\r\nnamesList.set(0, \"Arbaz\");\r\nnamesList.add(0,\"Zoya\");\r\nSystem.out.println(\"The list is: \" + namesList);\r\n",
       "metadata": {
         "language": "java",
+        "id": "06c9e17a-7cf9-4509-a91a-7bf60b2b3cb1",
         "executionSummary": {
           "executionOrder": 18,
           "success": true
@@ -113,9 +181,10 @@
     {
       "id": "40d5f000-9748-4b17-b18c-11dc00fed1c1",
       "cell_type": "code",
-      "source": "    ArrayList<String> namesList = new ArrayList<String>();\r\n\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n    namesList.remove(1);\r\n    System.out.println(\"The list is: \" + namesList);\r\n",
+      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n// Method: remove(index) / remove(item)\r\n// What:   removes the item at an index (returns it), or the first matching item (returns true/false)\r\n// Use:    to take a value out of the list\r\nnamesList.remove(1);\r\nSystem.out.println(\"The list is: \" + namesList);\r\n",
       "metadata": {
         "language": "java",
+        "id": "40d5f000-9748-4b17-b18c-11dc00fed1c1",
         "executionSummary": {
           "executionOrder": 19,
           "success": true
@@ -134,11 +203,477 @@
       ]
     },
     {
-      "id": "6473e49e-e3a5-4353-b2c9-6a00de4281bf",
+      "id": "d3bfedac-4680-469c-b03c-77fb961a412f",
       "cell_type": "code",
-      "source": "List<String> nameList = new ArrayList<String>();\r\nnameList.add(\"Prachi\");\r\nnameList.add(\"Krishita\");\r\nnameList.add(\"Zoya\");\r\n\r\nint index = nameList.indexOf(\"Krishita\");\r\nSystem.out.println(\"The index of 'Krishita' is: \" + index);\r\n\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to add an item at a given index (the others shift to the right)\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nfruits.add(1, \"Grapes\");\r\nSystem.out.println(\"The list is: \" + fruits);",
       "metadata": {
         "language": "java",
+        "id": "d3bfedac-4680-469c-b03c-77fb961a412f",
+        "executionSummary": {
+          "executionOrder": 28,
+          "success": true
+        }
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Apple, Grapes, Banana, Mango]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "id": "8a62bbfe-9869-43df-a7af-e978b6eed252",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\"));\r\n\r\n//this is to add all items of another collection at the end\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nfruits.addAll(Arrays.asList(\"Mango\", \"Orange\"));\r\nSystem.out.println(\"After addAll: \" + fruits);\r\n\r\n//this is to add all items of another collection at a given index\r\n// Method: List.of(items...)\r\n// What:   creates an IMMUTABLE list (cannot add, remove or set)\r\n// Use:    for fixed data that must not change\r\nfruits.addAll(1, List.of(\"Kiwi\", \"Papaya\"));\r\nSystem.out.println(\"After addAll(1, ...): \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "8a62bbfe-9869-43df-a7af-e978b6eed252",
+        "executionSummary": {
+          "executionOrder": 29,
+          "success": true
+        }
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After addAll: [Apple, Banana, Mango, Orange]\r\nAfter addAll(1, ...): [Apple, Kiwi, Papaya, Banana, Mango, Orange]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "id": "5e1d5926-e284-4360-84e4-c882fec94e9c",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\", \"Orange\"));\r\n\r\n//this is to read an item by its index\r\n// Method: get(index)\r\n// What:   returns the item at the given index (index starts at 0)\r\n// Use:    to read one value from the list\r\nString first = fruits.get(0);\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nString last = fruits.get(fruits.size() - 1);\r\nSystem.out.println(\"The first fruit is: \" + first);\r\nSystem.out.println(\"The last fruit is: \" + last);",
+      "metadata": {
+        "language": "java",
+        "id": "5e1d5926-e284-4360-84e4-c882fec94e9c",
+        "executionSummary": {
+          "executionOrder": 30,
+          "success": true
+        }
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The first fruit is: Apple\r\nThe last fruit is: Orange\r\n"
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "id": "90468915-6ea9-4b1a-88bf-483969c8554d",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to replace the item at an index; set() returns the old value\r\n// Method: set(index, item)\r\n// What:   replaces the item at the given index and returns the old value\r\n// Use:    to update a value that is already in the list\r\nString old = fruits.set(1, \"Cherry\");\r\nSystem.out.println(\"Replaced value: \" + old);\r\nSystem.out.println(\"The list is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "90468915-6ea9-4b1a-88bf-483969c8554d",
+        "executionSummary": {
+          "executionOrder": 31,
+          "success": true
+        }
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Replaced value: Banana\r\nThe list is: [Apple, Cherry, Mango]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
+    },
+    {
+      "id": "69e5510a-c4c3-40aa-984d-bcf6e5a5362d",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\", \"Orange\", \"Banana\"));\r\n\r\n//this is to remove by index; it returns the removed item\r\n// Method: remove(index) / remove(item)\r\n// What:   removes the item at an index (returns it), or the first matching item (returns true/false)\r\n// Use:    to take a value out of the list\r\nString removed = fruits.remove(0);\r\nSystem.out.println(\"Removed by index: \" + removed);\r\nSystem.out.println(\"The list is: \" + fruits);\r\n\r\n//this is to remove by value; it removes only the FIRST match and returns true/false\r\nboolean isRemoved = fruits.remove(\"Banana\");\r\nSystem.out.println(\"Was Banana removed? : \" + isRemoved);\r\nSystem.out.println(\"The list is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "69e5510a-c4c3-40aa-984d-bcf6e5a5362d",
+        "executionSummary": {
+          "executionOrder": 32,
+          "success": true
+        }
+      },
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Removed by index: Apple\r\nThe list is: [Banana, Mango, Orange, Banana]\r\nWas Banana removed? : true\r\nThe list is: [Mango, Orange, Banana]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "id": "b79ccd74-7442-468f-93cc-480fc2eb7b68",
+      "cell_type": "code",
+      "source": "ArrayList<Integer> numbers = new ArrayList<>(List.of(10, 20, 30, 40));\r\n\r\n//careful with Integer lists: remove(1) removes INDEX 1, remove(Integer.valueOf(10)) removes the VALUE 10\r\n// Method: remove(index) / remove(item)\r\n// What:   removes the item at an index (returns it), or the first matching item (returns true/false)\r\n// Use:    to take a value out of the list\r\nnumbers.remove(1);\r\nSystem.out.println(\"After remove(1): \" + numbers);\r\n\r\n// Method: Integer.valueOf(number)\r\n// What:   turns an int into an Integer object\r\n// Use:    so remove() treats the number as a VALUE, not as an index\r\nnumbers.remove(Integer.valueOf(10));\r\nSystem.out.println(\"After remove(Integer.valueOf(10)): \" + numbers);",
+      "metadata": {
+        "language": "java",
+        "id": "b79ccd74-7442-468f-93cc-480fc2eb7b68",
+        "executionSummary": {
+          "executionOrder": 33,
+          "success": true
+        }
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After remove(1): [10, 30, 40]\r\nAfter remove(Integer.valueOf(10)): [30, 40]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "id": "3aade68f-f87e-4414-be21-f654c9a71ed7",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to get the number of items and check if the list is empty\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nSystem.out.println(\"The size is: \" + fruits.size());\r\n// Method: isEmpty()\r\n// What:   returns true if the list has no items\r\n// Use:    to check before reading so you do not get an error\r\nSystem.out.println(\"Is the list empty? : \" + fruits.isEmpty());\r\n\r\nArrayList<String> emptyList = new ArrayList<>();\r\nSystem.out.println(\"Is emptyList empty? : \" + emptyList.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "3aade68f-f87e-4414-be21-f654c9a71ed7",
+        "executionSummary": {
+          "executionOrder": 34,
+          "success": true
+        }
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The size is: 3\r\nIs the list empty? : false\r\nIs emptyList empty? : true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "id": "595960b2-63bf-4b38-939a-be00c33e5cb5",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to check if one item is in the list\r\n// Method: contains(item)\r\n// What:   returns true if the item is in the list\r\n// Use:    to check if a value exists before using it\r\nSystem.out.println(\"Is Mango in the list? : \" + fruits.contains(\"Mango\"));\r\nSystem.out.println(\"Is Kiwi in the list? : \" + fruits.contains(\"Kiwi\"));\r\n\r\n//this is to check if ALL items are in the list\r\n// Method: containsAll(collection)\r\n// What:   returns true only if EVERY item of the other collection is in the list\r\n// Use:    to check many values at once\r\nSystem.out.println(\"Are Apple and Banana in the list? : \" + fruits.containsAll(List.of(\"Apple\", \"Banana\")));",
+      "metadata": {
+        "language": "java",
+        "id": "595960b2-63bf-4b38-939a-be00c33e5cb5",
+        "executionSummary": {
+          "executionOrder": 35,
+          "success": true
+        }
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Is Mango in the list? : true\r\nIs Kiwi in the list? : false\r\nAre Apple and Banana in the list? : true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "id": "69dc8a88-149a-4e94-9bbc-07f96e61fa4d",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\", \"Banana\"));\r\n\r\n//this is to find the first and the last index of an item (-1 means not found)\r\n// Method: indexOf(item) / indexOf(item, fromIndex)\r\n// What:   returns the index of the first match, or -1 if not found\r\n// Use:    to find where a value is in the list\r\nSystem.out.println(\"First index of Banana: \" + fruits.indexOf(\"Banana\"));\r\n// Method: lastIndexOf(item)\r\n// What:   returns the index of the last match, or -1 if not found\r\n// Use:    to find the last position of a value that appears more than once\r\nSystem.out.println(\"Last index of Banana: \" + fruits.lastIndexOf(\"Banana\"));\r\nSystem.out.println(\"Index of Kiwi: \" + fruits.indexOf(\"Kiwi\"));",
+      "metadata": {
+        "language": "java",
+        "id": "69dc8a88-149a-4e94-9bbc-07f96e61fa4d",
+        "executionSummary": {
+          "executionOrder": 36,
+          "success": true
+        }
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First index of Banana: 1\r\nLast index of Banana: 3\r\nIndex of Kiwi: -1\r\n"
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "id": "880d2431-5e0e-433a-a2df-1c8d391b2626",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\", \"Orange\", \"Kiwi\"));\r\n\r\n//this is to remove every item that is also in another collection\r\n// Method: removeAll(collection)\r\n// What:   removes every item that is also in the other collection\r\n// Use:    to delete many values in one step\r\nfruits.removeAll(List.of(\"Banana\", \"Kiwi\"));\r\nSystem.out.println(\"After removeAll: \" + fruits);\r\n\r\n//this is to keep ONLY the items that are also in another collection\r\n// Method: retainAll(collection)\r\n// What:   keeps ONLY the items that are also in the other collection; removes the rest\r\n// Use:    to find the common values between two lists\r\nfruits.retainAll(List.of(\"Apple\", \"Orange\", \"Grapes\"));\r\nSystem.out.println(\"After retainAll: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "880d2431-5e0e-433a-a2df-1c8d391b2626",
+        "executionSummary": {
+          "executionOrder": 37,
+          "success": true
+        }
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After removeAll: [Apple, Mango, Orange]\r\nAfter retainAll: [Apple, Orange]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 37
+        }
+      ]
+    },
+    {
+      "id": "57ca6656-a818-44ec-8718-91f2ce24e47d",
+      "cell_type": "code",
+      "source": "ArrayList<Integer> numbers = new ArrayList<>(List.of(5, 12, 7, 20, 3, 18));\r\n\r\n//this is to remove every item that matches a condition\r\n// Method: removeIf(condition)\r\n// What:   removes every item for which the condition (a lambda) is true\r\n// Use:    to delete values by a rule, e.g. all numbers below 10\r\nnumbers.removeIf(n -> n < 10);\r\nSystem.out.println(\"Numbers 10 and above: \" + numbers);",
+      "metadata": {
+        "language": "java",
+        "id": "57ca6656-a818-44ec-8718-91f2ce24e47d",
+        "executionSummary": {
+          "executionOrder": 38,
+          "success": true
+        }
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Numbers 10 and above: [12, 20, 18]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "id": "9b4021ba-f61e-40eb-8e50-0049bb78776b",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Mango\", \"Apple\", \"Orange\", \"Banana\"));\r\n\r\n//this is to sort in ascending (A to Z) order\r\n// Method: sort(null)\r\n// What:   sorts the list itself; null means natural order (A to Z, small to big)\r\n// Use:    to put the items in order\r\nfruits.sort(null);\r\nSystem.out.println(\"Ascending: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "9b4021ba-f61e-40eb-8e50-0049bb78776b",
+        "executionSummary": {
+          "executionOrder": 39,
+          "success": true
+        }
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Ascending: [Apple, Banana, Mango, Orange]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 39
+        }
+      ]
+    },
+    {
+      "id": "77082e64-82c1-4435-be04-6e767fdaba29",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\", \"Orange\", \"Kiwi\"));\r\n\r\n//this is to get a part of the list: from index 1 (included) to index 4 (excluded)\r\n// Method: subList(fromIndex, toIndex)\r\n// What:   returns the part of the list from fromIndex (included) to toIndex (excluded)\r\n// Use:    to work with only a section of the list\r\nList<String> part = fruits.subList(1, 4);\r\nSystem.out.println(\"The sub list is: \" + part);",
+      "metadata": {
+        "language": "java",
+        "id": "77082e64-82c1-4435-be04-6e767fdaba29",
+        "executionSummary": {
+          "executionOrder": 40,
+          "success": true
+        }
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The sub list is: [Banana, Mango, Orange]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 40
+        }
+      ]
+    },
+    {
+      "id": "2a926366-0dda-445d-a889-68c3dc9582bc",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to convert the ArrayList into a normal array\r\n// Method: toArray(new Type[0])\r\n// What:   copies the items into a normal array\r\n// Use:    when a method needs an array instead of a list\r\nString[] fruitArray = fruits.toArray(new String[0]);\r\nSystem.out.println(\"Array length: \" + fruitArray.length);\r\n// Method: Arrays.toString(array)\r\n// What:   turns an array into readable text like [a, b, c]\r\n// Use:    to print an array (println(array) prints only a memory address)\r\nSystem.out.println(\"Array: \" + Arrays.toString(fruitArray));",
+      "metadata": {
+        "language": "java",
+        "id": "2a926366-0dda-445d-a889-68c3dc9582bc",
+        "executionSummary": {
+          "executionOrder": 41,
+          "success": true
+        }
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Array length: 3\r\nArray: [Apple, Banana, Mango]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 41
+        }
+      ]
+    },
+    {
+      "id": "1643161c-5daa-4e3f-b497-e30e62626154",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"apple\", \"banana\", \"mango\"));\r\n\r\n//this is to change every item with the same rule\r\n// Method: replaceAll(rule)\r\n// What:   changes every item using the rule (a lambda) you give it\r\n// Use:    to update all values at once, e.g. make every name UPPERCASE\r\nfruits.replaceAll(fruit -> fruit.toUpperCase());\r\nSystem.out.println(\"The list is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "1643161c-5daa-4e3f-b497-e30e62626154",
+        "executionSummary": {
+          "executionOrder": 44,
+          "success": true
+        }
+      },
+      "execution_count": 44,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [APPLE, BANANA, MANGO]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 44
+        }
+      ]
+    },
+    {
+      "id": "00ec9155-9afc-410b-b1fc-15d13b30ae82",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\"));\r\n\r\n//this is to make a copy of the list\r\nArrayList<String> copy = new ArrayList<>(fruits);\r\n// Method: equals(otherList)\r\n// What:   returns true if both lists have the same items in the same order\r\n// Use:    to compare two lists (== only checks if they are the same object)\r\nSystem.out.println(\"Are both lists equal? : \" + fruits.equals(copy));\r\n\r\n//changing the copy does not change the original\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncopy.add(\"Mango\");\r\nSystem.out.println(\"Original: \" + fruits);\r\nSystem.out.println(\"Copy: \" + copy);\r\nSystem.out.println(\"Are both lists equal now? : \" + fruits.equals(copy));",
+      "metadata": {
+        "language": "java",
+        "id": "00ec9155-9afc-410b-b1fc-15d13b30ae82",
+        "executionSummary": {
+          "executionOrder": 45,
+          "success": true
+        }
+      },
+      "execution_count": 45,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Are both lists equal? : true\r\nOriginal: [Apple, Banana]\r\nCopy: [Apple, Banana, Mango]\r\nAre both lists equal now? : false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "id": "2f7ae232-b455-4ce0-a394-521a4a8dbfc2",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>();\r\n\r\n//this is to make sure the list has room for 100 items (avoids resizing many times)\r\n// Method: ensureCapacity(n)\r\n// What:   makes sure there is room for at least n items\r\n// Use:    to avoid many slow resizes when you know many items are coming\r\nfruits.ensureCapacity(100);\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nfruits.add(\"Apple\");\r\nfruits.add(\"Banana\");\r\n\r\n//this is to shrink the capacity down to the current size to save memory\r\n// Method: trimToSize()\r\n// What:   shrinks the capacity down to the current size\r\n// Use:    to free unused memory after you finish adding\r\nfruits.trimToSize();\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nSystem.out.println(\"The list is: \" + fruits + \" , size: \" + fruits.size());",
+      "metadata": {
+        "language": "java",
+        "id": "2f7ae232-b455-4ce0-a394-521a4a8dbfc2",
+        "executionSummary": {
+          "executionOrder": 46,
+          "success": true
+        }
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Apple, Banana] , size: 2\r\n"
+          },
+          "metadata": {},
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "id": "ea571d61-44de-44ea-8a47-27349abd1930",
+      "cell_type": "code",
+      "source": "ArrayList<String> fruits = new ArrayList<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\nSystem.out.println(\"Before clear: \" + fruits);\r\n\r\n//this is to remove every item from the list\r\n// Method: clear()\r\n// What:   removes every item; the list becomes empty but can still be used\r\n// Use:    to reset the list and start again\r\nfruits.clear();\r\nSystem.out.println(\"After clear: \" + fruits);\r\n// Method: isEmpty()\r\n// What:   returns true if the list has no items\r\n// Use:    to check before reading so you do not get an error\r\nSystem.out.println(\"Is the list empty? : \" + fruits.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "ea571d61-44de-44ea-8a47-27349abd1930",
+        "executionSummary": {
+          "executionOrder": 47,
+          "success": true
+        }
+      },
+      "execution_count": 47,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Before clear: [Apple, Banana, Mango]\r\nAfter clear: []\r\nIs the list empty? : true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 47
+        }
+      ]
+    },
+    {
+      "id": "6da4543e-d446-4244-ae21-757c0991cbd7",
+      "cell_type": "markdown",
+      "source": "# List – properties and methods\r\n\r\n`List` is an **interface**, not a class. It describes what an ordered collection can do. You cannot write `new List<>()`; you create one of its implementations instead:\r\n\r\n| Implementation | Good for |\r\n|---|---|\r\n| `ArrayList` | Fast reading by index (most common choice) |\r\n| `Vector` | Thread-safe (older class) |\r\n\r\n**Properties**\r\n- Ordered, index-based (starts at `0`), allows duplicates and `null` (except `List.of`).\r\n- Writing `List<String> x = new ArrayList<>();` is called *programming to the interface*: you can later switch to `Vector` (or another `List`) by changing only the right side.\r\n- Shortcut ways to create a list:\r\n  - `List.of(...)` → **immutable** (cannot add, remove or set; trying it stops the program with an error).\r\n  - `Arrays.asList(...)` → **fixed size** (can `set`, cannot `add`/`remove`).\r\n  - `List.copyOf(list)` → immutable copy.",
+      "metadata": {
+        "language": "markdown",
+        "id": "6da4543e-d446-4244-ae21-757c0991cbd7"
+      }
+    },
+    {
+      "id": "9825191a-e640-401a-8202-aecaf0727fc9",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//List<DataType> variable_name = new ArrayList<DataType>();\r\n\r\n//this is to create a List using ArrayList and add items\r\nList<String> cities = new ArrayList<String>();\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncities.add(\"Mumbai\");\r\ncities.add(\"Delhi\");\r\ncities.add(\"Pune\");\r\n\r\nSystem.out.println(\"The list is: \" + cities);",
+      "metadata": {
+        "language": "java",
+        "id": "9825191a-e640-401a-8202-aecaf0727fc9",
+        "executionSummary": {
+          "executionOrder": 48,
+          "success": true
+        }
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Mumbai, Delhi, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 48
+        }
+      ]
+    },
+    {
+      "id": "6473e49e-e3a5-4353-b2c9-6a00de4281bf",
+      "cell_type": "code",
+      "source": "List<String> nameList = new ArrayList<String>();\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnameList.add(\"Prachi\");\r\nnameList.add(\"Krishita\");\r\nnameList.add(\"Zoya\");\r\n\r\n// Method: indexOf(item) / indexOf(item, fromIndex)\r\n// What:   returns the index of the first match, or -1 if not found\r\n// Use:    to find where a value is in the list\r\nint index = nameList.indexOf(\"Krishita\");\r\nSystem.out.println(\"The index of 'Krishita' is: \" + index);\r\n\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "metadata": {
+        "language": "java",
+        "id": "6473e49e-e3a5-4353-b2c9-6a00de4281bf",
         "executionSummary": {
           "executionOrder": 23,
           "success": true
@@ -157,11 +692,333 @@
       ]
     },
     {
-      "id": "2d8a8151-6b4e-48d3-a479-a7290fd1d275",
+      "id": "0e9589cb-9bff-47a7-b252-f742fabfc443",
       "cell_type": "code",
-      "source": "Vector<String> nameList = new Vector<String>();\r\nnameList.add(\"Prachi\");\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "source": "//this is to create an IMMUTABLE list with List.of()\r\n// Method: List.of(items...)\r\n// What:   creates an IMMUTABLE list (cannot add, remove or set)\r\n// Use:    for fixed data that must not change\r\nList<String> cities = List.of(\"Mumbai\", \"Delhi\", \"Pune\");\r\nSystem.out.println(\"The list is: \" + cities);\r\n\r\n//cities.add(\"Goa\");   // not allowed: a List.of() list cannot be changed (the program stops with an error)",
       "metadata": {
         "language": "java",
+        "id": "0e9589cb-9bff-47a7-b252-f742fabfc443",
+        "executionSummary": {
+          "executionOrder": 50,
+          "success": true
+        }
+      },
+      "execution_count": 50,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Mumbai, Delhi, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 50
+        }
+      ]
+    },
+    {
+      "id": "0f5d1f3e-04b1-415c-addc-8fb21f2dd042",
+      "cell_type": "code",
+      "source": "//this is to create a FIXED-SIZE list from values with Arrays.asList()\r\n// Method: Arrays.asList(items...)\r\n// What:   creates a FIXED-SIZE list backed by an array (set() works, add()/remove() do not)\r\n// Use:    to quickly turn values or an array into a List\r\nList<String> cities = Arrays.asList(\"Mumbai\", \"Delhi\", \"Pune\");\r\n\r\n//set() is allowed\r\n// Method: set(index, item)\r\n// What:   replaces the item at the given index and returns the old value\r\n// Use:    to update a value that is already in the list\r\ncities.set(0, \"Chennai\");\r\nSystem.out.println(\"After set: \" + cities);\r\n\r\n//cities.add(\"Goa\");   // not allowed: the size of an Arrays.asList() list is fixed (the program stops with an error)",
+      "metadata": {
+        "language": "java",
+        "id": "0f5d1f3e-04b1-415c-addc-8fb21f2dd042",
+        "executionSummary": {
+          "executionOrder": 51,
+          "success": true
+        }
+      },
+      "execution_count": 51,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After set: [Chennai, Delhi, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 51
+        }
+      ]
+    },
+    {
+      "id": "46962d6c-69b8-4fc6-9c45-16f7223b59c5",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\"));\r\n\r\n//this is to make an immutable copy; later changes to the original do not affect it\r\n// Method: List.copyOf(list)\r\n// What:   makes an IMMUTABLE copy of a list\r\n// Use:    to keep a snapshot that later changes cannot affect\r\nList<String> snapshot = List.copyOf(cities);\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncities.add(\"Pune\");\r\n\r\nSystem.out.println(\"Original: \" + cities);\r\nSystem.out.println(\"Copy: \" + snapshot);",
+      "metadata": {
+        "language": "java",
+        "id": "46962d6c-69b8-4fc6-9c45-16f7223b59c5",
+        "executionSummary": {
+          "executionOrder": 52,
+          "success": true
+        }
+      },
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Original: [Mumbai, Delhi, Pune]\r\nCopy: [Mumbai, Delhi]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 52
+        }
+      ]
+    },
+    {
+      "id": "73cd2524-ebf6-49e9-99fc-feb33fb54636",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\"));\r\n\r\n//this is to read and replace items by index\r\n// Method: get(index)\r\n// What:   returns the item at the given index (index starts at 0)\r\n// Use:    to read one value from the list\r\nSystem.out.println(\"City at index 1: \" + cities.get(1));\r\n// Method: set(index, item)\r\n// What:   replaces the item at the given index and returns the old value\r\n// Use:    to update a value that is already in the list\r\ncities.set(1, \"Kolkata\");\r\nSystem.out.println(\"After set: \" + cities);",
+      "metadata": {
+        "language": "java",
+        "id": "73cd2524-ebf6-49e9-99fc-feb33fb54636",
+        "executionSummary": {
+          "executionOrder": 53,
+          "success": true
+        }
+      },
+      "execution_count": 53,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "City at index 1: Delhi\r\nAfter set: [Mumbai, Kolkata, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 53
+        }
+      ]
+    },
+    {
+      "id": "5cced051-c106-485f-b0b4-ebbf819c426e",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\"));\r\n\r\n//this is to add at an index and remove by index / by value\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncities.add(0, \"Jaipur\");\r\nSystem.out.println(\"After add(0, ...): \" + cities);\r\n\r\n// Method: remove(index) / remove(item)\r\n// What:   removes the item at an index (returns it), or the first matching item (returns true/false)\r\n// Use:    to take a value out of the list\r\ncities.remove(2);\r\nSystem.out.println(\"After remove(2): \" + cities);\r\n\r\ncities.remove(\"Pune\");\r\nSystem.out.println(\"After remove(\\\"Pune\\\"): \" + cities);",
+      "metadata": {
+        "language": "java",
+        "id": "5cced051-c106-485f-b0b4-ebbf819c426e",
+        "executionSummary": {
+          "executionOrder": 54,
+          "success": true
+        }
+      },
+      "execution_count": 54,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After add(0, ...): [Jaipur, Mumbai, Delhi, Pune]\r\nAfter remove(2): [Jaipur, Mumbai, Pune]\r\nAfter remove(\"Pune\"): [Jaipur, Mumbai]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 54
+        }
+      ]
+    },
+    {
+      "id": "3b328e59-6ef2-4515-bb9f-eff98ef10677",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\", \"Delhi\"));\r\n\r\n//this is to check size, empty, contains and index\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nSystem.out.println(\"Size: \" + cities.size());\r\n// Method: isEmpty()\r\n// What:   returns true if the list has no items\r\n// Use:    to check before reading so you do not get an error\r\nSystem.out.println(\"Is empty? : \" + cities.isEmpty());\r\n// Method: contains(item)\r\n// What:   returns true if the item is in the list\r\n// Use:    to check if a value exists before using it\r\nSystem.out.println(\"Contains Pune? : \" + cities.contains(\"Pune\"));\r\n// Method: indexOf(item) / indexOf(item, fromIndex)\r\n// What:   returns the index of the first match, or -1 if not found\r\n// Use:    to find where a value is in the list\r\nSystem.out.println(\"First index of Delhi: \" + cities.indexOf(\"Delhi\"));\r\n// Method: lastIndexOf(item)\r\n// What:   returns the index of the last match, or -1 if not found\r\n// Use:    to find the last position of a value that appears more than once\r\nSystem.out.println(\"Last index of Delhi: \" + cities.lastIndexOf(\"Delhi\"));",
+      "metadata": {
+        "language": "java",
+        "id": "3b328e59-6ef2-4515-bb9f-eff98ef10677",
+        "executionSummary": {
+          "executionOrder": 55,
+          "success": true
+        }
+      },
+      "execution_count": 55,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Size: 4\r\nIs empty? : false\r\nContains Pune? : true\r\nFirst index of Delhi: 1\r\nLast index of Delhi: 3\r\n"
+          },
+          "metadata": {},
+          "execution_count": 55
+        }
+      ]
+    },
+    {
+      "id": "3067f1f5-9b38-4246-9baf-ea426eca86f3",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Pune\", \"Mumbai\", \"Goa\", \"Delhi\"));\r\n\r\n//this is to sort A to Z (null means natural order)\r\n// Method: sort(null)\r\n// What:   sorts the list itself; null means natural order (A to Z, small to big)\r\n// Use:    to put the items in order\r\ncities.sort(null);\r\nSystem.out.println(\"A to Z: \" + cities);",
+      "metadata": {
+        "language": "java",
+        "id": "3067f1f5-9b38-4246-9baf-ea426eca86f3",
+        "executionSummary": {
+          "executionOrder": 56,
+          "success": true
+        }
+      },
+      "execution_count": 56,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "A to Z: [Delhi, Goa, Mumbai, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 56
+        }
+      ]
+    },
+    {
+      "id": "7ae83510-2927-4c59-9f0c-4c33df819de7",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"mumbai\", \"delhi\", \"pune\"));\r\n\r\n//this is to change every item\r\n// Method: replaceAll(rule)\r\n// What:   changes every item using the rule (a lambda) you give it\r\n// Use:    to update all values at once, e.g. make every name UPPERCASE\r\ncities.replaceAll(String::toUpperCase);\r\nSystem.out.println(\"After replaceAll: \" + cities);\r\n\r\n//this is to remove items that match a condition\r\n// Method: removeIf(condition)\r\n// What:   removes every item for which the condition (a lambda) is true\r\n// Use:    to delete values by a rule, e.g. all numbers below 10\r\ncities.removeIf(city -> city.startsWith(\"D\"));\r\nSystem.out.println(\"After removeIf: \" + cities);",
+      "metadata": {
+        "language": "java",
+        "id": "7ae83510-2927-4c59-9f0c-4c33df819de7",
+        "executionSummary": {
+          "executionOrder": 57,
+          "success": true
+        }
+      },
+      "execution_count": 57,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After replaceAll: [MUMBAI, DELHI, PUNE]\r\nAfter removeIf: [MUMBAI, PUNE]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 57
+        }
+      ]
+    },
+    {
+      "id": "13c910ef-59e1-4c02-83f4-d29ffd22d928",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\", \"Goa\", \"Jaipur\"));\r\n\r\n//this is to get a part of the list (start included, end excluded)\r\n// Method: subList(fromIndex, toIndex)\r\n// What:   returns the part of the list from fromIndex (included) to toIndex (excluded)\r\n// Use:    to work with only a section of the list\r\nList<String> part = cities.subList(1, 3);\r\nSystem.out.println(\"The sub list is: \" + part);",
+      "metadata": {
+        "language": "java",
+        "id": "13c910ef-59e1-4c02-83f4-d29ffd22d928",
+        "executionSummary": {
+          "executionOrder": 58,
+          "success": true
+        }
+      },
+      "execution_count": 58,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The sub list is: [Delhi, Pune]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 58
+        }
+      ]
+    },
+    {
+      "id": "630d76af-4161-41d6-95b3-cb84497d48ab",
+      "cell_type": "code",
+      "source": "List<String> cities = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\"));\r\n\r\n//Java 21+: methods to work with the first and the last item\r\n// Method: getFirst()  [Java 21+]\r\n// What:   returns the first item of the list\r\n// Use:    to read the first value without writing get(0)\r\nSystem.out.println(\"First: \" + cities.getFirst());\r\n// Method: getLast()  [Java 21+]\r\n// What:   returns the last item of the list\r\n// Use:    to read the last value without writing get(size() - 1)\r\nSystem.out.println(\"Last: \" + cities.getLast());\r\n\r\n// Method: addFirst(item)  [Java 21+]\r\n// What:   inserts an item at the very start of the list\r\n// Use:    to put a value in front without writing add(0, item)\r\ncities.addFirst(\"Goa\");\r\n// Method: addLast(item)  [Java 21+]\r\n// What:   adds an item at the very end of the list\r\n// Use:    to make \"add at the end\" clear and readable\r\ncities.addLast(\"Jaipur\");\r\nSystem.out.println(\"After addFirst/addLast: \" + cities);\r\n\r\n// Method: removeFirst()  [Java 21+]\r\n// What:   removes and returns the first item\r\n// Use:    to take values from the front, like a queue\r\ncities.removeFirst();\r\n// Method: removeLast()  [Java 21+]\r\n// What:   removes and returns the last item\r\n// Use:    to take values from the end\r\ncities.removeLast();\r\nSystem.out.println(\"After removeFirst/removeLast: \" + cities);\r\n\r\n//Java 21+: a reversed view of the list\r\n// Method: reversed()  [Java 21+]\r\n// What:   returns a reversed VIEW of the list (the original is not changed)\r\n// Use:    to read the list backwards without making a copy\r\nSystem.out.println(\"Reversed: \" + cities.reversed());",
+      "metadata": {
+        "language": "java",
+        "id": "630d76af-4161-41d6-95b3-cb84497d48ab",
+        "executionSummary": {
+          "executionOrder": 60,
+          "success": true
+        }
+      },
+      "execution_count": 60,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First: Mumbai\r\nLast: Pune\r\nAfter addFirst/addLast: [Goa, Mumbai, Delhi, Pune, Jaipur]\r\nAfter removeFirst/removeLast: [Mumbai, Delhi, Pune]\r\nReversed: [Pune, Delhi, Mumbai]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 60
+        }
+      ]
+    },
+    {
+      "id": "c8bb23ba-c771-402f-871c-664fd672e3e6",
+      "cell_type": "code",
+      "source": "List<String> a = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\"));\r\nList<String> b = new ArrayList<>(List.of(\"Mumbai\", \"Delhi\"));\r\n\r\n//two lists are equal when they have the same items in the same order\r\n// Method: equals(otherList)\r\n// What:   returns true if both lists have the same items in the same order\r\n// Use:    to compare two lists (== only checks if they are the same object)\r\nSystem.out.println(\"Are a and b equal? : \" + a.equals(b));\r\n\r\n//this is to convert the List into an array\r\n// Method: toArray(new Type[0])\r\n// What:   copies the items into a normal array\r\n// Use:    when a method needs an array instead of a list\r\nString[] arr = a.toArray(new String[0]);\r\n// Method: Arrays.toString(array)\r\n// What:   turns an array into readable text like [a, b, c]\r\n// Use:    to print an array (println(array) prints only a memory address)\r\nSystem.out.println(\"Array: \" + Arrays.toString(arr));",
+      "metadata": {
+        "language": "java",
+        "id": "c8bb23ba-c771-402f-871c-664fd672e3e6",
+        "executionSummary": {
+          "executionOrder": 63,
+          "success": true
+        }
+      },
+      "execution_count": 63,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Are a and b equal? : true\r\nArray: [Mumbai, Delhi]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 63
+        }
+      ]
+    },
+    {
+      "id": "23460571-68d8-4847-a04c-7e4fccc1f96f",
+      "cell_type": "markdown",
+      "source": "# Vector – properties and methods\r\n\r\n`Vector` is an older (Java 1.0) resizable array in `java.util`. It works like `ArrayList` and implements `List`, with a few differences.\r\n\r\n**Properties**\r\n- **Synchronized**: every method is thread-safe, so it is slower than `ArrayList` in single-threaded code.\r\n- Default capacity is **10**; when full it **doubles** (×2), unless you set a `capacityIncrement`.\r\n- Ordered, index-based, allows duplicates and `null`.\r\n- Has extra **legacy methods** such as `addElement`, `elementAt`, `firstElement`, `removeElement`.\r\n- In new code, prefer `ArrayList`. You will still see `Vector` in older code.",
+      "metadata": {
+        "language": "markdown",
+        "id": "23460571-68d8-4847-a04c-7e4fccc1f96f"
+      }
+    },
+    {
+      "id": "d96f48dc-e264-4723-8673-971ae882e778",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//Vector<DataType> variable_name = new Vector<DataType>();\r\n\r\n//this is to create an empty Vector and check its size and capacity\r\nVector<String> colors = new Vector<String>();\r\nSystem.out.println(\"The vector is: \" + colors);\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\n// Method: capacity()  [Vector only]\r\n// What:   returns how many items fit before the Vector has to grow (not the same as size())\r\n// Use:    to see how the internal storage grows\r\nSystem.out.println(\"Size: \" + colors.size() + \" , Capacity: \" + colors.capacity());",
+      "metadata": {
+        "language": "java",
+        "id": "d96f48dc-e264-4723-8673-971ae882e778",
+        "executionSummary": {
+          "executionOrder": 64,
+          "success": true
+        }
+      },
+      "execution_count": 64,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The vector is: []\r\nSize: 0 , Capacity: 10\r\n"
+          },
+          "metadata": {},
+          "execution_count": 64
+        }
+      ]
+    },
+    {
+      "id": "7ff94d30-fb7d-4d59-aee2-e19b31417535",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<String>();\r\n\r\n//this is to add items: add() and the legacy addElement() do the same thing\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncolors.add(\"Red\");\r\ncolors.add(\"Green\");\r\n// Method: addElement(item)  [Vector only, legacy]\r\n// What:   adds an item at the end (same as add())\r\n// Use:    in old Vector code; new code uses add()\r\ncolors.addElement(\"Blue\");\r\ncolors.addElement(\"Yellow\");\r\n\r\nSystem.out.println(\"The vector is: \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "7ff94d30-fb7d-4d59-aee2-e19b31417535",
+        "executionSummary": {
+          "executionOrder": 65,
+          "success": true
+        }
+      },
+      "execution_count": 65,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The vector is: [Red, Green, Blue, Yellow]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 65
+        }
+      ]
+    },
+    {
+      "id": "2d8a8151-6b4e-48d3-a479-a7290fd1d275",
+      "cell_type": "code",
+      "source": "Vector<String> nameList = new Vector<String>();\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnameList.add(\"Prachi\");\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "metadata": {
+        "language": "java",
+        "id": "2d8a8151-6b4e-48d3-a479-a7290fd1d275",
         "executionSummary": {
           "executionOrder": 25,
           "success": true
@@ -178,6 +1035,303 @@
           "execution_count": 25
         }
       ]
+    },
+    {
+      "id": "7ed73fb3-2fdf-475a-8b52-d74ee62aea78",
+      "cell_type": "code",
+      "source": "//this is to show how capacity grows: default capacity 10, doubles when full\r\nVector<Integer> numbers = new Vector<>();\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nnumbers.addAll(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\n// Method: capacity()  [Vector only]\r\n// What:   returns how many items fit before the Vector has to grow (not the same as size())\r\n// Use:    to see how the internal storage grows\r\nSystem.out.println(\"Size: \" + numbers.size() + \" , Capacity: \" + numbers.capacity());\r\n\r\n//this is to set your own start capacity (5) and how much it grows each time (3)\r\nVector<Integer> custom = new Vector<>(5, 3);\r\ncustom.addAll(List.of(1, 2, 3, 4, 5));\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncustom.add(6);\r\nSystem.out.println(\"Size: \" + custom.size() + \" , Capacity: \" + custom.capacity());",
+      "metadata": {
+        "language": "java",
+        "id": "7ed73fb3-2fdf-475a-8b52-d74ee62aea78",
+        "executionSummary": {
+          "executionOrder": 66,
+          "success": true
+        }
+      },
+      "execution_count": 66,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Size: 11 , Capacity: 20\r\nSize: 6 , Capacity: 8\r\n"
+          },
+          "metadata": {},
+          "execution_count": 66
+        }
+      ]
+    },
+    {
+      "id": "470c501f-598c-42f4-933e-1dac1f1c8e27",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\"));\r\n\r\n//this is to insert at an index: add(index, item) or the legacy insertElementAt(item, index)\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\ncolors.add(1, \"White\");\r\n// Method: insertElementAt(item, index)  [Vector only, legacy]\r\n// What:   inserts an item at the given index (note: item first, index second)\r\n// Use:    in old Vector code; new code uses add(index, item)\r\ncolors.insertElementAt(\"Black\", 0);\r\nSystem.out.println(\"The vector is: \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "470c501f-598c-42f4-933e-1dac1f1c8e27",
+        "executionSummary": {
+          "executionOrder": 67,
+          "success": true
+        }
+      },
+      "execution_count": 67,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The vector is: [Black, Red, White, Green, Blue]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 67
+        }
+      ]
+    },
+    {
+      "id": "4c8e3295-c4f8-4b98-881c-fbc6db890f40",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\", \"Yellow\"));\r\n\r\n//this is to read items: get() and the legacy elementAt()\r\n// Method: get(index)\r\n// What:   returns the item at the given index (index starts at 0)\r\n// Use:    to read one value from the list\r\nSystem.out.println(\"get(1): \" + colors.get(1));\r\n// Method: elementAt(index)  [Vector only, legacy]\r\n// What:   returns the item at the given index (same as get())\r\n// Use:    in old Vector code; new code uses get()\r\nSystem.out.println(\"elementAt(2): \" + colors.elementAt(2));\r\n\r\n//this is to read the first and the last item\r\n// Method: firstElement()  [Vector only, legacy]\r\n// What:   returns the first item\r\n// Use:    to read the first value quickly\r\nSystem.out.println(\"firstElement(): \" + colors.firstElement());\r\n// Method: lastElement()  [Vector only, legacy]\r\n// What:   returns the last item\r\n// Use:    to read the last value quickly\r\nSystem.out.println(\"lastElement(): \" + colors.lastElement());",
+      "metadata": {
+        "language": "java",
+        "id": "4c8e3295-c4f8-4b98-881c-fbc6db890f40",
+        "executionSummary": {
+          "executionOrder": 68,
+          "success": true
+        }
+      },
+      "execution_count": 68,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "get(1): Green\r\nelementAt(2): Blue\r\nfirstElement(): Red\r\nlastElement(): Yellow\r\n"
+          },
+          "metadata": {},
+          "execution_count": 68
+        }
+      ]
+    },
+    {
+      "id": "1e7a720b-d3b8-4047-b1c7-c8b7e364532e",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\"));\r\n\r\n//this is to replace items: set(index, item) or the legacy setElementAt(item, index)\r\n// Method: set(index, item)\r\n// What:   replaces the item at the given index and returns the old value\r\n// Use:    to update a value that is already in the list\r\ncolors.set(0, \"Pink\");\r\n// Method: setElementAt(item, index)  [Vector only, legacy]\r\n// What:   replaces the item at the given index (note: item first, index second)\r\n// Use:    in old Vector code; new code uses set(index, item)\r\ncolors.setElementAt(\"Purple\", 2);\r\nSystem.out.println(\"The vector is: \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "1e7a720b-d3b8-4047-b1c7-c8b7e364532e",
+        "executionSummary": {
+          "executionOrder": 69,
+          "success": true
+        }
+      },
+      "execution_count": 69,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The vector is: [Pink, Green, Purple]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 69
+        }
+      ]
+    },
+    {
+      "id": "0f8d25f2-9ea6-4fa9-a1e0-a05e5f22ce02",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\", \"Yellow\", \"Black\", \"White\"));\r\n\r\n//remove by index\r\n// Method: remove(index) / remove(item)\r\n// What:   removes the item at an index (returns it), or the first matching item (returns true/false)\r\n// Use:    to take a value out of the list\r\ncolors.remove(0);\r\nSystem.out.println(\"After remove(0): \" + colors);\r\n\r\n//remove by value\r\ncolors.remove(\"Blue\");\r\nSystem.out.println(\"After remove(\\\"Blue\\\"): \" + colors);\r\n\r\n//legacy: remove by value\r\n// Method: removeElement(item)  [Vector only, legacy]\r\n// What:   removes the first matching item (same as remove(item))\r\n// Use:    in old Vector code; new code uses remove(item)\r\ncolors.removeElement(\"Black\");\r\nSystem.out.println(\"After removeElement(\\\"Black\\\"): \" + colors);\r\n\r\n//legacy: remove by index\r\n// Method: removeElementAt(index)  [Vector only, legacy]\r\n// What:   removes the item at the given index (same as remove(index))\r\n// Use:    in old Vector code; new code uses remove(index)\r\ncolors.removeElementAt(0);\r\nSystem.out.println(\"After removeElementAt(0): \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "0f8d25f2-9ea6-4fa9-a1e0-a05e5f22ce02",
+        "executionSummary": {
+          "executionOrder": 70,
+          "success": true
+        }
+      },
+      "execution_count": 70,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After remove(0): [Green, Blue, Yellow, Black, White]\r\nAfter remove(\"Blue\"): [Green, Yellow, Black, White]\r\nAfter removeElement(\"Black\"): [Green, Yellow, White]\r\nAfter removeElementAt(0): [Yellow, White]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 70
+        }
+      ]
+    },
+    {
+      "id": "32ced240-21bd-4e05-ac3e-85c6fd2571cc",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\", \"Green\"));\r\n\r\n//this is to search the vector\r\n// Method: contains(item)\r\n// What:   returns true if the item is in the list\r\n// Use:    to check if a value exists before using it\r\nSystem.out.println(\"Contains Blue? : \" + colors.contains(\"Blue\"));\r\n// Method: indexOf(item) / indexOf(item, fromIndex)\r\n// What:   returns the index of the first match, or -1 if not found\r\n// Use:    to find where a value is in the list\r\nSystem.out.println(\"First index of Green: \" + colors.indexOf(\"Green\"));\r\nSystem.out.println(\"Index of Green searching from index 2: \" + colors.indexOf(\"Green\", 2));\r\n// Method: lastIndexOf(item)\r\n// What:   returns the index of the last match, or -1 if not found\r\n// Use:    to find the last position of a value that appears more than once\r\nSystem.out.println(\"Last index of Green: \" + colors.lastIndexOf(\"Green\"));\r\n// Method: isEmpty()\r\n// What:   returns true if the list has no items\r\n// Use:    to check before reading so you do not get an error\r\nSystem.out.println(\"Is empty? : \" + colors.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "32ced240-21bd-4e05-ac3e-85c6fd2571cc",
+        "executionSummary": {
+          "executionOrder": 71,
+          "success": true
+        }
+      },
+      "execution_count": 71,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Contains Blue? : true\r\nFirst index of Green: 1\r\nIndex of Green searching from index 2: 3\r\nLast index of Green: 3\r\nIs empty? : false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 71
+        }
+      ]
+    },
+    {
+      "id": "42bf3b9a-5e3d-4541-b0df-685e12d7b862",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\"));\r\n\r\n//this is to make room for at least 50 items\r\n// Method: ensureCapacity(n)\r\n// What:   makes sure there is room for at least n items\r\n// Use:    to avoid many slow resizes when you know many items are coming\r\ncolors.ensureCapacity(50);\r\n// Method: capacity()  [Vector only]\r\n// What:   returns how many items fit before the Vector has to grow (not the same as size())\r\n// Use:    to see how the internal storage grows\r\nSystem.out.println(\"After ensureCapacity(50): Capacity = \" + colors.capacity());\r\n\r\n//this is to shrink the capacity to the current size\r\n// Method: trimToSize()\r\n// What:   shrinks the capacity down to the current size\r\n// Use:    to free unused memory after you finish adding\r\ncolors.trimToSize();\r\nSystem.out.println(\"After trimToSize(): Capacity = \" + colors.capacity());",
+      "metadata": {
+        "language": "java",
+        "id": "42bf3b9a-5e3d-4541-b0df-685e12d7b862",
+        "executionSummary": {
+          "executionOrder": 73,
+          "success": true
+        }
+      },
+      "execution_count": 73,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After ensureCapacity(50): Capacity = 50\r\nAfter trimToSize(): Capacity = 2\r\n"
+          },
+          "metadata": {},
+          "execution_count": 73
+        }
+      ]
+    },
+    {
+      "id": "fde90236-85a2-46dd-8c62-8bd25ea200ba",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\", \"Yellow\"));\r\n\r\n//this is to change the size: bigger fills with null, smaller cuts off the end\r\n// Method: setSize(n)  [Vector only]\r\n// What:   changes the size: bigger fills new places with null, smaller cuts items off the end\r\n// Use:    to force the Vector to an exact size\r\ncolors.setSize(6);\r\nSystem.out.println(\"After setSize(6): \" + colors);\r\n\r\ncolors.setSize(2);\r\nSystem.out.println(\"After setSize(2): \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "fde90236-85a2-46dd-8c62-8bd25ea200ba",
+        "executionSummary": {
+          "executionOrder": 74,
+          "success": true
+        }
+      },
+      "execution_count": 74,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After setSize(6): [Red, Green, Blue, Yellow, null, null]\r\nAfter setSize(2): [Red, Green]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 74
+        }
+      ]
+    },
+    {
+      "id": "c8958e77-e586-429c-b00c-1c36c3157a47",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\"));\r\n\r\n//this is to copy the items into an existing array (legacy)\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nString[] colorArray = new String[colors.size()];\r\n// Method: copyInto(array)  [Vector only, legacy]\r\n// What:   copies the items into an array you already created\r\n// Use:    in old Vector code; new code uses toArray()\r\ncolors.copyInto(colorArray);\r\n// Method: Arrays.toString(array)\r\n// What:   turns an array into readable text like [a, b, c]\r\n// Use:    to print an array (println(array) prints only a memory address)\r\nSystem.out.println(\"copyInto: \" + Arrays.toString(colorArray));\r\n\r\n//this is to convert to an array with toArray()\r\n// Method: toArray(new Type[0])\r\n// What:   copies the items into a normal array\r\n// Use:    when a method needs an array instead of a list\r\nSystem.out.println(\"toArray: \" + Arrays.toString(colors.toArray(new String[0])));",
+      "metadata": {
+        "language": "java",
+        "id": "c8958e77-e586-429c-b00c-1c36c3157a47",
+        "executionSummary": {
+          "executionOrder": 75,
+          "success": true
+        }
+      },
+      "execution_count": 75,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "copyInto: [Red, Green, Blue]\r\ntoArray: [Red, Green, Blue]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 75
+        }
+      ]
+    },
+    {
+      "id": "cedfa711-caea-4f92-80e3-6264427c193a",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Yellow\", \"Red\", \"Blue\", \"Green\"));\r\n\r\n//this is to sort the vector in ascending (A to Z) order\r\n// Method: sort(null)\r\n// What:   sorts the list itself; null means natural order (A to Z, small to big)\r\n// Use:    to put the items in order\r\ncolors.sort(null);\r\nSystem.out.println(\"Ascending: \" + colors);",
+      "metadata": {
+        "language": "java",
+        "id": "cedfa711-caea-4f92-80e3-6264427c193a",
+        "executionSummary": {
+          "executionOrder": 76,
+          "success": true
+        }
+      },
+      "execution_count": 76,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Ascending: [Blue, Green, Red, Yellow]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 76
+        }
+      ]
+    },
+    {
+      "id": "361108b4-5516-4fbc-a5aa-64efba88d813",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\"));\r\n\r\n//bulk methods work the same as ArrayList\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\ncolors.addAll(List.of(\"Blue\", \"Yellow\", \"Black\"));\r\nSystem.out.println(\"After addAll: \" + colors);\r\n\r\n// Method: removeAll(collection)\r\n// What:   removes every item that is also in the other collection\r\n// Use:    to delete many values in one step\r\ncolors.removeAll(List.of(\"Black\"));\r\nSystem.out.println(\"After removeAll: \" + colors);\r\n\r\n// Method: retainAll(collection)\r\n// What:   keeps ONLY the items that are also in the other collection; removes the rest\r\n// Use:    to find the common values between two lists\r\ncolors.retainAll(List.of(\"Red\", \"Blue\", \"Yellow\"));\r\nSystem.out.println(\"After retainAll: \" + colors);\r\n\r\n// Method: subList(fromIndex, toIndex)\r\n// What:   returns the part of the list from fromIndex (included) to toIndex (excluded)\r\n// Use:    to work with only a section of the list\r\nSystem.out.println(\"subList(0, 2): \" + colors.subList(0, 2));",
+      "metadata": {
+        "language": "java",
+        "id": "361108b4-5516-4fbc-a5aa-64efba88d813",
+        "executionSummary": {
+          "executionOrder": 77,
+          "success": true
+        }
+      },
+      "execution_count": 77,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After addAll: [Red, Green, Blue, Yellow, Black]\r\nAfter removeAll: [Red, Green, Blue, Yellow]\r\nAfter retainAll: [Red, Blue, Yellow]\r\nsubList(0, 2): [Red, Blue]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 77
+        }
+      ]
+    },
+    {
+      "id": "e020785a-fed4-448f-8fb6-8082b5335de4",
+      "cell_type": "code",
+      "source": "Vector<String> colors = new Vector<>(List.of(\"Red\", \"Green\", \"Blue\"));\r\nSystem.out.println(\"Before: \" + colors);\r\n\r\n//this is to remove every item: removeAllElements() (legacy) and clear() do the same thing\r\n// Method: removeAllElements()  [Vector only, legacy]\r\n// What:   removes every item (same as clear())\r\n// Use:    in old Vector code; new code uses clear()\r\ncolors.removeAllElements();\r\n// Method: size()\r\n// What:   returns how many items are in the list\r\n// Use:    to know the length, e.g. for the last index: size() - 1\r\nSystem.out.println(\"After removeAllElements(): \" + colors + \" , size: \" + colors.size());",
+      "metadata": {
+        "language": "java",
+        "id": "e020785a-fed4-448f-8fb6-8082b5335de4",
+        "executionSummary": {
+          "executionOrder": 78,
+          "success": true
+        }
+      },
+      "execution_count": 78,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Before: [Red, Green, Blue]\r\nAfter removeAllElements(): [] , size: 0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 78
+        }
+      ]
+    },
+    {
+      "id": "c4647e36-a656-4c3c-8b67-a2e968bd0b27",
+      "cell_type": "markdown",
+      "source": "# Array vs ArrayList vs List vs Vector\r\n\r\n| | Array (`String[]`) | `ArrayList` | `List` | `Vector` |\r\n|---|---|---|---|---|\r\n| What it is | Built-in language feature | Class | Interface | Class (legacy) |\r\n| Size | Fixed | Grows by ~50% | Depends on implementation | Grows ×2 (or by `capacityIncrement`) |\r\n| Stores primitives (`int`) | ✅ Yes | ❌ No, use `Integer` | ❌ No, use `Integer` | ❌ No, use `Integer` |\r\n| Length / size | `arr.length` | `list.size()` | `list.size()` | `vector.size()` |\r\n| Read item | `arr[i]` | `list.get(i)` | `list.get(i)` | `vector.get(i)` / `elementAt(i)` |\r\n| Thread-safe | ❌ | ❌ | Depends | ✅ Synchronized |\r\n| Speed | Fastest | Fast | Depends | Slower (locking) |\r\n| Use when | Size is known and fixed | Default choice for a list | Declaring variables and parameters | Maintaining old code |",
+      "metadata": {
+        "language": "markdown",
+        "id": "c4647e36-a656-4c3c-8b67-a2e968bd0b27"
+      }
     }
   ]
 }

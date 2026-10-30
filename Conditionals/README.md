@@ -144,4 +144,4 @@ if (true) {
 | `if … else` | You have exactly two possible paths |
 | `if … else if … else` | You have three or more paths, checked in order |
 
-**Previous lesson:** [Operators](../Operators/README.md)
+**Previous lesson:** [Operators](../Operators/README.md) · **Next lesson:** [Arrays](../Arrays/README.md)
