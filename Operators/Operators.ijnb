@@ -22,6 +22,7 @@
       "source": "int a = 21;\r\nint b = 32;\r\n\r\nboolean is_equal = (a == b);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "8bf17639-3aae-4357-87d4-119502d875e7",
         "executionSummary": {
           "executionOrder": 3,
           "success": true
@@ -42,9 +43,10 @@
     {
       "id": "29c20f55-8c73-4705-8001-67d618b2e9d5",
       "cell_type": "code",
-      "source": "    int a = 21;\r\n    int b = 32;\r\n\r\n    boolean is_equal = (b > a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 21;\r\nint b = 32;\r\n\r\nboolean is_equal = (b > a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "29c20f55-8c73-4705-8001-67d618b2e9d5",
         "executionSummary": {
           "executionOrder": 6,
           "success": true
@@ -65,9 +67,10 @@
     {
       "id": "5f91a935-109a-4484-b789-179e03112546",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 32;\r\n\r\n    boolean is_equal = (b >= a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 32;\r\nint b = 32;\r\n\r\nboolean is_equal = (b >= a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "5f91a935-109a-4484-b789-179e03112546",
         "executionSummary": {
           "executionOrder": 7,
           "success": true
@@ -88,9 +91,10 @@
     {
       "id": "901ce3b1-3afd-43aa-8a3f-96eaa1839642",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 32;\r\n\r\n    boolean is_equal = (b != a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 32;\r\nint b = 32;\r\n\r\nboolean is_equal = (b != a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "901ce3b1-3afd-43aa-8a3f-96eaa1839642",
         "executionSummary": {
           "executionOrder": 8,
           "success": true
@@ -111,9 +115,10 @@
     {
       "id": "1676f415-b659-4d8a-bd47-1d4c271819f3",
       "cell_type": "code",
-      "source": "    int a = 31;\r\n    int b = 32;\r\n\r\n    boolean is_equal = (b != a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 31;\r\nint b = 32;\r\n\r\nboolean is_equal = (b != a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "1676f415-b659-4d8a-bd47-1d4c271819f3",
         "executionSummary": {
           "executionOrder": 9,
           "success": true
@@ -134,9 +139,10 @@
     {
       "id": "c0cdc525-85fb-434a-a98e-bbf1161c29e9",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 21;\r\n\r\n    boolean is_equal = (b < a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 32;\r\nint b = 21;\r\n\r\nboolean is_equal = (b < a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "c0cdc525-85fb-434a-a98e-bbf1161c29e9",
         "executionSummary": {
           "executionOrder": 10,
           "success": true
@@ -157,9 +163,10 @@
     {
       "id": "7761d8c5-73dd-459e-983e-91fc15ab5e73",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 32;\r\n\r\n    boolean is_equal = (b <= a);\r\n    System.out.println(\"is a equal to b : \"+is_equal); // Output: false",
+      "source": "int a = 32;\r\nint b = 32;\r\n\r\nboolean is_equal = (b <= a);\r\nSystem.out.println(\"is a equal to b : \"+is_equal); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "7761d8c5-73dd-459e-983e-91fc15ab5e73",
         "executionSummary": {
           "executionOrder": 12,
           "success": true
@@ -180,9 +187,10 @@
     {
       "id": "5b8cdb80-3258-407e-af3f-29a0df13a615",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 32;\r\n    int c = 64;\r\n\r\n    boolean sum = (b == c && c == a);\r\n    System.out.println(\"is a equal to c : \"+sum); // Output: false",
+      "source": "int a = 32;\r\nint b = 32;\r\nint c = 64;\r\n\r\nboolean sum = (b == c && c == a);\r\nSystem.out.println(\"is a equal to c : \"+sum); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "5b8cdb80-3258-407e-af3f-29a0df13a615",
         "executionSummary": {
           "executionOrder": 22,
           "success": true
@@ -203,9 +211,10 @@
     {
       "id": "ddd57001-2044-4a9f-ab9b-9a51698a5bf3",
       "cell_type": "code",
-      "source": "    int a = 32;\r\n    int b = 32;\r\n    int c = 64;\r\n\r\n    boolean sum = (b == c || b == a);\r\n    System.out.println(\"is a equal to c : \"+sum); // Output: false",
+      "source": "int a = 32;\r\nint b = 32;\r\nint c = 64;\r\n\r\nboolean sum = (b == c || b == a);\r\nSystem.out.println(\"is a equal to c : \"+sum); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "ddd57001-2044-4a9f-ab9b-9a51698a5bf3",
         "executionSummary": {
           "executionOrder": 24,
           "success": true
@@ -229,6 +238,7 @@
       "source": "boolean sum = true;\r\nboolean result = !sum;\r\nSystem.out.println(\"is a equal to c : \"+result); // Output: false",
       "metadata": {
         "language": "java",
+        "id": "b32d2216-aa8c-47e7-9b8a-682bf3b35d43",
         "executionSummary": {
           "executionOrder": 33,
           "success": true
