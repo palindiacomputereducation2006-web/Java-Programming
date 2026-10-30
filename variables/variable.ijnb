@@ -190,6 +190,7 @@
       "source": "int arbaz = 321;\r\n\r\narbaz = 43232;\r\n\r\nSystem.out.println(\"this is the value of arbaz : \"+arbaz); // Output: 43232",
       "metadata": {
         "language": "java",
+        "id": "83ae5bfd-6db1-4a33-a5dd-476ffe7ebbb7",
         "executionSummary": {
           "executionOrder": 2,
           "success": true
@@ -201,6 +202,29 @@
           "output_type": "execute_result",
           "data": {
             "text/plain": "this is the value of arbaz : 43232\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "425b3dcd-2901-4833-8a05-0987c3c2b68a",
+      "cell_type": "code",
+      "source": "Scanner scanner = new Scanner(System.in);\r\n\r\nint userInput_1 = scanner.nextInt();\r\nint userInput_2 = scanner.nextInt();\r\n\r\nSystem.out.println(\"the addition of \" +userInput_1+ \" and \" +userInput_2+ \" is : \" + (userInput_1 + userInput_2));  ",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the addition of 24 and 23 is : 47\r\n"
           },
           "metadata": {},
           "execution_count": 2

@@ -1,0 +1,183 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "609a5582-7935-4e71-bafd-4a95123d4ef3",
+      "cell_type": "markdown",
+      "source": "# Arrays Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "609a5582-7935-4e71-bafd-4a95123d4ef3"
+      }
+    },
+    {
+      "id": "bf1b4128-f60a-4e90-b822-c11c701ac753",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//data_type [] variable_name = value;\r\n\r\n\r\nString[] names = {\"Zoya\", \"Jane\", \"Doe\"};\r\nSystem.out.println(\"The first name is: \" + names[0]); // Output: The first name is: John",
+      "metadata": {
+        "language": "java",
+        "id": "bf1b4128-f60a-4e90-b822-c11c701ac753",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The first name is: Zoya\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
+      "cell_type": "code",
+      "source": "    //Syntax\r\n\r\n    //DataTypeList<DataType> variable_name = new DataTypeList<DataType>();\r\n\r\n    ArrayList<String> namesList = new ArrayList<String>();\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\n    System.out.println(\"The list is: \" + namesList); // Output: The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n\r\n    //this is to verify contains method\r\n    boolean is_exist = namesList.contains(\"Zoya\");\r\n    System.out.println(\"Is Zoya in the list? : \" + is_exist);\r\n\r\n    //this is to verify contains method \r\n    boolean is_exist = namesList.contains(\"arbaz\");\r\n    System.out.println(\"Is arbaz in the list? : \" + is_exist);\r\n\r\n    // this is to verify contains all method     \r\n    boolean is_exist = namesList.containsAll(Arrays.asList(\"Zoya\", \"Krishita\"));\r\n    System.out.println(\"Are Zoya and Krishita in the list? : \" + is_exist);",
+      "metadata": {
+        "language": "java",
+        "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\nIs Zoya in the list? : true\r\nIs arbaz in the list? : false\r\nAre Zoya and Krishita in the list? : true\r\nThe list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "99036402-51ce-472e-a76a-c22624da59f7",
+      "cell_type": "code",
+      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\nSystem.out.println(\"The list is: \" + namesList);\r\n\r\n//this is to clear the list\r\nnamesList.clear();\r\nSystem.out.println(\"Is the list cleared? : \" + namesList.isEmpty());\r\nnamesList.\r\nSystem.out.println(\"The list is: \" + namesList); // Output: The list is: []\r\n// System.out.println(\"The list is: \" + namesList); // Output: The list is: []",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\nIs the list cleared? : true\r\nThe list is: []\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "06c9e17a-7cf9-4509-a91a-7bf60b2b3cb1",
+      "cell_type": "code",
+      "source": "ArrayList<String> namesList = new ArrayList<String>();\r\n\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\nnamesList.set(0, \"Arbaz\");\r\nnamesList.add(0,\"Zoya\");\r\nSystem.out.println(\"The list is: \" + namesList);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Zoya, Arbaz, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "40d5f000-9748-4b17-b18c-11dc00fed1c1",
+      "cell_type": "code",
+      "source": "    ArrayList<String> namesList = new ArrayList<String>();\r\n\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n    namesList.remove(1);\r\n    System.out.println(\"The list is: \" + namesList);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Prachi, Zoya, surbhi, humaira, Gayatri, pratik]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "6473e49e-e3a5-4353-b2c9-6a00de4281bf",
+      "cell_type": "code",
+      "source": "List<String> nameList = new ArrayList<String>();\r\nnameList.add(\"Prachi\");\r\nnameList.add(\"Krishita\");\r\nnameList.add(\"Zoya\");\r\n\r\nint index = nameList.indexOf(\"Krishita\");\r\nSystem.out.println(\"The index of 'Krishita' is: \" + index);\r\n\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The index of 'Krishita' is: 1\r\nThe list is: [Prachi, Krishita, Zoya]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "id": "2d8a8151-6b4e-48d3-a479-a7290fd1d275",
+      "cell_type": "code",
+      "source": "Vector<String> nameList = new Vector<String>();\r\nnameList.add(\"Prachi\");\r\nSystem.out.println(\"The list is: \" + nameList);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 25,
+          "success": true
+        }
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Prachi]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    }
+  ]
+}
