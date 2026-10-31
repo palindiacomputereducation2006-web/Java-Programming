@@ -1325,6 +1325,75 @@
       ]
     },
     {
+      "id": "c5fbd3d7-8739-42ad-aead-64ba3088a7c9",
+      "cell_type": "code",
+      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\nSystem.out.println(arr);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "1430c257-fee4-4ba0-bdd2-0dcdfe30e06b",
+      "cell_type": "code",
+      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\n\r\narr.addAll(List.of(4, 5, 6));\r\nSystem.out.println(arr);\r\n\r\narr.removeAll(List.of(1, 2));\r\nSystem.out.println(arr);\r\n\r\nboolean containsThree = arr.contains(3);\r\nSystem.out.println(containsThree);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3, 4, 5, 6]\r\n[3, 4, 5, 6]\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "961565e0-32a7-4d1d-a50a-09ad1866bef7",
+      "cell_type": "code",
+      "source": "//Map\r\n\r\nMap<Integer,String> map = new HashMap<Integer,String>();\r\nmap.put(1,\"One\");\r\nmap.put(2,\"Two\");\r\nmap.put(3,\"Three\");\r\nmap.putIfAbsent(4,\"Four\");\r\nmap.putAll(Map.of(5,\"Five\",6,\"Six\"));\r\n\r\n//map.clear();\r\n\r\nboolean hasKeyThree = map.containsKey(3);\r\nboolean hasValueTwo = map.containsValue(\"fifth\");\r\n\r\nint size = map.size();\r\nSystem.out.println(\"Has key 3: \" + hasKeyThree);\r\nSystem.out.println(\"Has value 'Two': \" + hasValueTwo);\r\nSystem.out.println(\"Map size: \" + size);\r\nSystem.out.println(map);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 24,
+          "success": true
+        }
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Has key 3: true\r\nHas value 'Two': false\r\nMap size: 6\r\n{1=One, 2=Two, 3=Three, 4=Four, 5=Five, 6=Six}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
       "id": "c4647e36-a656-4c3c-8b67-a2e968bd0b27",
       "cell_type": "markdown",
       "source": "# Array vs ArrayList vs List vs Vector\r\n\r\n| | Array (`String[]`) | `ArrayList` | `List` | `Vector` |\r\n|---|---|---|---|---|\r\n| What it is | Built-in language feature | Class | Interface | Class (legacy) |\r\n| Size | Fixed | Grows by ~50% | Depends on implementation | Grows ×2 (or by `capacityIncrement`) |\r\n| Stores primitives (`int`) | ✅ Yes | ❌ No, use `Integer` | ❌ No, use `Integer` | ❌ No, use `Integer` |\r\n| Length / size | `arr.length` | `list.size()` | `list.size()` | `vector.size()` |\r\n| Read item | `arr[i]` | `list.get(i)` | `list.get(i)` | `vector.get(i)` / `elementAt(i)` |\r\n| Thread-safe | ❌ | ❌ | Depends | ✅ Synchronized |\r\n| Speed | Fastest | Fast | Depends | Slower (locking) |\r\n| Use when | Size is known and fixed | Default choice for a list | Declaring variables and parameters | Maintaining old code |",

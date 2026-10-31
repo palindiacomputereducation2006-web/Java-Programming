@@ -1,0 +1,91 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "724d8ff7-97de-45cc-9894-75d6faa5373a",
+      "cell_type": "markdown",
+      "source": "# Loops Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "724d8ff7-97de-45cc-9894-75d6faa5373a"
+      }
+    },
+    {
+      "id": "11473a01-167c-460b-a55e-5e6abd881aa2",
+      "cell_type": "code",
+      "source": "//Syntax\r\n\r\n// for ((initailization) int i = 0; i < arr.size() (condition); i++ (increment / decrement)) {\r\n//     System.out.println(arr.get(i));\r\n// }\r\n\r\nfor (int i = 1; i < 10; i++) {\r\n    System.out.println(\"the iteration number is : \"+i);\r\n}\r\n\r\nSystem.out.println(\"---------------------------------------------------\");\r\n\r\nfor (int i = 1; i <= 10; i++) {\r\n    System.out.println(\"the iteration number is : \"+i);\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "11473a01-167c-460b-a55e-5e6abd881aa2",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the iteration number is : 1\r\nthe iteration number is : 2\r\nthe iteration number is : 3\r\nthe iteration number is : 4\r\nthe iteration number is : 5\r\nthe iteration number is : 6\r\nthe iteration number is : 7\r\nthe iteration number is : 8\r\nthe iteration number is : 9\r\n---------------------------------------------------\r\nthe iteration number is : 1\r\nthe iteration number is : 2\r\nthe iteration number is : 3\r\nthe iteration number is : 4\r\nthe iteration number is : 5\r\nthe iteration number is : 6\r\nthe iteration number is : 7\r\nthe iteration number is : 8\r\nthe iteration number is : 9\r\nthe iteration number is : 10\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "61169901-3619-4f9a-90d6-f44cf7e5f9cb",
+      "cell_type": "code",
+      "source": "ArrayList<Integer> arr = new ArrayList<Integer>();\r\nint size = 20;\r\n\r\nfor (int i = 0; i < 30; i++) {\r\n    if(size == i){\r\n        break;\r\n    }else{\r\n        arr.add(i);\r\n    }\r\n}\r\n\r\nSystem.out.println(arr);\r\nSystem.out.println(\"The size of the array list is : \"+arr.size());\r\n\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "61169901-3619-4f9a-90d6-f44cf7e5f9cb",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]\r\nThe size of the array list is : 20\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "1f8b50c4-1083-4cb7-8ab9-257c2b91dc16",
+      "cell_type": "code",
+      "source": "List<Integer> list = new ArrayList<Integer>(); \r\n\r\nint position = 7;\r\nint value = 100;\r\n\r\nfor (int i = 1; i <= 20; i++) {\r\n    list.add(i);\r\n}\r\nSystem.out.println(list);\r\n\r\nfor (int i = 1; i < list.size(); i++){\r\n    int index = list.indexOf(i);\r\n    if(index == position){\r\n        list.set(index,value);\r\n    }\r\n}\r\n\r\nSystem.out.println(list);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]\r\n[1, 2, 3, 4, 5, 6, 7, 100, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    }
+  ]
+}
