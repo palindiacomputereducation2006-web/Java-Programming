@@ -7,9 +7,11 @@ This repository is a set of beginner Java lessons. They are written as **interac
 | [variables](variables/README.md) | `variable.ijnb` | Data types, declaring variables, constants (`final`), reassigning values |
 | [Operators](Operators/README.md) | `Operators.ijnb` | Comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) and logical operators (`&&`, `\|\|`, `!`) |
 | [Conditionals](Conditionals/README.md) | `conditionals.ijnb` | `if`, `if … else`, `if … else if … else` |
-| [Arrays](Arrays/README.md) | `Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method |
+| [Arrays](Arrays/Array/README.md) | `Arrays/Array/Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method |
+| [Sets](Arrays/Sets/README.md) | `Arrays/Sets/Sets.ijnb` | `Set`, `HashSet`, `LinkedHashSet` and `TreeSet`: unique values, set operations, sorted sets |
+| [Maps](Arrays/Maps/README.md) | `Arrays/Maps/Maps.ijnb` | `Map`, `HashMap`, `LinkedHashMap` and `TreeMap`: key → value pairs, counting, sorted keys |
 
-Suggested order: **variables → Operators → Conditionals → Arrays**
+Suggested order: **variables → Operators → Conditionals → Arrays → Sets → Maps**
 
 This guide has three parts:
 
@@ -218,6 +220,13 @@ java/
 │   ├── README.md
 │   └── conditionals.ijnb
 └── Arrays/
-    ├── README.md
-    └── Arrays.ijnb
+    ├── Array/
+    │   ├── README.md
+    │   └── Arrays.ijnb
+    ├── Sets/
+    │   ├── README.md
+    │   └── Sets.ijnb
+    └── Maps/
+        ├── README.md
+        └── Maps.ijnb
 ```

@@ -109,7 +109,7 @@
     {
       "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
       "cell_type": "code",
-      "source": "    //Syntax\r\n\r\n    //DataTypeList<DataType> variable_name = new DataTypeList<DataType>();\r\n\r\n    ArrayList<String> namesList = new ArrayList<String>();\r\n    // Method: add(item) / add(index, item)\r\n    // What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n    // Use:    to put new values into the list\r\n    namesList.add(\"Prachi\");\r\n    namesList.add(\"Krishita\");\r\n    namesList.add(\"Zoya\");\r\n\r\n    // Method: addAll(collection) / addAll(index, collection)\r\n    // What:   adds every item of another collection at the end, or at the given index\r\n    // Use:    to add many values in one step instead of calling add() again and again\r\n    namesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\n    System.out.println(\"The list is: \" + namesList); // Output: The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n\r\n    //this is to verify contains method\r\n    // Method: contains(item)\r\n    // What:   returns true if the item is in the list\r\n    // Use:    to check if a value exists before using it\r\n    boolean is_exist = namesList.contains(\"Zoya\");\r\n    System.out.println(\"Is Zoya in the list? : \" + is_exist);\r\n\r\n    //this is to verify contains method \r\n    boolean is_exist = namesList.contains(\"arbaz\");\r\n    System.out.println(\"Is arbaz in the list? : \" + is_exist);\r\n\r\n    // this is to verify contains all method     \r\n    // Method: containsAll(collection)\r\n    // What:   returns true only if EVERY item of the other collection is in the list\r\n    // Use:    to check many values at once\r\n    boolean is_exist = namesList.containsAll(Arrays.asList(\"Zoya\", \"Krishita\"));\r\n    System.out.println(\"Are Zoya and Krishita in the list? : \" + is_exist);",
+      "source": "//Syntax\r\n\r\n//DataTypeList<DataType> variable_name = new DataTypeList<DataType>();\r\n\r\nArrayList<String> namesList = new ArrayList<String>();\r\n// Method: add(item) / add(index, item)\r\n// What:   adds an item at the end, or inserts it at the given index (items after it shift right)\r\n// Use:    to put new values into the list\r\nnamesList.add(\"Prachi\");\r\nnamesList.add(\"Krishita\");\r\nnamesList.add(\"Zoya\");\r\n\r\n// Method: addAll(collection) / addAll(index, collection)\r\n// What:   adds every item of another collection at the end, or at the given index\r\n// Use:    to add many values in one step instead of calling add() again and again\r\nnamesList.addAll(Arrays.asList(\"surbhi\",\"humaira\",\"Gayatri\",\"pratik\"));\r\n\r\nSystem.out.println(\"The list is: \" + namesList); // Output: The list is: [Prachi, Krishita, Zoya, surbhi, humaira, Gayatri, pratik]\r\n\r\n//this is to verify contains method\r\n// Method: contains(item)\r\n// What:   returns true if the item is in the list\r\n// Use:    to check if a value exists before using it\r\nboolean is_exist = namesList.contains(\"Zoya\");\r\nSystem.out.println(\"Is Zoya in the list? : \" + is_exist);\r\n\r\n//this is to verify contains method \r\nboolean is_exist = namesList.contains(\"arbaz\");\r\nSystem.out.println(\"Is arbaz in the list? : \" + is_exist);\r\n\r\n// this is to verify contains all method     \r\n// Method: containsAll(collection)\r\n// What:   returns true only if EVERY item of the other collection is in the list\r\n// Use:    to check many values at once\r\nboolean is_exist = namesList.containsAll(Arrays.asList(\"Zoya\", \"Krishita\"));\r\nSystem.out.println(\"Are Zoya and Krishita in the list? : \" + is_exist);",
       "metadata": {
         "language": "java",
         "id": "8cf2c94b-5b44-49e7-8743-19f0eca8b0c7",
@@ -1321,75 +1321,6 @@
           },
           "metadata": {},
           "execution_count": 78
-        }
-      ]
-    },
-    {
-      "id": "c5fbd3d7-8739-42ad-aead-64ba3088a7c9",
-      "cell_type": "code",
-      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\nSystem.out.println(arr);",
-      "metadata": {
-        "language": "java",
-        "executionSummary": {
-          "executionOrder": 8,
-          "success": true
-        }
-      },
-      "execution_count": 8,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "[1, 2, 3]\r\n"
-          },
-          "metadata": {},
-          "execution_count": 8
-        }
-      ]
-    },
-    {
-      "id": "1430c257-fee4-4ba0-bdd2-0dcdfe30e06b",
-      "cell_type": "code",
-      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\n\r\narr.addAll(List.of(4, 5, 6));\r\nSystem.out.println(arr);\r\n\r\narr.removeAll(List.of(1, 2));\r\nSystem.out.println(arr);\r\n\r\nboolean containsThree = arr.contains(3);\r\nSystem.out.println(containsThree);\r\n",
-      "metadata": {
-        "language": "java",
-        "executionSummary": {
-          "executionOrder": 14,
-          "success": true
-        }
-      },
-      "execution_count": 14,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "[1, 2, 3, 4, 5, 6]\r\n[3, 4, 5, 6]\r\ntrue\r\n"
-          },
-          "metadata": {},
-          "execution_count": 14
-        }
-      ]
-    },
-    {
-      "id": "961565e0-32a7-4d1d-a50a-09ad1866bef7",
-      "cell_type": "code",
-      "source": "//Map\r\n\r\nMap<Integer,String> map = new HashMap<Integer,String>();\r\nmap.put(1,\"One\");\r\nmap.put(2,\"Two\");\r\nmap.put(3,\"Three\");\r\nmap.putIfAbsent(4,\"Four\");\r\nmap.putAll(Map.of(5,\"Five\",6,\"Six\"));\r\n\r\n//map.clear();\r\n\r\nboolean hasKeyThree = map.containsKey(3);\r\nboolean hasValueTwo = map.containsValue(\"fifth\");\r\n\r\nint size = map.size();\r\nSystem.out.println(\"Has key 3: \" + hasKeyThree);\r\nSystem.out.println(\"Has value 'Two': \" + hasValueTwo);\r\nSystem.out.println(\"Map size: \" + size);\r\nSystem.out.println(map);",
-      "metadata": {
-        "language": "java",
-        "executionSummary": {
-          "executionOrder": 24,
-          "success": true
-        }
-      },
-      "execution_count": 24,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "Has key 3: true\r\nHas value 'Two': false\r\nMap size: 6\r\n{1=One, 2=Two, 3=Three, 4=Four, 5=Five, 6=Six}\r\n"
-          },
-          "metadata": {},
-          "execution_count": 24
         }
       ]
     },

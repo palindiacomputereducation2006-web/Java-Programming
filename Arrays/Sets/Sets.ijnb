@@ -1,0 +1,615 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "f671cedd-66ef-4d66-be04-bce0ae9c40f8",
+      "cell_type": "markdown",
+      "source": "# Sets Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "f671cedd-66ef-4d66-be04-bce0ae9c40f8"
+      }
+    },
+    {
+      "id": "cc8432ef-7ae6-447f-963f-202c468c3666",
+      "cell_type": "markdown",
+      "source": "# Set – properties\r\n\r\nA `Set` stores a group of values with **no duplicates**. It is an **interface** from `java.util`, like `List`.\r\n\r\n**Properties**\r\n- **No duplicates**: adding a value that is already there does nothing (`add` returns `false`).\r\n- **No index**: there is no `get(index)` or `set(index, item)`. You check if a value is in the set with `contains`.\r\n- Order depends on the class you pick:\r\n  - `HashSet` – no fixed order (fastest).\r\n  - `LinkedHashSet` – keeps the **insertion order**.\r\n  - `TreeSet` – keeps the values **sorted**.\r\n- Can only store **objects**, so use `Integer`, `Double`, `Character`… instead of `int`, `double`, `char`.\r\n- `HashSet` and `LinkedHashSet` allow one `null`; `TreeSet` does not allow `null`.\r\n- **Not synchronized** (not thread-safe).\r\n- Very fast `add`, `remove` and `contains` (`HashSet`), much faster than `contains` on a list.",
+      "metadata": {
+        "language": "markdown",
+        "id": "cc8432ef-7ae6-447f-963f-202c468c3666"
+      }
+    },
+    {
+      "id": "c5fbd3d7-8739-42ad-aead-64ba3088a7c9",
+      "cell_type": "code",
+      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\nSystem.out.println(arr);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "1430c257-fee4-4ba0-bdd2-0dcdfe30e06b",
+      "cell_type": "code",
+      "source": "//Set \r\n//vlaues insert into set\r\nSet<Integer> arr = new HashSet<Integer>();\r\narr.add(1);\r\narr.add(2);\r\narr.add(3);\r\n\r\narr.addAll(List.of(4, 5, 6));\r\nSystem.out.println(arr);\r\n\r\narr.removeAll(List.of(1, 2));\r\nSystem.out.println(arr);\r\n\r\nboolean containsThree = arr.contains(3);\r\nSystem.out.println(containsThree);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3, 4, 5, 6]\r\n[3, 4, 5, 6]\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "eb7e0b26-7eba-40ca-8706-ad9ef80dca5b",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//Set<DataType> variable_name = new HashSet<DataType>();\r\n\r\n//this is to create an empty Set\r\n// Method: new HashSet<>()\r\n// What:   creates an empty set with no fixed order\r\n// Use:    when you need unique values and the order does not matter\r\nSet<String> fruits = new HashSet<String>();\r\nSystem.out.println(\"The set is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "eb7e0b26-7eba-40ca-8706-ad9ef80dca5b",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The set is: []\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "2e4c6a20-1deb-4c5b-99a7-f0c499461791",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<String>();\r\n\r\n//this is to add items to the set\r\n// Method: add(item)\r\n// What:   adds the item if it is not already there; returns true if added, false if it was a duplicate\r\n// Use:    to put new unique values into the set\r\nfruits.add(\"Apple\");\r\nfruits.add(\"Banana\");\r\nfruits.add(\"Mango\");\r\nboolean added = fruits.add(\"Banana\"); // duplicate, not added\r\n\r\nSystem.out.println(\"Was Banana added again? \" + added);\r\nSystem.out.println(\"The set is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "2e4c6a20-1deb-4c5b-99a7-f0c499461791",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Was Banana added again? false\r\nThe set is: [Apple, Mango, Banana]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "dfc8512f-0728-474f-ad26-1577b01fde3c",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<>(Set.of(\"Apple\", \"Banana\"));\r\n\r\n//this is to add all items of another collection\r\n// Method: addAll(collection)\r\n// What:   adds every item of the collection, skipping the ones already in the set; returns true if the set changed\r\n// Use:    to add many values at once (also a quick way to remove duplicates from a list)\r\nList<String> more = List.of(\"Mango\", \"Apple\", \"Kiwi\", \"Kiwi\");\r\nfruits.addAll(more);\r\nSystem.out.println(\"The set is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "dfc8512f-0728-474f-ad26-1577b01fde3c",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The set is: [Apple, Kiwi, Mango, Banana]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "3317dfe0-84b0-4f06-a142-221177a32bb5",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<>(Set.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to remove an item by its value\r\n// Method: remove(item)\r\n// What:   removes the item; returns true if it was there, false if not\r\n// Use:    to take a value out of the set (there is no index, so you remove by value)\r\nboolean removed = fruits.remove(\"Banana\");\r\nboolean removedMissing = fruits.remove(\"Grapes\");\r\n\r\nSystem.out.println(\"Removed Banana? \" + removed);\r\nSystem.out.println(\"Removed Grapes? \" + removedMissing);\r\nSystem.out.println(\"The set is: \" + fruits);",
+      "metadata": {
+        "language": "java",
+        "id": "3317dfe0-84b0-4f06-a142-221177a32bb5",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Removed Banana? true\r\nRemoved Grapes? false\r\nThe set is: [Apple, Mango]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "3df2a957-4340-41ff-96c1-e96544241f10",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<>(Set.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to check if one item is in the set\r\n// Method: contains(item)\r\n// What:   returns true if the item is in the set\r\n// Use:    to check if a value exists (very fast on a HashSet)\r\nSystem.out.println(\"Has Apple? \" + fruits.contains(\"Apple\"));\r\nSystem.out.println(\"Has Grapes? \" + fruits.contains(\"Grapes\"));\r\n\r\n//this is to check if all items of another collection are in the set\r\n// Method: containsAll(collection)\r\n// What:   returns true only if every item of the collection is in the set\r\n// Use:    to check if one set is a subset of another\r\nSystem.out.println(\"Has Apple and Mango? \" + fruits.containsAll(List.of(\"Apple\", \"Mango\")));\r\nSystem.out.println(\"Has Apple and Kiwi? \" + fruits.containsAll(List.of(\"Apple\", \"Kiwi\")));",
+      "metadata": {
+        "language": "java",
+        "id": "3df2a957-4340-41ff-96c1-e96544241f10",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Has Apple? true\r\nHas Grapes? false\r\nHas Apple and Mango? true\r\nHas Apple and Kiwi? false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "fbd461e6-5b78-4d63-b41b-7b308bce3660",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<>(Set.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to get the number of items\r\n// Method: size()\r\n// What:   returns how many items are in the set\r\n// Use:    to know how many unique values you have\r\nSystem.out.println(\"Size: \" + fruits.size());\r\n\r\n// Method: isEmpty()\r\n// What:   returns true if the set has no items\r\n// Use:    to check before working with the set\r\nSystem.out.println(\"Is empty? \" + fruits.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "fbd461e6-5b78-4d63-b41b-7b308bce3660",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Size: 3\r\nIs empty? false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "137e765d-8199-48d1-90c0-d3234d4a9e8e",
+      "cell_type": "code",
+      "source": "Set<Integer> numbers = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6));\r\n\r\n//this is to remove every item that is also in another collection\r\n// Method: removeAll(collection)\r\n// What:   removes all items that are in the collection; returns true if the set changed\r\n// Use:    to take many values out at once\r\nnumbers.removeAll(List.of(1, 2));\r\nSystem.out.println(\"After removeAll: \" + numbers);\r\n\r\n//this is to keep only the items that are also in another collection\r\n// Method: retainAll(collection)\r\n// What:   removes every item that is NOT in the collection; returns true if the set changed\r\n// Use:    to keep only the common values\r\nnumbers.retainAll(List.of(3, 4, 10));\r\nSystem.out.println(\"After retainAll: \" + numbers);",
+      "metadata": {
+        "language": "java",
+        "id": "137e765d-8199-48d1-90c0-d3234d4a9e8e",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After removeAll: [3, 4, 5, 6]\r\nAfter retainAll: [3, 4]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "8f41ccf1-3b8e-40de-8c07-ed139e5c0043",
+      "cell_type": "code",
+      "source": "Set<Integer> numbers = new HashSet<>(Set.of(5, 12, 7, 20, 3, 18));\r\n\r\n//this is to remove every item that matches a rule\r\n// Method: removeIf(condition)\r\n// What:   removes all items for which the condition is true\r\n// Use:    to filter the set, here: remove the numbers smaller than 10\r\nnumbers.removeIf(n -> n < 10);\r\nSystem.out.println(\"The set is: \" + numbers);",
+      "metadata": {
+        "language": "java",
+        "id": "8f41ccf1-3b8e-40de-8c07-ed139e5c0043",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The set is: [18, 20, 12]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "9ec8d410-d7cd-4661-aabd-f1c65d385c1e",
+      "cell_type": "markdown",
+      "source": "# Set operations – union, intersection, difference\r\n\r\nA set works like a set in maths. The three common operations use the bulk methods above.\r\n`addAll`, `retainAll` and `removeAll` **change** the set, so make a copy first with `new HashSet<>(a)` if you want to keep the original.\r\n\r\n| Operation | Meaning | Method |\r\n|---|---|---|\r\n| Union `A ∪ B` | items in A **or** B | `addAll` |\r\n| Intersection `A ∩ B` | items in A **and** B | `retainAll` |\r\n| Difference `A − B` | items in A but **not** in B | `removeAll` |",
+      "metadata": {
+        "language": "markdown",
+        "id": "9ec8d410-d7cd-4661-aabd-f1c65d385c1e"
+      }
+    },
+    {
+      "id": "b6e6a61c-d56b-4605-9106-ad6d9873f578",
+      "cell_type": "code",
+      "source": "Set<Integer> a = new HashSet<>(Set.of(1, 2, 3, 4));\r\nSet<Integer> b = new HashSet<>(Set.of(3, 4, 5, 6));\r\n\r\n//this is to make a copy of a set\r\n// Method: new HashSet<>(collection)\r\n// What:   creates a new set with all items of the collection\r\n// Use:    to work on a copy so the original does not change\r\n\r\n//union: all items of a and b\r\nSet<Integer> union = new HashSet<>(a);\r\n// Method: addAll(collection)\r\n// What:   adds every item of b that is not already in the copy\r\n// Use:    to build the union\r\nunion.addAll(b);\r\n\r\n//intersection: only the items in both\r\nSet<Integer> intersection = new HashSet<>(a);\r\n// Method: retainAll(collection)\r\n// What:   keeps only the items that are also in b\r\n// Use:    to build the intersection\r\nintersection.retainAll(b);\r\n\r\n//difference: items in a but not in b\r\nSet<Integer> difference = new HashSet<>(a);\r\n// Method: removeAll(collection)\r\n// What:   removes every item that is also in b\r\n// Use:    to build the difference\r\ndifference.removeAll(b);\r\n\r\nSystem.out.println(\"a = \" + a + \", b = \" + b);\r\nSystem.out.println(\"Union: \" + union);\r\nSystem.out.println(\"Intersection: \" + intersection);\r\nSystem.out.println(\"Difference (a - b): \" + difference);",
+      "metadata": {
+        "language": "java",
+        "id": "b6e6a61c-d56b-4605-9106-ad6d9873f578",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a = [1, 2, 3, 4], b = [3, 4, 5, 6]\r\nUnion: [1, 2, 3, 4, 5, 6]\r\nIntersection: [3, 4]\r\nDifference (a - b): [1, 2]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "d590b7b5-915f-42cb-9da1-c18f07d26451",
+      "cell_type": "code",
+      "source": "//this is to create an IMMUTABLE set with Set.of()\r\n// Method: Set.of(items...)\r\n// What:   creates an IMMUTABLE set (cannot add or remove); duplicates in the values cause an error\r\n// Use:    for fixed data that must not change\r\nSet<String> days = Set.of(\"Mon\", \"Tue\", \"Wed\");\r\nSystem.out.println(\"The set is: \" + days);\r\n\r\n//days.add(\"Thu\");                  // not allowed: a Set.of() set cannot be changed (the program stops with an error)\r\n//Set<String> bad = Set.of(\"A\", \"A\"); // not allowed: duplicate values in Set.of() throw an error\r\n\r\n//this is to make an immutable copy of another set\r\n// Method: Set.copyOf(collection)\r\n// What:   creates an IMMUTABLE copy; duplicates are removed\r\n// Use:    to share a set without letting others change it\r\nSet<String> copy = Set.copyOf(List.of(\"Mon\", \"Mon\", \"Fri\"));\r\nSystem.out.println(\"The copy is: \" + copy);",
+      "metadata": {
+        "language": "java",
+        "id": "d590b7b5-915f-42cb-9da1-c18f07d26451",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The set is: [Tue, Mon, Wed]\r\nThe copy is: [Mon, Fri]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "f98d917a-a5ca-4656-aea1-3784d737e5ba",
+      "cell_type": "code",
+      "source": "List<String> names = new ArrayList<>(List.of(\"Zoya\", \"Jane\", \"Zoya\", \"Doe\", \"Jane\"));\r\n\r\n//this is to remove duplicates from a list by turning it into a set\r\n// Method: new LinkedHashSet<>(collection)\r\n// What:   creates a set from the list; duplicates are dropped and the first-seen order is kept\r\n// Use:    to get the unique values of a list\r\nSet<String> unique = new LinkedHashSet<>(names);\r\nSystem.out.println(\"The list is: \" + names);\r\nSystem.out.println(\"Unique values: \" + unique);\r\n\r\n//this is to turn the set back into a list\r\n// Method: new ArrayList<>(collection)\r\n// What:   creates a list with all items of the set\r\n// Use:    when you need an index (get) again\r\nList<String> uniqueList = new ArrayList<>(unique);\r\nSystem.out.println(\"First unique name: \" + uniqueList.get(0));\r\n\r\n//this is to convert the set to a normal array\r\n// Method: toArray(new String[0])\r\n// What:   returns a normal array with all items of the set\r\n// Use:    when a method needs an array instead of a set\r\nString[] arr = unique.toArray(new String[0]);\r\nSystem.out.println(\"Array length: \" + arr.length);",
+      "metadata": {
+        "language": "java",
+        "id": "f98d917a-a5ca-4656-aea1-3784d737e5ba",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Zoya, Jane, Zoya, Doe, Jane]\r\nUnique values: [Zoya, Jane, Doe]\r\nFirst unique name: Zoya\r\nArray length: 3\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "8721a081-dc53-4e10-ab42-703842a8d62a",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new LinkedHashSet<>(List.of(\"Apple\", \"Banana\", \"Mango\"));\r\n\r\n//this is to go through every item (a set has no index, so you cannot use get(i))\r\n// Method: for-each loop  (for (Type item : set))\r\n// What:   gives you each item one by one\r\n// Use:    to read every value of the set\r\nfor (String fruit : fruits) {\r\n    System.out.println(\"Fruit: \" + fruit);\r\n}\r\n\r\n// Method: forEach(action)\r\n// What:   runs the action once for every item\r\n// Use:    a shorter way to do the same with a lambda\r\nfruits.forEach(fruit -> System.out.println(\"Upper: \" + fruit.toUpperCase()));",
+      "metadata": {
+        "language": "java",
+        "id": "8721a081-dc53-4e10-ab42-703842a8d62a",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Fruit: Apple\r\nFruit: Banana\r\nFruit: Mango\r\nUpper: APPLE\r\nUpper: BANANA\r\nUpper: MANGO\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "98fe1c2b-fc2f-47ec-8138-7dd05a880750",
+      "cell_type": "code",
+      "source": "Set<String> a = new HashSet<>(Set.of(\"Apple\", \"Banana\"));\r\nSet<String> b = new LinkedHashSet<>(List.of(\"Banana\", \"Apple\"));\r\n\r\n//this is to compare two sets\r\n// Method: equals(otherSet)\r\n// What:   returns true if both sets have the same items; order and set type do not matter\r\n// Use:    to check if two sets hold the same values\r\nSystem.out.println(\"Are they equal? \" + a.equals(b));\r\nb.add(\"Mango\");\r\nSystem.out.println(\"After adding Mango to b: \" + a.equals(b));",
+      "metadata": {
+        "language": "java",
+        "id": "98fe1c2b-fc2f-47ec-8138-7dd05a880750",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Are they equal? true\r\nAfter adding Mango to b: false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "24f50c27-4ac1-4a0f-ad4b-230e03b2a9b6",
+      "cell_type": "code",
+      "source": "Set<String> fruits = new HashSet<>(Set.of(\"Apple\", \"Banana\", \"Mango\"));\r\nSystem.out.println(\"Before clear: \" + fruits);\r\n\r\n//this is to remove every item\r\n// Method: clear()\r\n// What:   removes all items; the set becomes empty\r\n// Use:    to reuse the set from scratch\r\nfruits.clear();\r\nSystem.out.println(\"After clear: \" + fruits);\r\nSystem.out.println(\"Is empty? \" + fruits.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "24f50c27-4ac1-4a0f-ad4b-230e03b2a9b6",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Before clear: [Apple, Mango, Banana]\r\nAfter clear: []\r\nIs empty? true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "0b8cb383-f965-4883-9541-0f6be1d9308a",
+      "cell_type": "markdown",
+      "source": "# LinkedHashSet – properties and methods\r\n\r\n`LinkedHashSet` is a `HashSet` that **remembers the insertion order**.\r\n\r\n**Properties**\r\n- No duplicates, allows one `null`.\r\n- Items come out in the **order you added them**.\r\n- Almost as fast as `HashSet` (uses a little more memory to remember the order).\r\n- Since **Java 21** it also has methods to work with both ends: `getFirst`, `getLast`, `addFirst`, `addLast`, `removeFirst`, `removeLast`, `reversed`.",
+      "metadata": {
+        "language": "markdown",
+        "id": "0b8cb383-f965-4883-9541-0f6be1d9308a"
+      }
+    },
+    {
+      "id": "1a3ab35e-4abf-4ba5-9777-75ec5d643aa5",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//Set<DataType> variable_name = new LinkedHashSet<DataType>();\r\n\r\n//this is to show the order difference between HashSet and LinkedHashSet\r\n// Method: new LinkedHashSet<>()\r\n// What:   creates an empty set that keeps the insertion order\r\n// Use:    when you need unique values AND the order you added them\r\nSet<String> linked = new LinkedHashSet<String>();\r\nSet<String> hash = new HashSet<String>();\r\n\r\nfor (String city : List.of(\"Pune\", \"Mumbai\", \"Goa\", \"Delhi\", \"Pune\")) {\r\n    // Method: add(item)\r\n    // What:   adds the item if it is not already there\r\n    // Use:    to fill both sets with the same values\r\n    linked.add(city);\r\n    hash.add(city);\r\n}\r\n\r\nSystem.out.println(\"LinkedHashSet: \" + linked);\r\nSystem.out.println(\"HashSet:       \" + hash);",
+      "metadata": {
+        "language": "java",
+        "id": "1a3ab35e-4abf-4ba5-9777-75ec5d643aa5",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "LinkedHashSet: [Pune, Mumbai, Goa, Delhi]\r\nHashSet:       [Delhi, Goa, Pune, Mumbai]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "f8d028ea-f6e5-43d1-846c-59ba46915853",
+      "cell_type": "code",
+      "source": "LinkedHashSet<String> cities = new LinkedHashSet<>(List.of(\"Mumbai\", \"Delhi\", \"Pune\"));\r\n\r\n//Java 21+: methods to work with the first and last items\r\n// Method: getFirst() / getLast()   [Java 21+]\r\n// What:   returns the first / last item\r\n// Use:    to read the ends without a loop\r\nSystem.out.println(\"First: \" + cities.getFirst() + \", Last: \" + cities.getLast());\r\n\r\n// Method: addFirst(item) / addLast(item)   [Java 21+]\r\n// What:   adds the item at the start / end (if it is already there, it is moved)\r\n// Use:    to control where a value goes\r\ncities.addFirst(\"Goa\");\r\ncities.addLast(\"Jaipur\");\r\nSystem.out.println(\"After addFirst/addLast: \" + cities);\r\n\r\n// Method: removeFirst() / removeLast()   [Java 21+]\r\n// What:   removes and returns the first / last item\r\n// Use:    to take values from either end\r\ncities.removeFirst();\r\ncities.removeLast();\r\nSystem.out.println(\"After removeFirst/removeLast: \" + cities);\r\n\r\n// Method: reversed()   [Java 21+]\r\n// What:   returns a reversed view of the set\r\n// Use:    to read the set from last to first\r\nSystem.out.println(\"Reversed: \" + cities.reversed());",
+      "metadata": {
+        "language": "java",
+        "id": "f8d028ea-f6e5-43d1-846c-59ba46915853",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First: Mumbai, Last: Pune\r\nAfter addFirst/addLast: [Goa, Mumbai, Delhi, Pune, Jaipur]\r\nAfter removeFirst/removeLast: [Mumbai, Delhi, Pune]\r\nReversed: [Pune, Delhi, Mumbai]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "id": "b1e6e1e6-bc21-46cd-b1c9-f9ae2ad806bc",
+      "cell_type": "markdown",
+      "source": "# TreeSet – properties and methods\r\n\r\n`TreeSet` keeps its values **sorted** (numbers small → big, text A → Z).\r\n\r\n**Properties**\r\n- No duplicates, **no `null`** (it throws an error, because `null` cannot be compared).\r\n- Always sorted, in natural order or by a `Comparator` you give it.\r\n- Slower than `HashSet` (`add`, `remove`, `contains` take `O(log n)`), but gives you extra methods to search by order: `first`, `last`, `floor`, `ceiling`, `headSet`, `tailSet`, …\r\n- Declare it as `TreeSet<...>` (or `NavigableSet<...>`) to use those extra methods; a plain `Set<...>` variable does not have them.",
+      "metadata": {
+        "language": "markdown",
+        "id": "b1e6e1e6-bc21-46cd-b1c9-f9ae2ad806bc"
+      }
+    },
+    {
+      "id": "c1f12004-0cab-491e-b53f-e46c19c5f037",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//TreeSet<DataType> variable_name = new TreeSet<DataType>();\r\n\r\n//this is to create a sorted set\r\n// Method: new TreeSet<>()\r\n// What:   creates an empty set that keeps its values sorted\r\n// Use:    when you need unique values in sorted order\r\nTreeSet<Integer> marks = new TreeSet<Integer>();\r\nmarks.add(70);\r\nmarks.add(45);\r\nmarks.add(90);\r\nmarks.add(60);\r\nmarks.add(45); // duplicate, not added\r\nSystem.out.println(\"The set is: \" + marks);\r\n\r\n// Method: first() / last()\r\n// What:   returns the smallest / biggest item\r\n// Use:    to get the minimum and maximum quickly\r\nSystem.out.println(\"Lowest: \" + marks.first() + \", Highest: \" + marks.last());",
+      "metadata": {
+        "language": "java",
+        "id": "c1f12004-0cab-491e-b53f-e46c19c5f037",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The set is: [45, 60, 70, 90]\r\nLowest: 45, Highest: 90\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "5dec11fa-86bb-49ff-8ba9-45a1d0a6cfa2",
+      "cell_type": "code",
+      "source": "TreeSet<Integer> marks = new TreeSet<>(List.of(45, 60, 70, 90));\r\n\r\n//this is to find the closest values to a number\r\n// Method: floor(x) / ceiling(x)\r\n// What:   biggest item <= x / smallest item >= x (null if none)\r\n// Use:    to find the nearest value, including x itself\r\nSystem.out.println(\"floor(65): \" + marks.floor(65));\r\nSystem.out.println(\"ceiling(65): \" + marks.ceiling(65));\r\nSystem.out.println(\"floor(70): \" + marks.floor(70));\r\n\r\n// Method: lower(x) / higher(x)\r\n// What:   biggest item < x / smallest item > x (x itself is never returned)\r\n// Use:    to find the value just before / just after\r\nSystem.out.println(\"lower(70): \" + marks.lower(70));\r\nSystem.out.println(\"higher(70): \" + marks.higher(70));\r\nSystem.out.println(\"higher(90): \" + marks.higher(90));",
+      "metadata": {
+        "language": "java",
+        "id": "5dec11fa-86bb-49ff-8ba9-45a1d0a6cfa2",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "floor(65): 60\r\nceiling(65): 70\r\nfloor(70): 70\r\nlower(70): 60\r\nhigher(70): 90\r\nhigher(90): null\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "dcd9817f-5060-4d24-b092-b365bd61b4f6",
+      "cell_type": "code",
+      "source": "TreeSet<Integer> marks = new TreeSet<>(List.of(45, 60, 70, 90, 100));\r\n\r\n//this is to get a part of the set\r\n// Method: headSet(to)\r\n// What:   items smaller than \"to\" (to is excluded)\r\n// Use:    to get everything below a value\r\nSystem.out.println(\"headSet(70): \" + marks.headSet(70));\r\n\r\n// Method: tailSet(from)\r\n// What:   items from \"from\" upwards (from is included)\r\n// Use:    to get everything from a value up\r\nSystem.out.println(\"tailSet(70): \" + marks.tailSet(70));\r\n\r\n// Method: subSet(from, to)\r\n// What:   items from \"from\" (included) to \"to\" (excluded)\r\n// Use:    to get a range of values\r\nSystem.out.println(\"subSet(60, 100): \" + marks.subSet(60, 100));",
+      "metadata": {
+        "language": "java",
+        "id": "dcd9817f-5060-4d24-b092-b365bd61b4f6",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "headSet(70): [45, 60]\r\ntailSet(70): [70, 90, 100]\r\nsubSet(60, 100): [60, 70, 90]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "6e454e4d-7517-4b3e-92b5-e53ae8e69d52",
+      "cell_type": "code",
+      "source": "TreeSet<Integer> marks = new TreeSet<>(List.of(45, 60, 70, 90));\r\n\r\n//this is to read the set from biggest to smallest\r\n// Method: descendingSet()\r\n// What:   returns a reversed (big → small) view of the set\r\n// Use:    to show values in descending order\r\nSystem.out.println(\"Descending: \" + marks.descendingSet());\r\n\r\n//this is to take out the smallest and the biggest item\r\n// Method: pollFirst() / pollLast()\r\n// What:   removes and returns the smallest / biggest item (null if the set is empty)\r\n// Use:    to process values in order, one at a time\r\nSystem.out.println(\"pollFirst: \" + marks.pollFirst());\r\nSystem.out.println(\"pollLast: \" + marks.pollLast());\r\nSystem.out.println(\"The set is: \" + marks);",
+      "metadata": {
+        "language": "java",
+        "id": "6e454e4d-7517-4b3e-92b5-e53ae8e69d52",
+        "executionSummary": {
+          "executionOrder": 20,
+          "success": true
+        }
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Descending: [90, 70, 60, 45]\r\npollFirst: 45\r\npollLast: 90\r\nThe set is: [60, 70]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "id": "ebde4ff2-2f1a-4233-8f2b-6e9e61bace2e",
+      "cell_type": "code",
+      "source": "//this is to sort in a different order with a Comparator\r\n// Method: new TreeSet<>(Comparator.reverseOrder())\r\n// What:   creates a TreeSet that sorts big → small (Z → A for text)\r\n// Use:    when the natural order is not the one you need\r\nTreeSet<String> names = new TreeSet<>(Comparator.reverseOrder());\r\nnames.addAll(List.of(\"Zoya\", \"Jane\", \"Doe\", \"Arbaz\"));\r\nSystem.out.println(\"Z to A: \" + names);\r\n\r\n// Method: new TreeSet<>(String.CASE_INSENSITIVE_ORDER)\r\n// What:   sorts text ignoring upper/lower case (\"apple\" and \"Apple\" count as the same item)\r\n// Use:    for case-insensitive unique words\r\nTreeSet<String> words = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);\r\nwords.addAll(List.of(\"banana\", \"Apple\", \"apple\", \"Cherry\"));\r\nSystem.out.println(\"Case-insensitive: \" + words);\r\n\r\n//names.add(null);   // not allowed: TreeSet cannot store null (the program stops with an error)",
+      "metadata": {
+        "language": "java",
+        "id": "ebde4ff2-2f1a-4233-8f2b-6e9e61bace2e",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Z to A: [Zoya, Jane, Doe, Arbaz]\r\nCase-insensitive: [Apple, banana, Cherry]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "1be433e9-551b-41c6-9098-ed2c7dc7ad02",
+      "cell_type": "markdown",
+      "source": "# HashSet vs LinkedHashSet vs TreeSet\r\n\r\n| | `HashSet` | `LinkedHashSet` | `TreeSet` |\r\n|---|---|---|---|\r\n| Order | None (any order) | Insertion order | Sorted |\r\n| Duplicates | ❌ | ❌ | ❌ |\r\n| `null` | ✅ one | ✅ one | ❌ |\r\n| Speed of `add` / `remove` / `contains` | Fastest `O(1)` | Fast `O(1)` | Slower `O(log n)` |\r\n| Extra methods | – | `getFirst`, `addFirst`, `reversed`… (Java 21+) | `first`, `last`, `floor`, `ceiling`, `headSet`, `tailSet`, `pollFirst`… |\r\n| Use when | Only uniqueness matters | You need uniqueness + the order you added | You need uniqueness + sorted values |\r\n\r\n**Set vs List**\r\n\r\n| | `List` (`ArrayList`) | `Set` (`HashSet`) |\r\n|---|---|---|\r\n| Duplicates | ✅ allowed | ❌ not allowed |\r\n| Index (`get(i)`) | ✅ | ❌ |\r\n| `contains` speed | Slow (checks every item) | Very fast |",
+      "metadata": {
+        "language": "markdown",
+        "id": "1be433e9-551b-41c6-9098-ed2c7dc7ad02"
+      }
+    }
+  ]
+}

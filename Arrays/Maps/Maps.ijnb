@@ -1,0 +1,631 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "3ec6a00e-59ea-43cc-ada3-0d822cda8e02",
+      "cell_type": "markdown",
+      "source": "# Maps Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "3ec6a00e-59ea-43cc-ada3-0d822cda8e02"
+      }
+    },
+    {
+      "id": "fbd23f22-b901-4724-a43b-ab0bef6926d6",
+      "cell_type": "markdown",
+      "source": "# Map – properties\r\n\r\nA `Map` stores **key → value pairs**, like a dictionary: you look up a value by its key (`roll number → name`, `word → count`). It is an **interface** from `java.util`.\r\n\r\n**Properties**\r\n- **Keys are unique**: putting a key that already exists **replaces** its value.\r\n- **Values can repeat**: two keys can have the same value.\r\n- **No index**: you read a value with `get(key)`, not `get(0)`.\r\n- Order depends on the class you pick:\r\n  - `HashMap` – no fixed order (fastest).\r\n  - `LinkedHashMap` – keeps the **insertion order**.\r\n  - `TreeMap` – keeps the keys **sorted**.\r\n- Keys and values must be **objects**: use `Integer`, `Double`… instead of `int`, `double`.\r\n- `HashMap` and `LinkedHashMap` allow one `null` key and many `null` values; `TreeMap` does not allow a `null` key.\r\n- A `Map` is **not** a `Collection`: it has no `add()`, you use `put(key, value)`.\r\n- **Not synchronized** (not thread-safe).",
+      "metadata": {
+        "language": "markdown",
+        "id": "fbd23f22-b901-4724-a43b-ab0bef6926d6"
+      }
+    },
+    {
+      "id": "961565e0-32a7-4d1d-a50a-09ad1866bef7",
+      "cell_type": "code",
+      "source": "//Map\r\n\r\nMap<Integer,String> map = new HashMap<Integer,String>();\r\nmap.put(1,\"One\");\r\nmap.put(2,\"Two\");\r\nmap.put(3,\"Three\");\r\nmap.putIfAbsent(4,\"Four\");\r\nmap.putAll(Map.of(5,\"Five\",6,\"Six\"));\r\n\r\n//map.clear();\r\n\r\nboolean hasKeyThree = map.containsKey(3);\r\nboolean hasValueTwo = map.containsValue(\"fifth\");\r\n\r\nint size = map.size();\r\nSystem.out.println(\"Has key 3: \" + hasKeyThree);\r\nSystem.out.println(\"Has value 'Two': \" + hasValueTwo);\r\nSystem.out.println(\"Map size: \" + size);\r\nSystem.out.println(map);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 24,
+          "success": true
+        }
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Has key 3: true\r\nHas value 'Two': false\r\nMap size: 6\r\n{1=One, 2=Two, 3=Three, 4=Four, 5=Five, 6=Six}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "id": "fc4f65a1-8fe7-489c-b1e8-f04c830938c2",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//Map<KeyType, ValueType> variable_name = new HashMap<KeyType, ValueType>();\r\n\r\n//this is to create an empty Map\r\n// Method: new HashMap<>()\r\n// What:   creates an empty map with no fixed order\r\n// Use:    to store key → value pairs when the order does not matter\r\nMap<Integer, String> students = new HashMap<Integer, String>();\r\nSystem.out.println(\"The map is: \" + students);",
+      "metadata": {
+        "language": "java",
+        "id": "fc4f65a1-8fe7-489c-b1e8-f04c830938c2",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The map is: {}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "c2ed73ef-0ce0-4099-973d-e73a9483a892",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<Integer, String>();\r\n\r\n//this is to add key → value pairs\r\n// Method: put(key, value)\r\n// What:   adds the pair; if the key already exists it replaces the value and returns the OLD value (else null)\r\n// Use:    to add or update a value\r\nstudents.put(101, \"Zoya\");\r\nstudents.put(102, \"Jane\");\r\nstudents.put(103, \"Doe\");\r\nString old = students.put(102, \"Arbaz\"); // key 102 exists, so its value is replaced\r\n\r\nSystem.out.println(\"Old value of 102: \" + old);\r\nSystem.out.println(\"The map is: \" + students);",
+      "metadata": {
+        "language": "java",
+        "id": "c2ed73ef-0ce0-4099-973d-e73a9483a892",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Old value of 102: Jane\r\nThe map is: {101=Zoya, 102=Arbaz, 103=Doe}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "1fce67ca-ba6f-4771-bab9-872aa31796c5",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\"));\r\n\r\n//this is to read a value by its key\r\n// Method: get(key)\r\n// What:   returns the value for the key, or null if the key is not there\r\n// Use:    to look up one value\r\nSystem.out.println(\"get(101): \" + students.get(101));\r\nSystem.out.println(\"get(999): \" + students.get(999));\r\n\r\n// Method: getOrDefault(key, defaultValue)\r\n// What:   returns the value for the key, or the default value if the key is not there\r\n// Use:    to avoid null when a key may be missing\r\nSystem.out.println(\"getOrDefault(999): \" + students.getOrDefault(999, \"Unknown\"));",
+      "metadata": {
+        "language": "java",
+        "id": "1fce67ca-ba6f-4771-bab9-872aa31796c5",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "get(101): Zoya\r\nget(999): null\r\ngetOrDefault(999): Unknown\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "a92d69ab-bf05-4c92-81b8-1ddb3b847294",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\"));\r\n\r\n//this is to add a pair only if the key is not there yet\r\n// Method: putIfAbsent(key, value)\r\n// What:   adds the pair only when the key is missing; returns the existing value (or null if it was added)\r\n// Use:    to set a value without overwriting one that is already there\r\nstudents.putIfAbsent(101, \"Jane\"); // key exists, nothing changes\r\nstudents.putIfAbsent(102, \"Doe\");  // key missing, added\r\nSystem.out.println(\"After putIfAbsent: \" + students);\r\n\r\n//this is to copy all pairs of another map into this one\r\n// Method: putAll(otherMap)\r\n// What:   puts every pair of the other map; existing keys get the new value\r\n// Use:    to merge two maps\r\nstudents.putAll(Map.of(103, \"Arbaz\", 101, \"Zoya Khan\"));\r\nSystem.out.println(\"After putAll: \" + students);",
+      "metadata": {
+        "language": "java",
+        "id": "a92d69ab-bf05-4c92-81b8-1ddb3b847294",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After putIfAbsent: {101=Zoya, 102=Doe}\r\nAfter putAll: {101=Zoya Khan, 102=Doe, 103=Arbaz}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "896d5fa5-d0f5-44ab-a73e-b17fa5591246",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\"));\r\n\r\n//this is to check if a key exists\r\n// Method: containsKey(key)\r\n// What:   returns true if the key is in the map (fast)\r\n// Use:    to check before get(), or to tell \"missing\" apart from a null value\r\nSystem.out.println(\"Has key 101? \" + students.containsKey(101));\r\nSystem.out.println(\"Has key 999? \" + students.containsKey(999));\r\n\r\n//this is to check if a value exists\r\n// Method: containsValue(value)\r\n// What:   returns true if any key has this value (slow: it checks every pair)\r\n// Use:    to search by value\r\nSystem.out.println(\"Has value Jane? \" + students.containsValue(\"Jane\"));\r\nSystem.out.println(\"Has value Doe? \" + students.containsValue(\"Doe\"));",
+      "metadata": {
+        "language": "java",
+        "id": "896d5fa5-d0f5-44ab-a73e-b17fa5591246",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Has key 101? true\r\nHas key 999? false\r\nHas value Jane? true\r\nHas value Doe? false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "34855587-121b-433a-b7ff-43f2f657bcfb",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\", 103, \"Doe\"));\r\n\r\n//this is to remove a pair by its key\r\n// Method: remove(key)\r\n// What:   removes the pair and returns its value (null if the key was not there)\r\n// Use:    to delete one entry\r\nString removed = students.remove(101);\r\nSystem.out.println(\"Removed: \" + removed);\r\n\r\n// Method: remove(key, value)\r\n// What:   removes the pair only if the key has exactly this value; returns true/false\r\n// Use:    to delete safely when you are not sure of the current value\r\nSystem.out.println(\"remove(102, \\\"Doe\\\"): \" + students.remove(102, \"Doe\"));\r\nSystem.out.println(\"remove(102, \\\"Jane\\\"): \" + students.remove(102, \"Jane\"));\r\nSystem.out.println(\"The map is: \" + students);",
+      "metadata": {
+        "language": "java",
+        "id": "34855587-121b-433a-b7ff-43f2f657bcfb",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Removed: Zoya\r\nremove(102, \"Doe\"): false\r\nremove(102, \"Jane\"): true\r\nThe map is: {103=Doe}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "8a3633f3-6d4b-4028-9952-76490975072d",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\"));\r\n\r\n//this is to replace the value of a key that already exists\r\n// Method: replace(key, value)\r\n// What:   replaces the value only if the key exists (unlike put, it never adds a new key)\r\n// Use:    to update without creating new entries\r\nstudents.replace(101, \"Zoya Khan\");\r\nstudents.replace(999, \"Nobody\"); // key missing, nothing happens\r\nSystem.out.println(\"After replace: \" + students);\r\n\r\n// Method: replace(key, oldValue, newValue)\r\n// What:   replaces the value only if the key currently has oldValue; returns true/false\r\n// Use:    to update only when the value is what you expect\r\nSystem.out.println(\"Replaced? \" + students.replace(102, \"Jane\", \"Jane Doe\"));\r\nSystem.out.println(\"After replace(key, old, new): \" + students);\r\n\r\n//this is to change every value\r\n// Method: replaceAll((key, value) -> newValue)\r\n// What:   replaces each value with the result of the rule\r\n// Use:    to change all values at once, here: make them upper case\r\nstudents.replaceAll((id, name) -> name.toUpperCase());\r\nSystem.out.println(\"After replaceAll: \" + students);",
+      "metadata": {
+        "language": "java",
+        "id": "8a3633f3-6d4b-4028-9952-76490975072d",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After replace: {101=Zoya Khan, 102=Jane}\r\nReplaced? true\r\nAfter replace(key, old, new): {101=Zoya Khan, 102=Jane Doe}\r\nAfter replaceAll: {101=ZOYA KHAN, 102=JANE DOE}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "ec207ab9-5bb3-4b91-8cd3-8a5071ab6e14",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\"));\r\n\r\n//this is to get the number of pairs\r\n// Method: size()\r\n// What:   returns how many key → value pairs are in the map\r\n// Use:    to know how many entries you have\r\nSystem.out.println(\"Size: \" + students.size());\r\n\r\n// Method: isEmpty()\r\n// What:   returns true if the map has no pairs\r\n// Use:    to check before working with the map\r\nSystem.out.println(\"Is empty? \" + students.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "ec207ab9-5bb3-4b91-8cd3-8a5071ab6e14",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Size: 2\r\nIs empty? false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "4621d903-b5ae-4b83-8c20-22e1b11fb6fc",
+      "cell_type": "code",
+      "source": "Map<String, Integer> marks = new LinkedHashMap<>();\r\nmarks.put(\"Zoya\", 85);\r\nmarks.put(\"Jane\", 92);\r\nmarks.put(\"Doe\", 78);\r\n\r\n//this is to get all keys\r\n// Method: keySet()\r\n// What:   returns a Set view of all keys\r\n// Use:    to loop over or check the keys\r\nSystem.out.println(\"Keys: \" + marks.keySet());\r\n\r\n//this is to get all values\r\n// Method: values()\r\n// What:   returns a Collection view of all values (can have duplicates)\r\n// Use:    to loop over the values, e.g. to sum them\r\nSystem.out.println(\"Values: \" + marks.values());\r\n\r\n//this is to get all pairs\r\n// Method: entrySet()\r\n// What:   returns a Set of Map.Entry objects; each entry has getKey() and getValue()\r\n// Use:    to loop over keys and values together\r\nSystem.out.println(\"Entries: \" + marks.entrySet());",
+      "metadata": {
+        "language": "java",
+        "id": "4621d903-b5ae-4b83-8c20-22e1b11fb6fc",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Keys: [Zoya, Jane, Doe]\r\nValues: [85, 92, 78]\r\nEntries: [Zoya=85, Jane=92, Doe=78]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "1e6f4e94-6be3-4919-9aba-eec85d7c04ad",
+      "cell_type": "code",
+      "source": "Map<String, Integer> marks = new LinkedHashMap<>();\r\nmarks.put(\"Zoya\", 85);\r\nmarks.put(\"Jane\", 92);\r\nmarks.put(\"Doe\", 78);\r\n\r\n//this is to go through every pair with a for-each loop\r\n// Method: entrySet() + getKey() / getValue()\r\n// What:   gives you each Map.Entry; getKey() returns the key, getValue() returns the value\r\n// Use:    the usual way to read every key and value\r\nfor (Map.Entry<String, Integer> entry : marks.entrySet()) {\r\n    System.out.println(entry.getKey() + \" scored \" + entry.getValue());\r\n}\r\n\r\n//this is the shorter way with a lambda\r\n// Method: forEach((key, value) -> ...)\r\n// What:   runs the action once for every pair\r\n// Use:    a short way to read every pair\r\nmarks.forEach((name, score) -> System.out.println(name + \" -> \" + (score >= 80 ? \"Pass with distinction\" : \"Pass\")));",
+      "metadata": {
+        "language": "java",
+        "id": "1e6f4e94-6be3-4919-9aba-eec85d7c04ad",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Zoya scored 85\r\nJane scored 92\r\nDoe scored 78\r\nZoya -> Pass with distinction\r\nJane -> Pass with distinction\r\nDoe -> Pass\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "ec6a8bcc-d4ba-481f-9f01-c2b222829d33",
+      "cell_type": "code",
+      "source": "String sentence = \"the cat and the dog and the bird\";\r\nMap<String, Integer> wordCount = new TreeMap<>();\r\n\r\n//this is to count how many times each word appears\r\n// Method: merge(key, value, (oldValue, value) -> newValue)\r\n// What:   if the key is missing it puts the value; if it exists it combines old and new values with the rule\r\n// Use:    for counters and totals, here: add 1 for every word\r\nfor (String word : sentence.split(\" \")) {\r\n    wordCount.merge(word, 1, Integer::sum);\r\n}\r\nSystem.out.println(\"Word count: \" + wordCount);\r\n\r\n//the same counter with getOrDefault (older way)\r\nMap<String, Integer> count2 = new TreeMap<>();\r\nfor (String word : sentence.split(\" \")) {\r\n    // Method: getOrDefault(key, defaultValue)\r\n    // What:   returns the current count, or 0 the first time\r\n    // Use:    to add 1 without checking for null\r\n    count2.put(word, count2.getOrDefault(word, 0) + 1);\r\n}\r\nSystem.out.println(\"Same result: \" + count2.equals(wordCount));",
+      "metadata": {
+        "language": "java",
+        "id": "ec6a8bcc-d4ba-481f-9f01-c2b222829d33",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Word count: {and=2, bird=1, cat=1, dog=1, the=3}\r\nSame result: true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "94469258-c077-4e80-98dc-3376a37d7dfe",
+      "cell_type": "code",
+      "source": "Map<String, Integer> stock = new HashMap<>(Map.of(\"Apple\", 10, \"Banana\", 5));\r\n\r\n//this is to calculate a new value from the key and the old value\r\n// Method: compute(key, (key, oldValue) -> newValue)\r\n// What:   sets the value to the result of the rule (oldValue is null if the key is missing)\r\n// Use:    to update a value based on its current value\r\nstock.compute(\"Apple\", (fruit, qty) -> qty == null ? 1 : qty + 1);\r\nSystem.out.println(\"After compute: \" + stock);\r\n\r\n// Method: computeIfPresent(key, (key, oldValue) -> newValue)\r\n// What:   runs the rule only if the key exists; returning null removes the key\r\n// Use:    to update only existing entries\r\nstock.computeIfPresent(\"Banana\", (fruit, qty) -> qty - 5 == 0 ? null : qty - 5);\r\nSystem.out.println(\"After computeIfPresent (Banana sold out): \" + stock);\r\n\r\n//this is to group values into lists\r\n// Method: computeIfAbsent(key, key -> newValue)\r\n// What:   if the key is missing, creates the value with the rule and puts it; then returns the value\r\n// Use:    to build a Map of lists without checking for null first\r\nMap<Character, List<String>> byLetter = new TreeMap<>();\r\nfor (String name : List.of(\"Zoya\", \"Jane\", \"Zara\", \"Doe\", \"John\")) {\r\n    byLetter.computeIfAbsent(name.charAt(0), letter -> new ArrayList<>()).add(name);\r\n}\r\nSystem.out.println(\"Grouped by first letter: \" + byLetter);",
+      "metadata": {
+        "language": "java",
+        "id": "94469258-c077-4e80-98dc-3376a37d7dfe",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After compute: {Apple=11, Banana=5}\r\nAfter computeIfPresent (Banana sold out): {Apple=11}\r\nGrouped by first letter: {D=[Doe], J=[Jane, John], Z=[Zoya, Zara]}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "66ea5cb9-a66b-4f24-ac12-3843eedaf8c9",
+      "cell_type": "code",
+      "source": "//this is to create an IMMUTABLE map with Map.of()\r\n// Method: Map.of(k1, v1, k2, v2, ...)\r\n// What:   creates an IMMUTABLE map (up to 10 pairs); duplicate keys cause an error\r\n// Use:    for fixed data that must not change\r\nMap<String, Integer> days = Map.of(\"Mon\", 1, \"Tue\", 2);\r\nSystem.out.println(\"Map.of: \" + days);\r\n\r\n//days.put(\"Wed\", 3);   // not allowed: a Map.of() map cannot be changed (the program stops with an error)\r\n\r\n//this is to create an immutable map with more than 10 pairs\r\n// Method: Map.ofEntries(Map.entry(k, v), ...)\r\n// What:   creates an IMMUTABLE map from entries (no limit on how many)\r\n// Use:    for bigger fixed maps\r\nMap<String, Integer> codes = Map.ofEntries(\r\n    Map.entry(\"IN\", 91),\r\n    Map.entry(\"US\", 1)\r\n);\r\nSystem.out.println(\"Map.ofEntries: \" + codes);\r\n\r\n//this is to make an immutable copy of another map\r\n// Method: Map.copyOf(map)\r\n// What:   creates an IMMUTABLE copy; later changes to the original are not seen\r\n// Use:    to share a map without letting others change it\r\nMap<String, Integer> original = new HashMap<>(Map.of(\"A\", 1));\r\nMap<String, Integer> copy = Map.copyOf(original);\r\noriginal.put(\"B\", 2);\r\nSystem.out.println(\"Original: \" + original + \", Copy: \" + copy);",
+      "metadata": {
+        "language": "java",
+        "id": "66ea5cb9-a66b-4f24-ac12-3843eedaf8c9",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Map.of: {Tue=2, Mon=1}\r\nMap.ofEntries: {US=1, IN=91}\r\nOriginal: {A=1, B=2}, Copy: {A=1}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "9c3432c9-dedb-4b3b-81ed-a08541c51707",
+      "cell_type": "code",
+      "source": "Map<Integer, String> a = new HashMap<>(Map.of(1, \"One\", 2, \"Two\"));\r\nMap<Integer, String> b = new TreeMap<>(Map.of(2, \"Two\", 1, \"One\"));\r\n\r\n//this is to compare two maps\r\n// Method: equals(otherMap)\r\n// What:   returns true if both maps have the same key → value pairs; order and map type do not matter\r\n// Use:    to check if two maps hold the same data\r\nSystem.out.println(\"Are they equal? \" + a.equals(b));\r\nb.put(2, \"TWO\");\r\nSystem.out.println(\"After changing b: \" + a.equals(b));",
+      "metadata": {
+        "language": "java",
+        "id": "9c3432c9-dedb-4b3b-81ed-a08541c51707",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Are they equal? true\r\nAfter changing b: false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "7c50f65a-6129-4e68-ae35-5c5a62de7c3e",
+      "cell_type": "code",
+      "source": "Map<Integer, String> students = new HashMap<>(Map.of(101, \"Zoya\", 102, \"Jane\"));\r\nSystem.out.println(\"Before clear: \" + students);\r\n\r\n//this is to remove every pair\r\n// Method: clear()\r\n// What:   removes all pairs; the map becomes empty\r\n// Use:    to reuse the map from scratch\r\nstudents.clear();\r\nSystem.out.println(\"After clear: \" + students);\r\nSystem.out.println(\"Is empty? \" + students.isEmpty());",
+      "metadata": {
+        "language": "java",
+        "id": "7c50f65a-6129-4e68-ae35-5c5a62de7c3e",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Before clear: {101=Zoya, 102=Jane}\r\nAfter clear: {}\r\nIs empty? true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "5c5daf3f-137a-4eea-8133-5d6be9739db1",
+      "cell_type": "markdown",
+      "source": "# LinkedHashMap – properties and methods\r\n\r\n`LinkedHashMap` is a `HashMap` that **remembers the insertion order** of its keys.\r\n\r\n**Properties**\r\n- Unique keys, allows one `null` key.\r\n- Pairs come out in the **order you added them** (updating a value with `put` does not change the order).\r\n- Can also keep **access order** (most recently used last) with `new LinkedHashMap<>(16, 0.75f, true)`, which is how a simple LRU cache is built.\r\n- Since **Java 21** it also has methods to work with both ends: `firstEntry`, `lastEntry`, `putFirst`, `putLast`, `pollFirstEntry`, `pollLastEntry`, `reversed`.",
+      "metadata": {
+        "language": "markdown",
+        "id": "5c5daf3f-137a-4eea-8133-5d6be9739db1"
+      }
+    },
+    {
+      "id": "af31c8bf-5b21-4c12-9468-9caa52b479f2",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//Map<KeyType, ValueType> variable_name = new LinkedHashMap<KeyType, ValueType>();\r\n\r\n//this is to show the order difference between HashMap and LinkedHashMap\r\n// Method: new LinkedHashMap<>()\r\n// What:   creates an empty map that keeps the insertion order of its keys\r\n// Use:    when you need key → value pairs in the order you added them\r\nMap<String, Integer> linked = new LinkedHashMap<String, Integer>();\r\nMap<String, Integer> hash = new HashMap<String, Integer>();\r\n\r\nfor (String city : List.of(\"Pune\", \"Mumbai\", \"Goa\", \"Delhi\")) {\r\n    // Method: put(key, value)\r\n    // What:   adds the pair (here: city → length of its name)\r\n    // Use:    to fill both maps with the same pairs\r\n    linked.put(city, city.length());\r\n    hash.put(city, city.length());\r\n}\r\n\r\nSystem.out.println(\"LinkedHashMap: \" + linked);\r\nSystem.out.println(\"HashMap:       \" + hash);",
+      "metadata": {
+        "language": "java",
+        "id": "af31c8bf-5b21-4c12-9468-9caa52b479f2",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "LinkedHashMap: {Pune=4, Mumbai=6, Goa=3, Delhi=5}\r\nHashMap:       {Delhi=5, Goa=3, Pune=4, Mumbai=6}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "id": "d3a8673b-ee85-4629-9b38-29cdf126e973",
+      "cell_type": "code",
+      "source": "//this is to keep the ACCESS order instead of insertion order\r\n// Method: new LinkedHashMap<>(initialCapacity, loadFactor, accessOrder)\r\n// What:   with accessOrder = true, every get/put moves that key to the end (most recently used last)\r\n// Use:    to know which key was used least recently (the first one), e.g. for an LRU cache\r\nLinkedHashMap<String, Integer> recent = new LinkedHashMap<>(16, 0.75f, true);\r\nrecent.put(\"A\", 1);\r\nrecent.put(\"B\", 2);\r\nrecent.put(\"C\", 3);\r\nSystem.out.println(\"Before get: \" + recent);\r\n\r\nrecent.get(\"A\"); // A was just used, so it moves to the end\r\nSystem.out.println(\"After get(A): \" + recent);",
+      "metadata": {
+        "language": "java",
+        "id": "d3a8673b-ee85-4629-9b38-29cdf126e973",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Before get: {A=1, B=2, C=3}\r\nAfter get(A): {B=2, C=3, A=1}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "bc448c1d-fb39-4040-8da6-6efc9b03dce4",
+      "cell_type": "code",
+      "source": "LinkedHashMap<String, Integer> marks = new LinkedHashMap<>();\r\nmarks.put(\"Zoya\", 85);\r\nmarks.put(\"Jane\", 92);\r\nmarks.put(\"Doe\", 78);\r\n\r\n//Java 21+: methods to work with the first and last pairs\r\n// Method: firstEntry() / lastEntry()   [Java 21+]\r\n// What:   returns the first / last pair\r\n// Use:    to read the ends without a loop\r\nSystem.out.println(\"First: \" + marks.firstEntry() + \", Last: \" + marks.lastEntry());\r\n\r\n// Method: putFirst(key, value) / putLast(key, value)   [Java 21+]\r\n// What:   puts the pair at the start / end (moves it if the key already exists)\r\n// Use:    to control where a pair goes\r\nmarks.putFirst(\"Arbaz\", 88);\r\nmarks.putLast(\"Zoya\", 90);\r\nSystem.out.println(\"After putFirst/putLast: \" + marks);\r\n\r\n// Method: pollFirstEntry() / pollLastEntry()   [Java 21+]\r\n// What:   removes and returns the first / last pair\r\n// Use:    to take pairs from either end\r\nSystem.out.println(\"pollFirstEntry: \" + marks.pollFirstEntry());\r\nSystem.out.println(\"The map is: \" + marks);\r\n\r\n// Method: reversed()   [Java 21+]\r\n// What:   returns a reversed view of the map\r\n// Use:    to read the map from last to first\r\nSystem.out.println(\"Reversed: \" + marks.reversed());",
+      "metadata": {
+        "language": "java",
+        "id": "bc448c1d-fb39-4040-8da6-6efc9b03dce4",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First: Zoya=85, Last: Doe=78\r\nAfter putFirst/putLast: {Arbaz=88, Jane=92, Doe=78, Zoya=90}\r\npollFirstEntry: Arbaz=88\r\nThe map is: {Jane=92, Doe=78, Zoya=90}\r\nReversed: {Zoya=90, Doe=78, Jane=92}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "87810131-7a87-4d11-9358-35d175530f06",
+      "cell_type": "markdown",
+      "source": "# TreeMap – properties and methods\r\n\r\n`TreeMap` keeps its pairs **sorted by key** (numbers small → big, text A → Z).\r\n\r\n**Properties**\r\n- Unique keys, **no `null` key** (values can be `null`).\r\n- Always sorted by key, in natural order or by a `Comparator` you give it.\r\n- Slower than `HashMap` (`put`, `get`, `remove` take `O(log n)`), but gives you extra methods to search by key order: `firstKey`, `lastKey`, `floorKey`, `ceilingKey`, `headMap`, `tailMap`, …\r\n- Declare it as `TreeMap<...>` (or `NavigableMap<...>`) to use those extra methods.",
+      "metadata": {
+        "language": "markdown",
+        "id": "87810131-7a87-4d11-9358-35d175530f06"
+      }
+    },
+    {
+      "id": "f7fd8312-fbdc-41ee-a7f9-e10daff01575",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//TreeMap<KeyType, ValueType> variable_name = new TreeMap<KeyType, ValueType>();\r\n\r\n//this is to create a map sorted by key\r\n// Method: new TreeMap<>()\r\n// What:   creates an empty map that keeps its keys sorted\r\n// Use:    when you need the pairs in key order\r\nTreeMap<Integer, String> ranks = new TreeMap<Integer, String>();\r\nranks.put(3, \"Doe\");\r\nranks.put(1, \"Zoya\");\r\nranks.put(4, \"Arbaz\");\r\nranks.put(2, \"Jane\");\r\nSystem.out.println(\"The map is: \" + ranks);\r\n\r\n// Method: firstKey() / lastKey()\r\n// What:   returns the smallest / biggest key\r\n// Use:    to get the minimum and maximum key quickly\r\nSystem.out.println(\"firstKey: \" + ranks.firstKey() + \", lastKey: \" + ranks.lastKey());\r\n\r\n// Method: firstEntry() / lastEntry()\r\n// What:   returns the pair with the smallest / biggest key\r\n// Use:    to get both the key and the value at the ends\r\nSystem.out.println(\"firstEntry: \" + ranks.firstEntry() + \", lastEntry: \" + ranks.lastEntry());",
+      "metadata": {
+        "language": "java",
+        "id": "f7fd8312-fbdc-41ee-a7f9-e10daff01575",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The map is: {1=Zoya, 2=Jane, 3=Doe, 4=Arbaz}\r\nfirstKey: 1, lastKey: 4\r\nfirstEntry: 1=Zoya, lastEntry: 4=Arbaz\r\n"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "79f1027c-6540-4e2c-9288-3660986b6bc8",
+      "cell_type": "code",
+      "source": "TreeMap<Integer, String> grades = new TreeMap<>();\r\ngrades.put(0, \"F\");\r\ngrades.put(40, \"D\");\r\ngrades.put(60, \"C\");\r\ngrades.put(75, \"B\");\r\ngrades.put(90, \"A\");\r\n\r\n//this is to find the closest keys to a number\r\n// Method: floorKey(x) / ceilingKey(x)\r\n// What:   biggest key <= x / smallest key >= x (null if none)\r\n// Use:    to find the nearest key, including x itself\r\nSystem.out.println(\"floorKey(68): \" + grades.floorKey(68));\r\nSystem.out.println(\"ceilingKey(68): \" + grades.ceilingKey(68));\r\n\r\n// Method: lowerKey(x) / higherKey(x)\r\n// What:   biggest key < x / smallest key > x (x itself is never returned)\r\n// Use:    to find the key just before / just after\r\nSystem.out.println(\"lowerKey(60): \" + grades.lowerKey(60));\r\nSystem.out.println(\"higherKey(60): \" + grades.higherKey(60));\r\n\r\n// Method: floorEntry(x)\r\n// What:   returns the pair with the biggest key <= x\r\n// Use:    a range lookup, here: turn marks into a grade\r\nSystem.out.println(\"Marks 68 -> grade \" + grades.floorEntry(68).getValue());\r\nSystem.out.println(\"Marks 95 -> grade \" + grades.floorEntry(95).getValue());",
+      "metadata": {
+        "language": "java",
+        "id": "79f1027c-6540-4e2c-9288-3660986b6bc8",
+        "executionSummary": {
+          "executionOrder": 20,
+          "success": true
+        }
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "floorKey(68): 60\r\nceilingKey(68): 75\r\nlowerKey(60): 40\r\nhigherKey(60): 75\r\nMarks 68 -> grade C\r\nMarks 95 -> grade A\r\n"
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "id": "6a666727-c933-417a-bf99-ee005da0b865",
+      "cell_type": "code",
+      "source": "TreeMap<Integer, String> ranks = new TreeMap<>(Map.of(1, \"Zoya\", 2, \"Jane\", 3, \"Doe\", 4, \"Arbaz\", 5, \"John\"));\r\n\r\n//this is to get a part of the map\r\n// Method: headMap(to)\r\n// What:   pairs with keys smaller than \"to\" (to is excluded)\r\n// Use:    to get everything below a key\r\nSystem.out.println(\"headMap(3): \" + ranks.headMap(3));\r\n\r\n// Method: tailMap(from)\r\n// What:   pairs with keys from \"from\" upwards (from is included)\r\n// Use:    to get everything from a key up\r\nSystem.out.println(\"tailMap(3): \" + ranks.tailMap(3));\r\n\r\n// Method: subMap(from, to)\r\n// What:   pairs with keys from \"from\" (included) to \"to\" (excluded)\r\n// Use:    to get a range of keys\r\nSystem.out.println(\"subMap(2, 4): \" + ranks.subMap(2, 4));",
+      "metadata": {
+        "language": "java",
+        "id": "6a666727-c933-417a-bf99-ee005da0b865",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "headMap(3): {1=Zoya, 2=Jane}\r\ntailMap(3): {3=Doe, 4=Arbaz, 5=John}\r\nsubMap(2, 4): {2=Jane, 3=Doe}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "48f9486a-9f7b-4248-ae73-8e1d78f858ce",
+      "cell_type": "code",
+      "source": "TreeMap<Integer, String> ranks = new TreeMap<>(Map.of(1, \"Zoya\", 2, \"Jane\", 3, \"Doe\"));\r\n\r\n//this is to read the map from biggest key to smallest\r\n// Method: descendingMap()\r\n// What:   returns a reversed (big → small) view of the map\r\n// Use:    to show pairs in descending key order\r\nSystem.out.println(\"Descending: \" + ranks.descendingMap());\r\n\r\n// Method: descendingKeySet()\r\n// What:   returns the keys from biggest to smallest\r\n// Use:    when you only need the keys in reverse\r\nSystem.out.println(\"Descending keys: \" + ranks.descendingKeySet());\r\n\r\n//this is to take out the first and last pair\r\n// Method: pollFirstEntry() / pollLastEntry()\r\n// What:   removes and returns the pair with the smallest / biggest key (null if empty)\r\n// Use:    to process pairs in key order, one at a time\r\nSystem.out.println(\"pollFirstEntry: \" + ranks.pollFirstEntry());\r\nSystem.out.println(\"pollLastEntry: \" + ranks.pollLastEntry());\r\nSystem.out.println(\"The map is: \" + ranks);",
+      "metadata": {
+        "language": "java",
+        "id": "48f9486a-9f7b-4248-ae73-8e1d78f858ce",
+        "executionSummary": {
+          "executionOrder": 22,
+          "success": true
+        }
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Descending: {3=Doe, 2=Jane, 1=Zoya}\r\nDescending keys: [3, 2, 1]\r\npollFirstEntry: 1=Zoya\r\npollLastEntry: 3=Doe\r\nThe map is: {2=Jane}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "id": "ae423d16-7941-4104-9ecc-e6fd474cc6cc",
+      "cell_type": "code",
+      "source": "//this is to sort the keys in a different order with a Comparator\r\n// Method: new TreeMap<>(Comparator.reverseOrder())\r\n// What:   creates a TreeMap that sorts keys big → small (Z → A for text)\r\n// Use:    when the natural order of the keys is not the one you need\r\nTreeMap<String, Integer> marks = new TreeMap<>(Comparator.reverseOrder());\r\nmarks.putAll(Map.of(\"Zoya\", 85, \"Jane\", 92, \"Doe\", 78, \"Arbaz\", 88));\r\nSystem.out.println(\"Z to A: \" + marks);\r\n\r\n//marks.put(null, 50);   // not allowed: TreeMap cannot have a null key (the program stops with an error)",
+      "metadata": {
+        "language": "java",
+        "id": "ae423d16-7941-4104-9ecc-e6fd474cc6cc",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Z to A: {Zoya=85, Jane=92, Doe=78, Arbaz=88}\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "id": "cbfe8275-718c-4fa8-bc5b-620b8891e374",
+      "cell_type": "markdown",
+      "source": "# HashMap vs LinkedHashMap vs TreeMap vs Hashtable\r\n\r\n| | `HashMap` | `LinkedHashMap` | `TreeMap` | `Hashtable` |\r\n|---|---|---|---|---|\r\n| Order of keys | None | Insertion (or access) order | Sorted | None |\r\n| Duplicate keys | ❌ (value is replaced) | ❌ | ❌ | ❌ |\r\n| `null` key / values | ✅ one / ✅ | ✅ one / ✅ | ❌ / ✅ | ❌ / ❌ |\r\n| Speed of `put` / `get` | Fastest `O(1)` | Fast `O(1)` | Slower `O(log n)` | Slower (locking) |\r\n| Thread-safe | ❌ | ❌ | ❌ | ✅ (legacy, like `Vector`) |\r\n| Extra methods | – | `firstEntry`, `putFirst`, `reversed`… (Java 21+) | `firstKey`, `floorKey`, `headMap`, `tailMap`, `pollFirstEntry`… | – |\r\n| Use when | Default choice | You need the order you added | You need keys sorted | Old code only (use `ConcurrentHashMap` for threads) |",
+      "metadata": {
+        "language": "markdown",
+        "id": "cbfe8275-718c-4fa8-bc5b-620b8891e374"
+      }
+    }
+  ]
+}

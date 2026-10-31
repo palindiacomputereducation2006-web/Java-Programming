@@ -2,7 +2,19 @@
 
 This notebook shows how to **store many values in one variable**. It starts with a normal array (`String[]`), then covers the three list types you will use most in Java: **`ArrayList`**, **`List`** and **`Vector`**. Each method has its own cell, so you can run one at a time and see what it does.
 
-> New to notebooks? See the [main README](../README.md#part-3--run-java-code-as-a-notebook) for how to open and run this file in VS Code.
+> New to notebooks? See the [main README](../../README.md#part-3--run-java-code-as-a-notebook) for how to open and run this file in VS Code.
+
+## The `Arrays` folder
+
+This lesson is the first of three in the `Arrays` folder. Do them in this order:
+
+| Folder | Notebook | Topic |
+|---|---|---|
+| **Array** (this one) | `Arrays.ijnb` | `String[]`, `ArrayList`, `List`, `Vector`: ordered values with an index |
+| [Sets](../Sets/README.md) | `Sets.ijnb` | `HashSet`, `LinkedHashSet`, `TreeSet`: unique values, no duplicates |
+| [Maps](../Maps/README.md) | `Maps.ijnb` | `HashMap`, `LinkedHashMap`, `TreeMap`: key → value pairs |
+
+> The `Set` and `Map` cells that used to be at the end of this notebook have moved to `Sets.ijnb` and `Maps.ijnb`.
 
 ## How the notebook is organised
 
@@ -53,6 +65,7 @@ This lesson is only about **Array, `ArrayList`, `List` and `Vector`**. These top
 - Loops over a list (`for`, for-each, `while`, `do … while`, `Iterator`).
 - Error handling with `try … catch`.
 - The rest of the Collections Framework (`LinkedList`, `Stack`, the `Collections` and `Comparator` helpers, streams).
+- `Set` and `Map`: they have their own lessons, [Sets](../Sets/README.md) and [Maps](../Maps/README.md).
 
 ---
 
@@ -60,10 +73,22 @@ This lesson is only about **Array, `ArrayList`, `List` and `Vector`**. These top
 
 An array holds a **fixed number** of values of the **same type**. The size cannot change after it is created.
 
+**Syntax**
+
 ```java
-//data_type[] variable_name = {values};
+//data_type[] variable_name = {value1, value2, ...};   ← create with values
+//data_type[] variable_name = new data_type[size];     ← create empty, with a fixed size
+String[] names = {"Zoya", "Jane", "Doe"};
+int[] marks = new int[3];   // [0, 0, 0] – empty slots get a default value (0, false, null)
+```
+
+**Example**
+
+```java
 String[] names = {"Zoya", "Jane", "Doe"};
 System.out.println("The first name is: " + names[0]); // Zoya
+names[1] = "Arbaz";                                    // replace by index
+System.out.println("Size: " + names.length);          // 3
 ```
 
 - Indexes start at `0`, so `names[0]` is the first item.
@@ -83,6 +108,16 @@ A **resizable array**. It is the list you will use most often.
 - Allows duplicates and `null`.
 - Stores objects only: use `Integer`, not `int`.
 - **Not synchronized** → faster than `Vector`, but not thread-safe.
+
+**Syntax**
+
+```java
+//ArrayList<DataType> variable_name = new ArrayList<DataType>();
+ArrayList<String> fruits = new ArrayList<String>();
+ArrayList<Integer> numbers = new ArrayList<>(List.of(10, 20, 30)); // create with values
+```
+
+**Example**
 
 ```java
 ArrayList<String> fruits = new ArrayList<String>();
@@ -120,9 +155,23 @@ System.out.println("The list is: " + fruits); // [Apple, Banana]
 
 `List` is an **interface**: it describes what an ordered collection can do. You can't write `new List<>()`; you pick an implementation:
 
+**Syntax**
+
 ```java
+//List<DataType> variable_name = new ArrayList<DataType>();
 List<String> cities = new ArrayList<>();   // most common
 List<String> cities = new Vector<>();      // same methods, different inside
+```
+
+**Example**
+
+```java
+List<String> cities = new ArrayList<>();
+cities.add("Mumbai");
+cities.add("Delhi");
+cities.add("Pune");
+System.out.println(cities);                  // [Mumbai, Delhi, Pune]
+System.out.println(cities.indexOf("Delhi")); // 1
 ```
 
 Declaring the variable as `List` (instead of `ArrayList`) is called **programming to the interface**. You can switch to another implementation later by changing only the right side.
@@ -165,6 +214,16 @@ Changing a list you are not allowed to change stops the program with an error. I
 - Default capacity 10, **doubles** when full, or grows by your own `capacityIncrement`: `new Vector<>(5, 3)`.
 - Has extra **legacy methods** (`addElement`, `elementAt`, `firstElement`, `removeElement`, …).
 - For new code, prefer `ArrayList`. You will still see `Vector` in older code and in interviews.
+
+**Syntax**
+
+```java
+//Vector<DataType> variable_name = new Vector<DataType>();
+Vector<String> colors = new Vector<String>();
+Vector<Integer> numbers = new Vector<>(5, 3); // start capacity 5, grows by 3 when full
+```
+
+**Example**
 
 ```java
 Vector<String> colors = new Vector<String>();
@@ -213,4 +272,4 @@ System.out.println(colors.capacity());      // 10
 - **ArrayList – `clear` cell:** has an unfinished line `namesList.` before the last `println`. The saved output is from before that line was added. Delete the line, or the cell will not run.
 - **ArrayList – `contains` cell:** declares `boolean is_exist` three times. A notebook allows this (each one replaces the last), but in a normal `.java` file it is a compile error. Use a different name for each, or declare it once and reassign it. Its saved output also has an extra `The list is: …` line from an older version of the code. Run the cell again to refresh it.
 
-**Previous lesson:** [Conditionals](../Conditionals/README.md)
+**Previous lesson:** [Conditionals](../../Conditionals/README.md) · **Next lesson:** [Sets](../Sets/README.md)
