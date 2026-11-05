@@ -1,0 +1,356 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "a6f7929d-c07e-4a48-b523-f78f3982dccd",
+      "cell_type": "markdown",
+      "source": "# Strings Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "a6f7929d-c07e-4a48-b523-f78f3982dccd"
+      }
+    },
+    {
+      "id": "e1600798-684b-4c1e-a528-9c17e567ef73",
+      "cell_type": "code",
+      "source": "//syntax \r\n\r\n//data_type variable_name = \"value\";\r\n\r\nString name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name);",
+      "metadata": {
+        "language": "java",
+        "id": "e1600798-684b-4c1e-a528-9c17e567ef73",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: John Doe\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "60019cb6-1c25-4726-97ca-f58c20aae241",
+      "cell_type": "code",
+      "source": "String name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nboolean hasJohn = name.contains(\"John\"); // true\r\nSystem.out.println(\"Contains 'John': \" + hasJohn);",
+      "metadata": {
+        "language": "java",
+        "id": "60019cb6-1c25-4726-97ca-f58c20aae241",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: John Doe\r\nContains 'John': true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "8fc8876e-9467-4df2-b072-651aad9225d3",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nboolean hasJohn = name.contains(\"worked\"); // true\r\nSystem.out.println(\"Contains 'worked': \" + hasJohn);",
+      "metadata": {
+        "language": "java",
+        "id": "8fc8876e-9467-4df2-b072-651aad9225d3",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nContains 'worked': true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "b5a0f6f1-f92c-481e-92dc-8dc089188ca2",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4                 \";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.trim(); // true\r\nSystem.out.println(\"Trimmed: \" + data);",
+      "metadata": {
+        "language": "java",
+        "id": "b5a0f6f1-f92c-481e-92dc-8dc089188ca2",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4                 \r\nTrimmed: My name is John Wick and i worked in a movie called John Wick 4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "3fb63c7d-069a-4000-811a-73b2a3c1ebf5",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.substring(0, 15); // true\r\nSystem.out.println(\"Substring: \" + data);",
+      "metadata": {
+        "language": "java",
+        "id": "3fb63c7d-069a-4000-811a-73b2a3c1ebf5",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nSubstring: My name is John\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "f1fd862c-a11e-4c68-a2c4-d4e9c3a6a4c2",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString[] data = name.split(\" \");\r\nSystem.out.println(\"Split: \" + Arrays.toString(data));",
+      "metadata": {
+        "language": "java",
+        "id": "f1fd862c-a11e-4c68-a2c4-d4e9c3a6a4c2",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nSplit: [My, name, is, John, Wick, and, i, worked, in, a, movie, called, John, Wick, 4]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "id": "90e08f5f-0680-406a-8deb-5b6d02595afb",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.toUpperCase(); // true\r\nSystem.out.println(\"Uppercase: \" + data);",
+      "metadata": {
+        "language": "java",
+        "id": "90e08f5f-0680-406a-8deb-5b6d02595afb",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nUppercase: MY NAME IS JOHN WICK AND I WORKED IN A MOVIE CALLED JOHN WICK 4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "b8014fcb-4655-4bc8-a1eb-7d8b143029f5",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.toLowerCase(); // true\r\nSystem.out.println(\"Lowercase: \" + data);",
+      "metadata": {
+        "language": "java",
+        "id": "b8014fcb-4655-4bc8-a1eb-7d8b143029f5",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nLowercase: my name is john wick and i worked in a movie called john wick 4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "2aae0db4-cdd4-4d29-9023-cbf4df4d77d9",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nchar data = name.charAt(4); // true\r\nSystem.out.print(\"Character at index 4: \" + data);",
+      "metadata": {
+        "language": "java",
+        "id": "2aae0db4-cdd4-4d29-9023-cbf4df4d77d9",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4\r\nCharacter at index 4: a"
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "9b839ab5-96a3-4279-8ba7-d9210e7b4adb",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick\";\r\nString data = \"and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\nSystem.out.println(\"Data: \" + data);\r\n\r\nString complete_Data = name.concat(\" \" + data); // true\r\nSystem.out.print(\"Complete Data: \" + complete_Data);",
+      "metadata": {
+        "language": "java",
+        "id": "9b839ab5-96a3-4279-8ba7-d9210e7b4adb",
+        "executionSummary": {
+          "executionOrder": 27,
+          "success": true
+        }
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name: My name is John Wick\r\nData: and i worked in a movie called John Wick 4\r\nComplete Data: My name is John Wick and i worked in a movie called John Wick 4"
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "id": "b7b96341-7f5b-4546-bad0-efc45cd17424",
+      "cell_type": "code",
+      "source": "String data = \"My name is John Wick and i worked in a movie called John Wick 5\";\r\nString data2 = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\nint is_comapred = data.compareTo(data2); // true\r\nSystem.out.print(\"Is compared: \" + is_comapred);",
+      "metadata": {
+        "language": "java",
+        "id": "b7b96341-7f5b-4546-bad0-efc45cd17424",
+        "executionSummary": {
+          "executionOrder": 46,
+          "success": true
+        }
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Is compared: 1"
+          },
+          "metadata": {},
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "id": "4fe10327-96f0-4abb-99b0-1e248fe5269a",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nboolean is_start = name.startsWith(\"My name\"); // true\r\nSystem.out.print(\"Starts with 'My name': \" + is_start);",
+      "metadata": {
+        "language": "java",
+        "id": "4fe10327-96f0-4abb-99b0-1e248fe5269a",
+        "executionSummary": {
+          "executionOrder": 48,
+          "success": true
+        }
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Starts with 'My name': false"
+          },
+          "metadata": {},
+          "execution_count": 48
+        }
+      ]
+    },
+    {
+      "id": "300c9777-8b2c-4784-84f6-58f7f7edce07",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nboolean is_start = name.endsWith(\"John Wick 4\"); // true\r\nSystem.out.print(\"ends with 'John Wick 4': \" + is_start);",
+      "metadata": {
+        "language": "java",
+        "id": "300c9777-8b2c-4784-84f6-58f7f7edce07",
+        "executionSummary": {
+          "executionOrder": 51,
+          "success": true
+        }
+      },
+      "execution_count": 51,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "ends with 'John Wick 4': true"
+          },
+          "metadata": {},
+          "execution_count": 51
+        }
+      ]
+    },
+    {
+      "id": "359ee7ba-90ed-45bc-b317-03347c45ffec",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\nint length = name.length(); // true\r\nSystem.out.print(\"Length of the string: \" + length);",
+      "metadata": {
+        "language": "java",
+        "id": "359ee7ba-90ed-45bc-b317-03347c45ffec",
+        "executionSummary": {
+          "executionOrder": 52,
+          "success": true
+        }
+      },
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Length of the string: 63"
+          },
+          "metadata": {},
+          "execution_count": 52
+        }
+      ]
+    }
+  ]
+}
