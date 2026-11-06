@@ -194,4 +194,4 @@ Your `Map` cell was moved here from `Arrays.ijnb`, right after the properties ce
 
 - `hasValueTwo` checks `map.containsValue("fifth")`, but the message prints `Has value 'Two'`. That is why the output says `false`. Change it to `containsValue("Two")` to get `true`.
 
-**Previous lesson:** [Sets](../Sets/README.md)
+**Previous lesson:** [Sets](../Sets/README.md) · **Next lesson:** [Loops](../../Loops/README.md)
