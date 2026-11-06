@@ -70,6 +70,7 @@
       "source": "List<Integer> list = new ArrayList<Integer>(); \r\n\r\nint position = 7;\r\nint value = 100;\r\n\r\nfor (int i = 1; i <= 20; i++) {\r\n    list.add(i);\r\n}\r\nSystem.out.println(list);\r\n\r\nfor (int i = 1; i < list.size(); i++){\r\n    int index = list.indexOf(i);\r\n    if(index == position){\r\n        list.set(index,value);\r\n    }\r\n}\r\n\r\nSystem.out.println(list);",
       "metadata": {
         "language": "java",
+        "id": "1f8b50c4-1083-4cb7-8ab9-257c2b91dc16",
         "executionSummary": {
           "executionOrder": 14,
           "success": true
@@ -84,6 +85,76 @@
           },
           "metadata": {},
           "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "f64f17d6-b8a8-4e3a-907b-44f866c9bb5c",
+      "cell_type": "code",
+      "source": "ArrayList<String> arr = new ArrayList<String>();\r\nString [] names = {\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"};\r\narr.addAll(List.of(names));\r\n\r\nfor (String name : arr) {\r\n    System.out.println(\"the number of iterations for :\" + name);\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "f64f17d6-b8a8-4e3a-907b-44f866c9bb5c",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the number of iterations for :John\r\nthe number of iterations for :Jane\r\nthe number of iterations for :Jack\r\nthe number of iterations for :Jill\r\nthe number of iterations for :James\r\nthe number of iterations for :Jenny\r\nthe number of iterations for :Joe\r\nthe number of iterations for :Jasmine\r\nthe number of iterations for :Jordan\r\nthe number of iterations for :Javier\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "f017985e-7945-4b8d-8965-e32906d54550",
+      "cell_type": "code",
+      "source": "ArrayList<String> arr = new ArrayList<String>();\r\nString [] names = {\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"};\r\narr.addAll(List.of(names));\r\n\r\nSystem.out.println(\"these are the names : \" + arr);\r\n\r\nint index = 5;\r\nString change_name = \"Javed\";\r\n\r\nfor (String name : arr){\r\n    int indexOfName = arr.indexOf(name);\r\n    if(indexOfName == index){\r\n        arr.set(indexOfName,change_name);\r\n        break;\r\n    }\r\n}\r\n\r\nSystem.out.println(\"these are the names after the change : \" + arr);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "these are the names : [John, Jane, Jack, Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthese are the names after the change : [John, Jane, Jack, Jill, James, Javed, Joe, Jasmine, Jordan, Javier]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "a06d3ef8-3ca7-4382-a894-142c1a7a1c51",
+      "cell_type": "code",
+      "source": "ArrayList<String> arr = new ArrayList<String>();\r\nString [] names = {\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"};\r\narr.addAll(List.of(names));\r\n\r\nSystem.out.println(\"these are the inital names : \" + arr);\r\n\r\nList<Integer> data_array = new ArrayList<Integer>();\r\ndata_array.addAll(List.of(0,1,2,3,4,5,6));\r\n\r\nList<String> replacement_names = new ArrayList<String>();\r\nreplacement_names.addAll(List.of(\"Junaid\",\"Humaira\",\"Ali\",\"Ayesha\",\"Hassan\",\"Hina\",\"Sana\"));\r\n\r\nfor (int i = 0; i < data_array.size(); i++){\r\n    for (String name : arr){\r\n        int indexOfName = arr.indexOf(name);\r\n        if(indexOfName == data_array.get(i)){\r\n            arr.set(indexOfName,replacement_names.get(i));\r\n            break;\r\n        }\r\n\r\n    }\r\n}\r\n\r\nSystem.out.println(\"these are the names after the change Final names : \" + arr);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "these are the inital names : [John, Jane, Jack, Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthese are the names after the change Final names : [Junaid, Humaira, Ali, Ayesha, Hassan, Hina, Sana, Jasmine, Jordan, Javier]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
         }
       ]
     }
