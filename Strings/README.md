@@ -1,30 +1,52 @@
 # Strings – `String.ijnb`
 
-This notebook shows how to **work with text** in Java. A `String` is a sequence of characters, like a name or a sentence. The notebook starts by creating a string, then shows one **String method** per cell: search, trim, cut, split, change case, join, compare and measure.
+This notebook shows how to **work with text** in Java. A `String` is a sequence of characters, like a name or a sentence. It starts with your own examples (one method per cell), then covers the rest of the `String` methods you will use most, grouped by what they do, and ends with **`StringBuilder`**, the mutable way to build text. Each method has its own cell, so you can run one at a time and see what it does.
 
 > New to notebooks? See the [main README](../README.md#part-3--run-java-code-as-a-notebook) for how to open and run this file in VS Code.
 
-## A note on the comments
-
-Most cells end the method line with the comment `// true`. It was copied from the `contains` cell, where the result really is `true`, and was not updated. Ignore it: the **saved output** under each cell shows the real result, and the tables below list it too.
-
 ## How the notebook is organised
 
-| Cells | What they cover |
-|---|---|
-| 1 | Create a `String` and print it |
-| 2 – 3 | `contains` |
-| 4 – 9 | Change or cut the text: `trim`, `substring`, `split`, `toUpperCase`, `toLowerCase`, `charAt` |
-| 10 – 11 | Join and compare: `concat`, `compareTo` |
-| 12 – 14 | Check and measure: `startsWith`, `endsWith`, `length` |
+The notebook is grouped by topic. Each group starts with a **text cell that lists its properties or methods**, followed by its code cells:
 
-Each cell **creates its own string first**, so every cell can be run on its own and in any order.
+| Part | Cells | What it covers |
+|---|---|---|
+| 1. String | 1 text + 14 of your examples | Create a string, `contains`, `trim`, `substring`, `split`, `toUpperCase`, `toLowerCase`, `charAt`, `concat`, `compareTo`, `startsWith`, `endsWith`, `length` |
+| 2. Compare and check | 1 text + 5 code | `equals` vs `==`, `equalsIgnoreCase`, `compareToIgnoreCase`, `isEmpty` / `isBlank`, `matches` |
+| 3. Search | 1 text + 3 code | `indexOf`, `indexOf(text, from)`, `lastIndexOf`, looping over characters with `charAt` and `toCharArray` |
+| 4. Change text | 1 text + 7 code | Immutability, `substring(begin)`, `replace`, `replaceAll` / `replaceFirst`, `strip` family, `split` variants, `repeat`, `String.join` |
+| 5. Convert and format | 1 text + 5 code | `String.valueOf`, `Integer.parseInt`, `String.format` / `formatted`, text blocks, `Character` helpers |
+| 6. StringBuilder | 1 text + 4 code | `append`, `toString`, `insert`, `replace`, `delete`, `reverse`, `setCharAt`, building text in a loop |
+| 7. Comparison | 1 text cell | `String` vs `StringBuilder` vs `StringBuffer` |
 
-> `String` lives in `java.lang`, which is always imported. Only `Arrays.toString` (cell 6) needs `java.util`, and the notebook imports it for you.
+Each code cell **creates its own string first**, so every cell can be run on its own and in any order. Every method, including the ones in your own 14 cells, has the same 3-line comment as in `Arrays.ijnb` and `Sets.ijnb`:
+
+```java
+// Method: equals(other)
+// What:   returns true when both strings have exactly the same characters (case matters)
+// Use:    to check if two strings are the same text; never use == for that
+System.out.println("a.equals(b): " + a.equals(b));
+```
+
+- Methods added in Java 11 or later are tagged `[Java 11+]` / `[Java 15+]`.
+- `String`, `StringBuilder` and `Character` live in `java.lang`, which is always imported. Only `Arrays.toString` and `List.of` need `java.util`, and the notebook imports it for you.
+
+### A note on your first examples
+
+Your 14 cells kept their code, and each one now has the 3-line comment above the method, plus a short note on the line where the method is used (for example why `charAt(4)` gives `a`). The old `// true` comments, copied from the `contains` cell, were replaced by these notes. The `trim` cell also prints the length before and after, so you can see that the 17 trailing spaces are really gone.
 
 ---
 
-## Cell 1 – Create a String
+## Part 1 – String
+
+A `String` is a **class** that holds text. Its most important property is that it is **immutable**: no method can change a string, they all return a new one.
+
+**Properties**
+- Written inside **double quotes** `"Hello"`. Single quotes are for one `char`: `'H'`.
+- **Immutable**: `trim`, `toUpperCase`, `replace`… return a **new** string. Always store the result: `name = name.trim();`.
+- Every character has an **index** starting at `0`.
+- `length()` is a **method** (brackets). On an array, `length` is a property (no brackets).
+- Compare text with **`equals`**, never with `==`.
+- `+` joins strings and converts numbers: `"Age: " + 20` → `"Age: 20"`.
 
 **Syntax**
 
@@ -33,249 +55,218 @@ Each cell **creates its own string first**, so every cell can be run on its own 
 String name = "John Doe";
 ```
 
-**Code**
+**Example**
 
 ```java
 String name = "John Doe";
-System.out.println("Name: " + name);
+System.out.println("Name: " + name);                       // Name: John Doe
+System.out.println("Contains 'John': " + name.contains("John")); // true
 ```
 
-**Output:** `Name: John Doe`
+From cell 4 on, your examples use the same sentence: `"My name is John Wick and i worked in a movie called John Wick 4"`.
 
-- Text goes inside **double quotes** `" "`. Single quotes `' '` are for a single `char`.
-- `String` starts with a capital **S**. It is a class, not a primitive like `int`.
-- `+` joins strings together. `"Name: " + name` → `Name: John Doe`.
-
-### Strings cannot be changed
-
-A `String` is **immutable**. None of the methods below change the original string. They all **return a new one**, so you have to store the result:
-
-```java
-String name = "  John  ";
-name.trim();                  // ❌ does nothing useful: result is thrown away
-String clean = name.trim();   // ✅ "John"
-```
-
----
-
-## Cells 2 – 3 – `contains`
-
-Checks whether one string appears inside another. Returns a `boolean`.
-
-```java
-String name = "John Doe";
-boolean hasJohn = name.contains("John"); // true
-System.out.println("Contains 'John': " + hasJohn);
-```
-
-| Cell | String | `contains(...)` | Result |
+| # | Method | What it does | Example result |
 |---|---|---|---|
-| 2 | `"John Doe"` | `"John"` | `true` |
-| 3 | `"My name is John Wick and i worked in a movie called John Wick 4"` | `"worked"` | `true` |
+| 1 | `String name = "John Doe"` | Create a string | `Name: John Doe` |
+| 2 | `contains("John")` | Is the text inside? | `true` |
+| 3 | `contains("worked")` | Same, on the long sentence | `true` |
+| 4 | `trim()` | Removes spaces at both ends | `Length before: 80, after: 63` |
+| 5 | `substring(0, 15)` | Characters 0 to 14 | `My name is John` |
+| 6 | `split(" ")` | Cuts into a `String[]` at every space | `[My, name, is, John, Wick, …, 4]` |
+| 7 | `toUpperCase()` | ALL CAPS | `MY NAME IS JOHN WICK …` |
+| 8 | `toLowerCase()` | all lowercase | `my name is john wick …` |
+| 9 | `charAt(4)` | Character at index 4 | `a` |
+| 10 | `concat(" " + data)` | Joins two strings (same as `+`) | `My name is John Wick and i worked …` |
+| 11 | `compareTo(data2)` | `0` equal, negative before, positive after | `1` (`'5' - '4'`) |
+| 12 | `startsWith("My name")` | Does it begin with…? | `true` |
+| 13 | `endsWith("John Wick 4")` | Does it end with…? | `true` |
+| 14 | `length()` | Number of characters, spaces included | `63` |
 
-`contains` is **case-sensitive**: `"John Doe".contains("john")` is `false`.
+> Cells 9 to 14 use `System.out.print` instead of `println`. `print` adds no line break, which is why those outputs have no blank line under them.
 
 ---
 
-## Cells 4 – 9 – Change or cut the text
+## Part 2 – Compare and check
 
-From here on every cell uses the same sentence:
+Methods that **ask a question** about the text and return a `boolean` (or an `int` for `compareTo`).
+
+**Example**
+
+```java
+String a = "John Doe";
+String c = new String("John Doe");  // new object, same text
+System.out.println(a.equals(c));    // true   ← compares the text
+System.out.println(a == c);         // false  ← compares the objects
+```
+
+| # | Method | What it does | Example result |
+|---|---|---|---|
+| 1 | `equals(other)` vs `==` | Same text? vs same object? | `equals` → `true`, `==` → `false` for `new String(...)` |
+| 2 | `equalsIgnoreCase(other)` | Same text, ignoring case | `"John Doe"` vs `"john doe"` → `true` |
+| 3 | `compareTo` / `compareToIgnoreCase` | Alphabetical order; `compareTo` puts all capitals before all small letters | `"apple".compareTo("Banana")` → `31`, `compareToIgnoreCase` → `-1` |
+| 4 | `isEmpty()` / `isBlank()` **[Java 11+]** | No characters at all / nothing but white space | `"     ".isEmpty()` → `false`, `.isBlank()` → `true` |
+| 5 | `matches(regex)` | Does the **whole** text fit a pattern? (`\d{6}` = six digits) | `"411001".matches("\\d{6}")` → `true` |
+
+> **Why `==` is wrong for strings.** `==` asks "are these the same object in memory?". Two string literals with the same text often *are* the same object (Java reuses them), so `==` sometimes looks like it works. The moment a string is built at run time (`new String`, user input, `substring`…) it stops working. `equals` always compares the characters, so always use `equals`.
+
+---
+
+## Part 3 – Search
+
+Methods that **find a position**. They return an `int` index, or `-1` when nothing is found.
+
+**Example**
 
 ```java
 String name = "My name is John Wick and i worked in a movie called John Wick 4";
+int first = name.indexOf("John");            // 11
+int second = name.indexOf("John", first + 1); // 52
+System.out.println(name.lastIndexOf("John")); // 52
+System.out.println(name.indexOf("Neo"));      // -1
 ```
 
-### Cell 4 – `trim()`
+| # | Method | What it does | Example result |
+|---|---|---|---|
+| 1 | `indexOf(text)` / `indexOf(char)` | First position, or `-1` | `11` / `16` / `-1` |
+| 2 | `indexOf(text, from)` / `lastIndexOf(text)` | First match at or after `from` / last match | `52` / `52`, `lastIndexOf(" ")` → `61` |
+| 3 | `charAt(i)` in a `for` loop / `toCharArray()` in a for-each | Look at every character | `'s'` appears 4 times in `Mississippi`; 4 vowels |
 
-Removes **spaces at the start and end** (not the spaces between words). The string in this cell has many spaces after the `4`.
+The loop cell uses what you learned in [Loops](../Loops/README.md):
 
 ```java
-String data = name.trim();
-System.out.println("Trimmed: " + data);
+for (int i = 0; i < word.length(); i++) {      // counting loop: you need the index for charAt
+    if (word.charAt(i) == 's') count++;
+}
+for (char ch : word.toCharArray()) {           // for-each: you only need the characters
+    if ("aeiouAEIOU".indexOf(ch) != -1) vowels++;
+}
 ```
-
-**Output:** `Trimmed: My name is John Wick and i worked in a movie called John Wick 4`
-
-> The extra spaces are hard to see in the output. Compare `name.length()` (80) with `data.length()` (63) to prove they are gone. Java 11+ also has `strip()`, which does the same and handles more kinds of white space.
-
-### Cell 5 – `substring(begin, end)`
-
-Cuts out a part of the string. `begin` is **included**, `end` is **excluded**.
-
-```java
-String data = name.substring(0, 15);
-System.out.println("Substring: " + data);
-```
-
-**Output:** `Substring: My name is John`
-
-Indexes `0` to `14` are kept, which is exactly 15 characters. `substring(begin)` with one argument keeps everything from `begin` to the end.
-
-### Cell 6 – `split(separator)`
-
-Breaks the string into a **`String[]` array**, cutting at every separator. Here the separator is a single space.
-
-```java
-String[] data = name.split(" ");
-System.out.println("Split: " + Arrays.toString(data));
-```
-
-**Output:** `Split: [My, name, is, John, Wick, and, i, worked, in, a, movie, called, John, Wick, 4]`
-
-> Printing an array directly (`System.out.println(data)`) shows something like `[Ljava.lang.String;@1b6d3586`. Wrap it in `Arrays.toString(...)` to see the items, as done here.
-
-### Cell 7 – `toUpperCase()`
-
-```java
-String data = name.toUpperCase();
-```
-
-**Output:** `Uppercase: MY NAME IS JOHN WICK AND I WORKED IN A MOVIE CALLED JOHN WICK 4`
-
-### Cell 8 – `toLowerCase()`
-
-```java
-String data = name.toLowerCase();
-```
-
-**Output:** `Lowercase: my name is john wick and i worked in a movie called john wick 4`
-
-Both are useful for **case-insensitive** checks: `a.toLowerCase().equals(b.toLowerCase())`. (Or use `a.equalsIgnoreCase(b)`.)
-
-### Cell 9 – `charAt(index)`
-
-Returns the **single character** (`char`) at a position. Indexes start at `0`.
-
-```java
-char data = name.charAt(4);
-System.out.print("Character at index 4: " + data);
-```
-
-**Output:** `Character at index 4: a`
-
-| Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
-|---|---|---|---|---|---|---|---|
-| Char | `M` | `y` | ` ` | `n` | `a` | `m` | `e` |
-
-Asking for an index that does not exist (`name.charAt(100)`) throws `StringIndexOutOfBoundsException`.
-
-> This cell and the ones after it use `System.out.print` instead of `println`. `print` does not add a line break at the end, which is why these outputs have no blank line under them.
 
 ---
 
-## Cells 10 – 11 – Join and compare
+## Part 4 – Change text
 
-### Cell 10 – `concat(other)`
+Every method here **returns a new string**. The original is never modified.
 
-Joins two strings into a new one. Same as `+`.
-
-```java
-String name = "My name is John Wick";
-String data = "and i worked in a movie called John Wick 4";
-
-String complete_Data = name.concat(" " + data);
-System.out.print("Complete Data: " + complete_Data);
-```
-
-**Output:** `Complete Data: My name is John Wick and i worked in a movie called John Wick 4`
-
-The `" " + data` adds the missing space between `Wick` and `and`. In everyday code `name + " " + data` is more common than `concat`.
-
-### Cell 11 – `compareTo(other)`
-
-Compares two strings **alphabetically** (by character codes) and returns an `int`:
-
-| Result | Meaning |
-|---|---|
-| `0` | Both strings are exactly equal |
-| negative | This string comes **before** the other |
-| positive | This string comes **after** the other |
+**Example (immutability)**
 
 ```java
-String data  = "My name is John Wick and i worked in a movie called John Wick 5";
-String data2 = "My name is John Wick and i worked in a movie called John Wick 4";
-
-int is_comapred = data.compareTo(data2);
-System.out.print("Is compared: " + is_comapred);
+String name = "john wick";
+name.toUpperCase();                    // result thrown away
+System.out.println(name);              // john wick   ← unchanged
+name = name.toUpperCase();             // store it back
+System.out.println(name);              // JOHN WICK
 ```
 
-**Output:** `Is compared: 1`
+| # | Method | What it does | Example result |
+|---|---|---|---|
+| 1 | *(immutability demo)* | Calling a method without storing the result changes nothing | `john wick` → still `john wick` |
+| 2 | `substring(begin)` / `substring(begin, end)` | From `begin` to the end / from `begin` up to (not including) `end` | `"holiday-photo.jpeg"` → `jpeg`, `holiday-photo`, `holiday` |
+| 3 | `replace(oldChar, newChar)` / `replace(oldText, newText)` | Changes **every** occurrence (plain text) | `My_name_is_John_Wick_…`, `My name is Neo and …` |
+| 4 | `replaceAll(regex, text)` / `replaceFirst(regex, text)` | Pattern-based replace: all matches / first match only (`\s+` = spaces, `\d` = digit) | `Order number: 1234, total: 99`, `… ####, … ##` |
+| 5 | `trim()` / `strip()` / `stripLeading()` / `stripTrailing()` **[strip: Java 11+]** | Remove white space at both ends / only at the start / only at the end | `[John Wick]`, `[John Wick   ]`, `[   John Wick]` |
+| 6 | `split(regex)` / `split("\\s+")` / `split(regex, limit)` | Cut into pieces; empty pieces are kept; `limit` caps the number of pieces | `[Zoya, Jane, , Doe]`, `[one, two, three]`, `[key, value=with=equals]` |
+| 7 | `repeat(n)` **[Java 11+]** / `String.join(sep, …)` | Repeat text / glue pieces with a separator (the opposite of `split`) | `--------------------`, `Zoya, Jane, Doe`, `Mumbai -> Delhi -> Pune` |
 
-The two strings are identical until the last character: `'5'` vs `'4'`. The result is the difference of their codes, `'5' - '4' = 1`, so `data` sorts after `data2`.
+> **`replace` vs `replaceAll`.** Both replace every match. The difference is that `replace` takes **plain text**, while `replaceAll` takes a **regular expression**. `"a.b".replace(".", "-")` gives `a-b`, but `"a.b".replaceAll(".", "-")` gives `---`, because `.` in a regex means "any character". Use `replace` unless you really need a pattern.
 
-> ⚠️ **Never compare strings with `==`.** `==` checks whether two variables point to the **same object**, not whether the text is the same. Use `equals` for "is it the same text?" and `compareTo` for "which one comes first?":
->
-> ```java
-> String a = new String("hi");
-> String b = "hi";
-> a == b          // false  (different objects)
-> a.equals(b)     // true   (same text)
-> a.compareTo(b)  // 0      (same text)
-> ```
+> **`split` uses a regex too.** To split on `.`, `|`, `+` or `*` you must escape them: `split("\\.")`, `split("\\|")`.
 
 ---
 
-## Cells 12 – 14 – Check and measure
+## Part 5 – Convert and format
 
-### Cell 12 – `startsWith(prefix)`
+Going **between text and other types**, and building text with placeholders.
 
-```java
-String name = "My name is John Wick and i worked in a movie called John Wick 4";
-boolean is_start = name.startsWith("My name");
-System.out.print("Starts with 'My name': " + is_start);
-```
-
-**Expected output:** `Starts with 'My name': true`
-
-> ⚠️ The output saved in the notebook for this cell shows **`false`**. That is out of date: the string does start with `My name`, so the real result is `true`. The cell was probably edited after it last ran. Run it again to refresh the output.
-
-### Cell 13 – `endsWith(suffix)`
+**Example**
 
 ```java
-boolean is_start = name.endsWith("John Wick 4");
-System.out.print("ends with 'John Wick 4': " + is_start);
+String ageText = "20";
+int age = Integer.parseInt(ageText);
+System.out.println(ageText + 1);   // 201  ← text joining
+System.out.println(age + 1);       // 21   ← maths
 ```
 
-**Output:** `ends with 'John Wick 4': true`
+| # | Method | What it does | Example result |
+|---|---|---|---|
+| 1 | `String.valueOf(x)` / `Integer.toString(n)` / `x + ""` | Number (or anything) → text | `"20"`, `"99.5"`, `"true"` |
+| 2 | `Integer.parseInt(text)` / `Double.parseDouble(text)` | Text → number; throws `NumberFormatException` for `"abc"` or `" 20 "` | `21`, `199.0` |
+| 3 | `String.format(template, …)` / `template.formatted(…)` **[formatted: Java 15+]** | Fill `%s` (text), `%d` (whole number), `%.1f` (one decimal); `%-10s` / `%5d` pad to a width | `John Wick acted in 4 movies with a rating of 7.5`, `\|Name      \|    1\|` |
+| 4 | Text block `""" … """` **[Java 15+]** | Multi-line string without `\n` and `+`; indentation before the closing `"""` is removed | A 4-line JSON object |
+| 5 | `Character.isLetter` / `isDigit` / `isUpperCase` / `toUpperCase(ch)` | Questions about, and changes to, a single `char` | `letters: 4, digits: 4, capitals: 1`, `mumbai` → `Mumbai` |
 
-### Cell 14 – `length()`
-
-Number of characters, including spaces.
-
-```java
-int length = name.length();
-System.out.print("Length of the string: " + length);
-```
-
-**Output:** `Length of the string: 63`
-
-> `length()` on a `String` has **brackets**: it is a method. `length` on an array has **no brackets**: it is a property. `"abc".length()` but `names.length`.
+> **`"20" + 1` is `"201"`, not `21`.** When one side of `+` is a string, Java joins text. Convert first with `parseInt` when you want maths. The same trap in reverse: `1 + 2 + "3"` is `"33"` (maths first, left to right), but `"1" + 2 + 3` is `"123"`.
 
 ---
 
-## What this lesson does not cover (yet)
+## Part 6 – StringBuilder
 
-- `equals` / `equalsIgnoreCase` (shown above, but not in the notebook), `isEmpty`, `isBlank`.
-- `indexOf` / `lastIndexOf` on strings, `replace` / `replaceAll`, `repeat`, `join`.
-- `String.format` and text blocks (`"""`).
-- `StringBuilder`, the mutable alternative for building long strings in a loop.
-- Converting between strings and numbers: `Integer.parseInt("42")`, `String.valueOf(42)`.
+`StringBuilder` is a **mutable** piece of text. Its methods change the object itself and return it, so calls can be chained.
+
+**Properties**
+- `append`, `insert`, `delete`, `reverse`… change the builder **in place**.
+- Much faster than `+=` in a loop: `+=` copies the whole string every time, `append` adds to the same buffer.
+- Default capacity 16, grows automatically (like an `ArrayList`).
+- Call `toString()` to get a normal `String` when you are done.
+- Not thread-safe. The thread-safe twin is `StringBuffer`.
+
+**Syntax**
+
+```java
+//StringBuilder variable_name = new StringBuilder();
+StringBuilder sb = new StringBuilder();
+StringBuilder sb2 = new StringBuilder("John Wick");  // start with text
+```
+
+**Example**
+
+```java
+StringBuilder sb = new StringBuilder();
+sb.append("John").append(' ').append("Wick").append(' ').append(4);
+System.out.println(sb);            // John Wick 4
+String result = sb.toString();     // back to a normal String
+```
+
+| # | Method | What it does | Example result |
+|---|---|---|---|
+| 1 | `new StringBuilder()` / `append(x)` / `toString()` | Create; add any type at the end (chainable); get a `String` | `John Wick 4`, length `11` |
+| 2 | `insert(index, x)` / `replace(start, end, text)` / `delete(start, end)` / `deleteCharAt(i)` | Add at a position / overwrite a range / remove a range or one char | `Mr. John Wick` → `Mr. Neo Wick` → `Neo Wick` → `Neo Wic` |
+| 3 | `reverse()` / `setCharAt(i, ch)` / `charAt(i)` | Flip the text / overwrite one character / read one | `level` reversed is `level` → palindrome; `jack` → `Jack` |
+| 4 | `append` in a loop / `setLength(n)` | Build text piece by piece; cut it to `n` characters (to drop a trailing `", "`) | `Zoya, Jane, Doe, Arbaz` |
+
+> **`StringBuilder.replace` vs `String.replace`.** The builder's version works by **position** (`replace(4, 8, "Neo")`), the string's version by **content** (`replace("John", "Neo")`). Same name, different idea.
+
+---
 
 ## Summary
 
-| Method | Returns | What it does | Example |
+### String methods by purpose
+
+| Purpose | Methods |
+|---|---|
+| Ask a question | `equals`, `equalsIgnoreCase`, `contains`, `startsWith`, `endsWith`, `isEmpty`, `isBlank`, `matches` |
+| Order | `compareTo`, `compareToIgnoreCase` |
+| Find a position | `indexOf`, `indexOf(text, from)`, `lastIndexOf` |
+| Read characters | `charAt`, `length`, `toCharArray` |
+| Cut | `substring(begin)`, `substring(begin, end)`, `split` |
+| Change | `replace`, `replaceAll`, `replaceFirst`, `toUpperCase`, `toLowerCase`, `trim`, `strip`, `stripLeading`, `stripTrailing`, `repeat` |
+| Join | `+`, `concat`, `String.join`, `String.format`, `formatted` |
+| Convert | `String.valueOf`, `Integer.toString`, `Integer.parseInt`, `Double.parseDouble` |
+
+### String vs StringBuilder vs StringBuffer
+
+| | `String` | `StringBuilder` | `StringBuffer` |
 |---|---|---|---|
-| `contains(s)` | `boolean` | Is `s` inside the string? | `"John Doe".contains("John")` → `true` |
-| `trim()` | `String` | Removes leading/trailing spaces | `"  hi  ".trim()` → `"hi"` |
-| `substring(b, e)` | `String` | Characters from `b` up to (not including) `e` | `"My name".substring(0, 2)` → `"My"` |
-| `split(sep)` | `String[]` | Cuts into pieces at each `sep` | `"a b c".split(" ")` → `[a, b, c]` |
-| `toUpperCase()` | `String` | ALL CAPS | `"hi".toUpperCase()` → `"HI"` |
-| `toLowerCase()` | `String` | all lowercase | `"HI".toLowerCase()` → `"hi"` |
-| `charAt(i)` | `char` | Character at index `i` | `"My name".charAt(4)` → `'a'` |
-| `concat(s)` | `String` | Joins `s` onto the end | `"a".concat("b")` → `"ab"` |
-| `compareTo(s)` | `int` | `0` equal, `<0` before, `>0` after | `"b".compareTo("a")` → `1` |
-| `startsWith(s)` | `boolean` | Does it begin with `s`? | `"My name".startsWith("My")` → `true` |
-| `endsWith(s)` | `boolean` | Does it end with `s`? | `"Wick 4".endsWith("4")` → `true` |
-| `length()` | `int` | Number of characters | `"John Doe".length()` → `8` |
+| Can it change? | ❌ Immutable | ✅ Mutable | ✅ Mutable |
+| Thread-safe | ✅ (never changes) | ❌ | ✅ Synchronized |
+| Building text in a loop | Slow (`+=` copies) | Fastest | Slower (locking) |
+| Compare content | `equals` | `toString().equals(...)` or `compareTo` | same |
+| Use when | Text that does not change (default) | Building or editing text step by step | Shared between threads (rare) |
+
+### Three things to remember
+
+1. **Strings never change.** Store the result: `name = name.trim();`.
+2. **Compare with `equals`,** never with `==`.
+3. **`"20" + 1` is `"201"`.** Use `Integer.parseInt` before doing maths on text.
 
 **Previous lesson:** [Loops](../Loops/README.md)

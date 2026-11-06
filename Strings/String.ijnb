@@ -17,9 +17,18 @@
       }
     },
     {
+      "id": "9f9aa5a7-de20-4357-8774-398dc115cb28",
+      "cell_type": "markdown",
+      "source": "# String – properties\r\n\r\nA `String` is a sequence of characters (text) such as `\"John Doe\"`. It is a **class** from `java.lang`, so it is always available without an import.\r\n\r\n**Properties**\r\n- Written inside **double quotes**: `\"Hello\"`. Single quotes are for one `char`: `'H'`.\r\n- **Immutable**: once created, a string can never change. Every method that \"changes\" text (`trim`, `toUpperCase`, `replace`…) returns a **new** string and leaves the original as it was. Always store the result: `name = name.trim();`.\r\n- Every character has an **index** starting at `0`: `\"Java\".charAt(0)` is `'J'`.\r\n- `length()` is a **method** (with brackets). On an array, `length` is a property (no brackets).\r\n- Compare text with **`equals`**, never with `==` (`==` compares object references, not the text).\r\n- `+` joins strings: `\"a\" + \"b\"` → `\"ab\"`. Joining a string with a number turns the number into text: `\"Age: \" + 20` → `\"Age: 20\"`.\r\n- Need to build a long string piece by piece (for example in a loop)? Use `StringBuilder` (last part of this notebook).",
+      "metadata": {
+        "language": "markdown",
+        "id": "9f9aa5a7-de20-4357-8774-398dc115cb28"
+      }
+    },
+    {
       "id": "e1600798-684b-4c1e-a528-9c17e567ef73",
       "cell_type": "code",
-      "source": "//syntax \r\n\r\n//data_type variable_name = \"value\";\r\n\r\nString name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name);",
+      "source": "//Syntax\r\n//data_type variable_name = \"value\";\r\n\r\n//this is to create a string\r\n// Method: String name = \"...\"\r\n// What:   stores text (a sequence of characters) in a variable; the text goes inside double quotes\r\n// Use:    for names, messages, or any value that is text and not a number\r\nString name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name); // + joins the label and the variable into one line of text",
       "metadata": {
         "language": "java",
         "id": "e1600798-684b-4c1e-a528-9c17e567ef73",
@@ -43,7 +52,7 @@
     {
       "id": "60019cb6-1c25-4726-97ca-f58c20aae241",
       "cell_type": "code",
-      "source": "String name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nboolean hasJohn = name.contains(\"John\"); // true\r\nSystem.out.println(\"Contains 'John': \" + hasJohn);",
+      "source": "String name = \"John Doe\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to check if a text is inside the string\r\n// Method: contains(text)\r\n// What:   returns true when text appears anywhere inside the string (case matters), otherwise false\r\n// Use:    to search for a word without caring where it is\r\nboolean hasJohn = name.contains(\"John\"); // true, \"John\" is inside \"John Doe\"\r\nSystem.out.println(\"Contains 'John': \" + hasJohn);",
       "metadata": {
         "language": "java",
         "id": "60019cb6-1c25-4726-97ca-f58c20aae241",
@@ -67,7 +76,7 @@
     {
       "id": "8fc8876e-9467-4df2-b072-651aad9225d3",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nboolean hasJohn = name.contains(\"worked\"); // true\r\nSystem.out.println(\"Contains 'worked': \" + hasJohn);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to search a longer sentence\r\n// Method: contains(text)\r\n// What:   same as above: true when the text appears anywhere in the string\r\n// Use:    to check that a sentence mentions a word\r\nboolean hasWorked = name.contains(\"worked\"); // true, \"worked\" is inside the sentence\r\nSystem.out.println(\"Contains 'worked': \" + hasWorked);",
       "metadata": {
         "language": "java",
         "id": "8fc8876e-9467-4df2-b072-651aad9225d3",
@@ -91,7 +100,7 @@
     {
       "id": "b5a0f6f1-f92c-481e-92dc-8dc089188ca2",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4                 \";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.trim(); // true\r\nSystem.out.println(\"Trimmed: \" + data);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4                 \";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to remove spaces at the start and end\r\n// Method: trim()\r\n// What:   returns a new string without the leading and trailing spaces; the spaces between words stay\r\n// Use:    to clean up text that came from a user or a file before storing or comparing it\r\nString data = name.trim(); // the 17 spaces after the 4 are removed\r\nSystem.out.println(\"Trimmed: \" + data);\r\nSystem.out.println(\"Length before: \" + name.length() + \", after: \" + data.length());",
       "metadata": {
         "language": "java",
         "id": "b5a0f6f1-f92c-481e-92dc-8dc089188ca2",
@@ -105,7 +114,7 @@
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4                 \r\nTrimmed: My name is John Wick and i worked in a movie called John Wick 4\r\n"
+            "text/plain": "Name: My name is John Wick and i worked in a movie called John Wick 4                 \r\nTrimmed: My name is John Wick and i worked in a movie called John Wick 4\r\nLength before: 80, after: 63\r\n"
           },
           "metadata": {},
           "execution_count": 7
@@ -115,7 +124,7 @@
     {
       "id": "3fb63c7d-069a-4000-811a-73b2a3c1ebf5",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.substring(0, 15); // true\r\nSystem.out.println(\"Substring: \" + data);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to cut a part out of the string\r\n// Method: substring(beginIndex, endIndex)\r\n// What:   returns the characters from beginIndex up to, but NOT including, endIndex (indexes start at 0)\r\n// Use:    to take a slice of the text, e.g. the first few words\r\nString data = name.substring(0, 15); // indexes 0 to 14 = 15 characters\r\nSystem.out.println(\"Substring: \" + data);",
       "metadata": {
         "language": "java",
         "id": "3fb63c7d-069a-4000-811a-73b2a3c1ebf5",
@@ -139,7 +148,7 @@
     {
       "id": "f1fd862c-a11e-4c68-a2c4-d4e9c3a6a4c2",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString[] data = name.split(\" \");\r\nSystem.out.println(\"Split: \" + Arrays.toString(data));",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to cut the string into pieces\r\n// Method: split(separator)\r\n// What:   returns a String[] array with one piece for every part between the separators\r\n// Use:    to get the single words of a sentence, or the values of a comma-separated line\r\nString[] data = name.split(\" \"); // cut at every space -> 15 words\r\nSystem.out.println(\"Split: \" + Arrays.toString(data)); // Arrays.toString shows the items of an array",
       "metadata": {
         "language": "java",
         "id": "f1fd862c-a11e-4c68-a2c4-d4e9c3a6a4c2",
@@ -163,7 +172,7 @@
     {
       "id": "90e08f5f-0680-406a-8deb-5b6d02595afb",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.toUpperCase(); // true\r\nSystem.out.println(\"Uppercase: \" + data);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to change every letter to a capital\r\n// Method: toUpperCase()\r\n// What:   returns a new string with all letters in upper case; digits and spaces do not change\r\n// Use:    for headings, or to compare text without caring about case\r\nString data = name.toUpperCase();\r\nSystem.out.println(\"Uppercase: \" + data);",
       "metadata": {
         "language": "java",
         "id": "90e08f5f-0680-406a-8deb-5b6d02595afb",
@@ -187,7 +196,7 @@
     {
       "id": "b8014fcb-4655-4bc8-a1eb-7d8b143029f5",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nString data = name.toLowerCase(); // true\r\nSystem.out.println(\"Lowercase: \" + data);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to change every letter to a small letter\r\n// Method: toLowerCase()\r\n// What:   returns a new string with all letters in lower case\r\n// Use:    to normalise e-mail addresses or user names before saving them\r\nString data = name.toLowerCase();\r\nSystem.out.println(\"Lowercase: \" + data);",
       "metadata": {
         "language": "java",
         "id": "b8014fcb-4655-4bc8-a1eb-7d8b143029f5",
@@ -211,7 +220,7 @@
     {
       "id": "2aae0db4-cdd4-4d29-9023-cbf4df4d77d9",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\nchar data = name.charAt(4); // true\r\nSystem.out.print(\"Character at index 4: \" + data);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\n\r\n//this is to read one character\r\n// Method: charAt(index)\r\n// What:   returns the single char at that position; indexes start at 0, so index 4 is the 5th character\r\n// Use:    to look at a letter, e.g. the first letter of a name\r\nchar data = name.charAt(4); // M=0 y=1 ' '=2 n=3 a=4\r\nSystem.out.print(\"Character at index 4: \" + data);",
       "metadata": {
         "language": "java",
         "id": "2aae0db4-cdd4-4d29-9023-cbf4df4d77d9",
@@ -235,7 +244,7 @@
     {
       "id": "9b839ab5-96a3-4279-8ba7-d9210e7b4adb",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick\";\r\nString data = \"and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\nSystem.out.println(\"Data: \" + data);\r\n\r\nString complete_Data = name.concat(\" \" + data); // true\r\nSystem.out.print(\"Complete Data: \" + complete_Data);",
+      "source": "String name = \"My name is John Wick\";\r\nString data = \"and i worked in a movie called John Wick 4\";\r\nSystem.out.println(\"Name: \" + name);\r\nSystem.out.println(\"Data: \" + data);\r\n\r\n//this is to join two strings\r\n// Method: concat(other)\r\n// What:   returns a new string with other glued to the end; the same as name + other\r\n// Use:    to build one text from parts (in everyday code the + operator is more common)\r\nString complete_Data = name.concat(\" \" + data); // \" \" adds the missing space between Wick and and\r\nSystem.out.print(\"Complete Data: \" + complete_Data);",
       "metadata": {
         "language": "java",
         "id": "9b839ab5-96a3-4279-8ba7-d9210e7b4adb",
@@ -259,7 +268,7 @@
     {
       "id": "b7b96341-7f5b-4546-bad0-efc45cd17424",
       "cell_type": "code",
-      "source": "String data = \"My name is John Wick and i worked in a movie called John Wick 5\";\r\nString data2 = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\nint is_comapred = data.compareTo(data2); // true\r\nSystem.out.print(\"Is compared: \" + is_comapred);",
+      "source": "String data = \"My name is John Wick and i worked in a movie called John Wick 5\";\r\nString data2 = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to compare two strings alphabetically\r\n// Method: compareTo(other)\r\n// What:   returns 0 when both are equal, a negative number when this string comes first, a positive number when it comes after\r\n// Use:    to sort strings; the result is the difference of the first characters that differ\r\nint is_comapred = data.compareTo(data2); // '5' - '4' = 1, so data comes after data2\r\nSystem.out.print(\"Is compared: \" + is_comapred);",
       "metadata": {
         "language": "java",
         "id": "b7b96341-7f5b-4546-bad0-efc45cd17424",
@@ -283,7 +292,7 @@
     {
       "id": "4fe10327-96f0-4abb-99b0-1e248fe5269a",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nboolean is_start = name.startsWith(\"My name\"); // true\r\nSystem.out.print(\"Starts with 'My name': \" + is_start);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to check how the string begins\r\n// Method: startsWith(prefix)\r\n// What:   returns true when the string begins with exactly that prefix (case matters)\r\n// Use:    to check a title, a URL scheme (https://) or a file name pattern\r\nboolean is_start = name.startsWith(\"My name\"); // true, the sentence begins with \"My name\"\r\nSystem.out.print(\"Starts with 'My name': \" + is_start);",
       "metadata": {
         "language": "java",
         "id": "4fe10327-96f0-4abb-99b0-1e248fe5269a",
@@ -297,7 +306,7 @@
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "Starts with 'My name': false"
+            "text/plain": "Starts with 'My name': true"
           },
           "metadata": {},
           "execution_count": 48
@@ -307,7 +316,7 @@
     {
       "id": "300c9777-8b2c-4784-84f6-58f7f7edce07",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\nboolean is_start = name.endsWith(\"John Wick 4\"); // true\r\nSystem.out.print(\"ends with 'John Wick 4': \" + is_start);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to check how the string ends\r\n// Method: endsWith(suffix)\r\n// What:   returns true when the string ends with exactly that suffix (case matters)\r\n// Use:    to check a file extension (\".jpg\") or the last word\r\nboolean is_end = name.endsWith(\"John Wick 4\"); // true, the sentence ends with \"John Wick 4\"\r\nSystem.out.print(\"ends with 'John Wick 4': \" + is_end);",
       "metadata": {
         "language": "java",
         "id": "300c9777-8b2c-4784-84f6-58f7f7edce07",
@@ -331,7 +340,7 @@
     {
       "id": "359ee7ba-90ed-45bc-b317-03347c45ffec",
       "cell_type": "code",
-      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\nint length = name.length(); // true\r\nSystem.out.print(\"Length of the string: \" + length);",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to count the characters\r\n// Method: length()\r\n// What:   returns the number of characters, spaces included (a method, so it needs brackets)\r\n// Use:    to validate input length, or as the limit of a loop over the characters\r\nint length = name.length(); // 63 characters\r\nSystem.out.print(\"Length of the string: \" + length);",
       "metadata": {
         "language": "java",
         "id": "359ee7ba-90ed-45bc-b317-03347c45ffec",
@@ -351,6 +360,636 @@
           "execution_count": 52
         }
       ]
+    },
+    {
+      "id": "3281af67-61e8-4bf0-9afe-e7f4bc677218",
+      "cell_type": "markdown",
+      "source": "# Compare and check – methods\r\n\r\nMethods that **ask a question** about the text and return a `boolean` (or an `int` for `compareTo`).\r\n\r\n- `equals` / `equalsIgnoreCase` → is it the same text?\r\n- `compareTo` / `compareToIgnoreCase` → which one comes first alphabetically?\r\n- `isEmpty` / `isBlank` → is there any text at all?\r\n- `matches(regex)` → does the whole text follow a pattern?\r\n- `contains`, `startsWith`, `endsWith` → already covered in your cells above.",
+      "metadata": {
+        "language": "markdown",
+        "id": "3281af67-61e8-4bf0-9afe-e7f4bc677218"
+      }
+    },
+    {
+      "id": "a1c0402a-bc1e-4211-ade3-f1d2cb4e2ad1",
+      "cell_type": "code",
+      "source": "String a = \"John Doe\";\r\nString b = \"John Doe\";\r\nString c = new String(\"John Doe\"); // a new object with the same text\r\n\r\n//this is to compare the text of two strings\r\n// Method: equals(other)\r\n// What:   returns true when both strings have exactly the same characters (case matters)\r\n// Use:    to check if two strings are the same text; never use == for that\r\nSystem.out.println(\"a.equals(b): \" + a.equals(b));\r\nSystem.out.println(\"a.equals(c): \" + a.equals(c));\r\nSystem.out.println(\"a == b:      \" + (a == b));\r\nSystem.out.println(\"a == c:      \" + (a == c)); // false: different objects, same text",
+      "metadata": {
+        "language": "java",
+        "id": "a1c0402a-bc1e-4211-ade3-f1d2cb4e2ad1",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a.equals(b): true\r\na.equals(c): true\r\na == b:      true\r\na == c:      false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "3a413fda-17de-446b-9408-d284d1c72012",
+      "cell_type": "code",
+      "source": "String name = \"John Doe\";\r\n\r\n//this is to compare text while ignoring upper/lower case\r\n// Method: equalsIgnoreCase(other)\r\n// What:   returns true when both strings have the same characters, treating 'a' and 'A' as equal\r\n// Use:    for user input such as \"yes\" / \"YES\" / \"Yes\", or e-mail addresses\r\nSystem.out.println(\"equals:           \" + name.equals(\"john doe\"));\r\nSystem.out.println(\"equalsIgnoreCase: \" + name.equalsIgnoreCase(\"john doe\"));",
+      "metadata": {
+        "language": "java",
+        "id": "3a413fda-17de-446b-9408-d284d1c72012",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "equals:           false\r\nequalsIgnoreCase: true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "38853c8f-c87f-4440-959d-67029b96dd56",
+      "cell_type": "code",
+      "source": "String a = \"apple\";\r\nString b = \"Banana\";\r\n\r\n//this is to sort text alphabetically\r\n// Method: compareTo(other) / compareToIgnoreCase(other)\r\n// What:   0 when equal, negative when this string comes first, positive when it comes after\r\n// Use:    to sort strings; compareTo puts every capital letter before every small letter, compareToIgnoreCase does not\r\nSystem.out.println(\"apple.compareTo(Banana):           \" + a.compareTo(b));           // positive: 'a' (97) comes after 'B' (66)\r\nSystem.out.println(\"apple.compareToIgnoreCase(Banana): \" + a.compareToIgnoreCase(b)); // negative: a comes before b\r\nSystem.out.println(\"apple.compareTo(apple):            \" + a.compareTo(\"apple\"));",
+      "metadata": {
+        "language": "java",
+        "id": "38853c8f-c87f-4440-959d-67029b96dd56",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "apple.compareTo(Banana):           31\r\napple.compareToIgnoreCase(Banana): -1\r\napple.compareTo(apple):            0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "99e1ae68-828b-4cba-9df7-026bdfe3c294",
+      "cell_type": "code",
+      "source": "String empty = \"\";\r\nString spaces = \"     \";\r\nString text = \"John\";\r\n\r\n//this is to check if a string has no text\r\n// Method: isEmpty()\r\n// What:   true only when length() == 0\r\n// Use:    to check that a value was not left empty\r\nSystem.out.println(\"\\\"\\\".isEmpty():      \" + empty.isEmpty());\r\nSystem.out.println(\"\\\"     \\\".isEmpty(): \" + spaces.isEmpty());\r\n\r\n//this is to check if a string is empty or only white space\r\n// Method: isBlank()  [Java 11+]\r\n// What:   true when the string is empty or contains only spaces, tabs or new lines\r\n// Use:    to validate user input: \"   \" is not a real name\r\nSystem.out.println(\"\\\"\\\".isBlank():      \" + empty.isBlank());\r\nSystem.out.println(\"\\\"     \\\".isBlank(): \" + spaces.isBlank());\r\nSystem.out.println(\"\\\"John\\\".isBlank():  \" + text.isBlank());",
+      "metadata": {
+        "language": "java",
+        "id": "99e1ae68-828b-4cba-9df7-026bdfe3c294",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"\".isEmpty():      true\r\n\"     \".isEmpty(): false\r\n\"\".isBlank():      true\r\n\"     \".isBlank(): true\r\n\"John\".isBlank():  false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "e478d01d-dd91-4555-8b9a-f0a22e4023e0",
+      "cell_type": "code",
+      "source": "String pin = \"411001\";\r\nString phone = \"98765-43210\";\r\n\r\n//this is to check if the whole text follows a pattern\r\n// Method: matches(regex)\r\n// What:   true when the complete string matches the regular expression (\\\\d = a digit, {6} = exactly six times)\r\n// Use:    to validate formats such as PIN codes, phone numbers or e-mail addresses\r\nSystem.out.println(\"pin is 6 digits:   \" + pin.matches(\"\\\\d{6}\"));\r\nSystem.out.println(\"phone is 6 digits: \" + phone.matches(\"\\\\d{6}\"));\r\nSystem.out.println(\"phone is 5-5:      \" + phone.matches(\"\\\\d{5}-\\\\d{5}\"));",
+      "metadata": {
+        "language": "java",
+        "id": "e478d01d-dd91-4555-8b9a-f0a22e4023e0",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "pin is 6 digits:   true\r\nphone is 6 digits: false\r\nphone is 5-5:      true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "f5d681f1-9d58-477c-8553-3a4b3fb5d2fd",
+      "cell_type": "markdown",
+      "source": "# Search – methods\r\n\r\nMethods that **find a position** in the text. They return an `int` index, or `-1` when nothing is found.\r\n\r\n- `indexOf(text)` → first position.\r\n- `indexOf(text, from)` → first position **at or after** `from`.\r\n- `lastIndexOf(text)` → last position.\r\n- `charAt(index)` → the character at a position (already covered above). Combined with a loop it lets you look at every character.",
+      "metadata": {
+        "language": "markdown",
+        "id": "f5d681f1-9d58-477c-8553-3a4b3fb5d2fd"
+      }
+    },
+    {
+      "id": "14eb95c1-77f0-4649-ac10-43fcbdd1202b",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to find where a text first appears\r\n// Method: indexOf(text) / indexOf(char)\r\n// What:   returns the index of the first match, or -1 when the text is not there\r\n// Use:    to find a position before cutting with substring, or as a faster \"contains\" that also tells you where\r\nSystem.out.println(\"indexOf(\\\"John\\\"):  \" + name.indexOf(\"John\"));\r\nSystem.out.println(\"indexOf('W'):     \" + name.indexOf('W'));\r\nSystem.out.println(\"indexOf(\\\"Neo\\\"):   \" + name.indexOf(\"Neo\")); // -1 = not found",
+      "metadata": {
+        "language": "java",
+        "id": "14eb95c1-77f0-4649-ac10-43fcbdd1202b",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "indexOf(\"John\"):  11\r\nindexOf('W'):     16\r\nindexOf(\"Neo\"):   -1\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "bdd0a46c-bee7-469b-85cc-d6d04a5d0c08",
+      "cell_type": "code",
+      "source": "String name = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to find the next match after a position\r\n// Method: indexOf(text, fromIndex)\r\n// What:   searches only from fromIndex onwards; returns the index or -1\r\n// Use:    to find the second, third… occurrence\r\nint first = name.indexOf(\"John\");\r\nint second = name.indexOf(\"John\", first + 1);\r\nSystem.out.println(\"first John:  \" + first);\r\nSystem.out.println(\"second John: \" + second);\r\n\r\n//this is to find the last match\r\n// Method: lastIndexOf(text)\r\n// What:   searches from the end; returns the index of the last match or -1\r\n// Use:    to find a file extension (\".txt\") or the last word\r\nSystem.out.println(\"lastIndexOf(\\\"John\\\"): \" + name.lastIndexOf(\"John\"));\r\nSystem.out.println(\"lastIndexOf(\\\" \\\"):    \" + name.lastIndexOf(\" \"));",
+      "metadata": {
+        "language": "java",
+        "id": "bdd0a46c-bee7-469b-85cc-d6d04a5d0c08",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "first John:  11\r\nsecond John: 52\r\nlastIndexOf(\"John\"): 52\r\nlastIndexOf(\" \"):    61\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "c39e9b75-462e-48b6-b2da-807b466937b0",
+      "cell_type": "code",
+      "source": "String word = \"Mississippi\";\r\nchar letter = 's';\r\nint count = 0;\r\n\r\n//this is to look at every character one by one\r\n// Method: charAt(index) inside a for loop\r\n// What:   the loop index runs from 0 to length() - 1 and charAt gives the character at that position\r\n// Use:    to count, check or change single characters\r\nfor (int i = 0; i < word.length(); i++) {\r\n    if (word.charAt(i) == letter) {\r\n        count++;\r\n    }\r\n}\r\nSystem.out.println(\"'\" + letter + \"' appears \" + count + \" times in \" + word);\r\n\r\n//this is to turn a string into an array of characters\r\n// Method: toCharArray()\r\n// What:   returns a char[] with one slot per character\r\n// Use:    to use a for-each loop over the characters, or to sort / change them\r\nint vowels = 0;\r\nfor (char ch : word.toCharArray()) {\r\n    if (\"aeiouAEIOU\".indexOf(ch) != -1) {\r\n        vowels++;\r\n    }\r\n}\r\nSystem.out.println(\"vowels in \" + word + \": \" + vowels);",
+      "metadata": {
+        "language": "java",
+        "id": "c39e9b75-462e-48b6-b2da-807b466937b0",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "'s' appears 4 times in Mississippi\r\nvowels in Mississippi: 4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "62df4f74-4f52-426e-8676-f05cfc8c19ed",
+      "cell_type": "markdown",
+      "source": "# Change text – methods\r\n\r\nMethods that **return a new string** built from the old one. The original string is never modified (immutability).\r\n\r\n- Cut: `substring(begin)`, `substring(begin, end)`.\r\n- Replace: `replace`, `replaceAll`, `replaceFirst`.\r\n- White space: `trim`, `strip`, `stripLeading`, `stripTrailing`.\r\n- Split and join: `split`, `String.join`.\r\n- Repeat: `repeat`.\r\n- Case: `toUpperCase`, `toLowerCase` (already covered above).",
+      "metadata": {
+        "language": "markdown",
+        "id": "62df4f74-4f52-426e-8676-f05cfc8c19ed"
+      }
+    },
+    {
+      "id": "12e8cb7d-f242-4f3a-b7d4-35dc4660f455",
+      "cell_type": "code",
+      "source": "String name = \"john wick\";\r\n\r\n//this is to show that a String never changes\r\n// Method: (any String method, here toUpperCase())\r\n// What:   the method builds and returns a NEW string; the variable still points to the old one\r\n// Use:    always assign the result back, or to a new variable\r\nname.toUpperCase();\r\nSystem.out.println(\"after name.toUpperCase():        \" + name); // unchanged\r\n\r\nString upper = name.toUpperCase();\r\nSystem.out.println(\"after upper = name.toUpperCase(): \" + upper);\r\n\r\nname = name.toUpperCase();\r\nSystem.out.println(\"after name = name.toUpperCase():  \" + name); // now the variable holds the new string",
+      "metadata": {
+        "language": "java",
+        "id": "12e8cb7d-f242-4f3a-b7d4-35dc4660f455",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "after name.toUpperCase():        john wick\r\nafter upper = name.toUpperCase(): JOHN WICK\r\nafter name = name.toUpperCase():  JOHN WICK\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "90e0aa44-8723-45e0-9bcd-1f702cd6a3ce",
+      "cell_type": "code",
+      "source": "String fileName = \"holiday-photo.jpeg\";\r\n\r\n//this is to cut from a position to the end\r\n// Method: substring(beginIndex)\r\n// What:   returns the characters from beginIndex to the end (beginIndex is included)\r\n// Use:    to get the part after a separator, for example a file extension\r\nint dot = fileName.indexOf(\".\");\r\nString extension = fileName.substring(dot + 1);\r\nSystem.out.println(\"extension: \" + extension);\r\n\r\n//this is to cut a part out of the middle\r\n// Method: substring(beginIndex, endIndex)\r\n// What:   returns the characters from beginIndex up to, but NOT including, endIndex\r\n// Use:    to get the part before a separator, or any slice of the text\r\nString baseName = fileName.substring(0, dot);\r\nSystem.out.println(\"base name: \" + baseName);\r\nSystem.out.println(\"first word: \" + fileName.substring(0, fileName.indexOf(\"-\")));",
+      "metadata": {
+        "language": "java",
+        "id": "90e0aa44-8723-45e0-9bcd-1f702cd6a3ce",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "extension: jpeg\r\nbase name: holiday-photo\r\nfirst word: holiday\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "10e3c83d-337c-4a3d-ab44-ad2685e079d5",
+      "cell_type": "code",
+      "source": "String sentence = \"My name is John Wick and i worked in a movie called John Wick 4\";\r\n\r\n//this is to swap one character for another everywhere\r\n// Method: replace(oldChar, newChar)\r\n// What:   returns a new string with every oldChar changed to newChar\r\n// Use:    to change separators, e.g. spaces to underscores\r\nSystem.out.println(sentence.replace(' ', '_'));\r\n\r\n//this is to swap one piece of text for another everywhere\r\n// Method: replace(oldText, newText)\r\n// What:   returns a new string with EVERY occurrence of oldText changed to newText (plain text, no regex)\r\n// Use:    to fix a word, or to remove text by replacing it with \"\"\r\nSystem.out.println(sentence.replace(\"John Wick\", \"Neo\"));\r\nSystem.out.println(sentence.replace(\" and i worked in a movie called John Wick 4\", \"\"));",
+      "metadata": {
+        "language": "java",
+        "id": "10e3c83d-337c-4a3d-ab44-ad2685e079d5",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "My_name_is_John_Wick_and_i_worked_in_a_movie_called_John_Wick_4\r\nMy name is Neo and i worked in a movie called Neo 4\r\nMy name is John Wick\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "21925ff7-4a55-4cc9-8bb8-330c7d4aef8c",
+      "cell_type": "code",
+      "source": "String messy = \"Order   number:  1234,   total:  99\";\r\n\r\n//this is to replace using a pattern (regular expression)\r\n// Method: replaceAll(regex, replacement)\r\n// What:   every match of the pattern is replaced; \\\\s+ = one or more white-space characters, \\\\d = a digit\r\n// Use:    to clean up repeated spaces, or to hide/replace all digits at once\r\nSystem.out.println(messy.replaceAll(\"\\\\s+\", \" \"));\r\nSystem.out.println(messy.replaceAll(\"\\\\d\", \"#\"));\r\n\r\n//this is to replace only the first match of a pattern\r\n// Method: replaceFirst(regex, replacement)\r\n// What:   like replaceAll but stops after the first match\r\n// Use:    when only the first occurrence should change\r\nSystem.out.println(messy.replaceFirst(\"\\\\d+\", \"####\"));",
+      "metadata": {
+        "language": "java",
+        "id": "21925ff7-4a55-4cc9-8bb8-330c7d4aef8c",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Order number: 1234, total: 99\r\nOrder   number:  ####,   total:  ##\r\nOrder   number:  ####,   total:  99\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "a60e0e2f-0852-400a-b87d-86cd8097276a",
+      "cell_type": "code",
+      "source": "String padded = \"   John Wick   \";\r\n\r\n//this is to remove spaces at both ends\r\n// Method: trim() / strip()  [strip: Java 11+]\r\n// What:   both return the text without leading and trailing white space; strip also understands Unicode spaces\r\n// Use:    to clean user input before saving or comparing it\r\nSystem.out.println(\"[\" + padded.trim() + \"]\");\r\nSystem.out.println(\"[\" + padded.strip() + \"]\");\r\n\r\n//this is to remove spaces at only one end\r\n// Method: stripLeading() / stripTrailing()  [Java 11+]\r\n// What:   removes white space only at the start / only at the end\r\n// Use:    when the other side's spacing must stay as it is\r\nSystem.out.println(\"[\" + padded.stripLeading() + \"]\");\r\nSystem.out.println(\"[\" + padded.stripTrailing() + \"]\");\r\nSystem.out.println(\"lengths: \" + padded.length() + \" -> \" + padded.strip().length());",
+      "metadata": {
+        "language": "java",
+        "id": "a60e0e2f-0852-400a-b87d-86cd8097276a",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[John Wick]\r\n[John Wick]\r\n[John Wick   ]\r\n[   John Wick]\r\nlengths: 15 -> 9\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "5aad2dcb-4fb0-4890-8ad4-eaf8dee9961d",
+      "cell_type": "code",
+      "source": "String csv = \"Zoya,Jane,,Doe\";\r\nString spaced = \"one   two three\";\r\n\r\n//this is to cut a string into pieces at a separator\r\n// Method: split(regex)\r\n// What:   returns a String[]; the separator is a regular expression, so \".\" or \"|\" must be escaped as \"\\\\.\" / \"\\\\|\"\r\n// Use:    to read comma-separated values or words of a sentence\r\nString[] names = csv.split(\",\");\r\nSystem.out.println(\"pieces: \" + names.length + \" -> \" + Arrays.toString(names)); // the empty piece between ,, is kept\r\n\r\n//this is to split on any amount of white space\r\n// Method: split(\"\\\\s+\")\r\n// What:   \\\\s+ matches one or more spaces/tabs, so repeated spaces do not create empty pieces\r\n// Use:    to get the words of text with irregular spacing\r\nSystem.out.println(\"words:  \" + Arrays.toString(spaced.split(\"\\\\s+\")));\r\n\r\n//this is to limit the number of pieces\r\n// Method: split(regex, limit)\r\n// What:   splits at most limit - 1 times; the last piece keeps the rest of the text\r\n// Use:    to separate a key from a value when the value may itself contain the separator\r\nSystem.out.println(\"limit 2: \" + Arrays.toString(\"key=value=with=equals\".split(\"=\", 2)));",
+      "metadata": {
+        "language": "java",
+        "id": "5aad2dcb-4fb0-4890-8ad4-eaf8dee9961d",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "pieces: 4 -> [Zoya, Jane, , Doe]\r\nwords:  [one, two, three]\r\nlimit 2: [key, value=with=equals]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "b8458b52-8bc7-4c9a-b1d6-d6d357563c76",
+      "cell_type": "code",
+      "source": "//this is to repeat text\r\n// Method: repeat(count)  [Java 11+]\r\n// What:   returns the string glued to itself count times\r\n// Use:    for separators, padding or simple patterns\r\nSystem.out.println(\"-\".repeat(20));\r\nSystem.out.println(\"ab\".repeat(3));\r\n\r\n//this is to glue many pieces together with a separator\r\n// Method: String.join(separator, pieces...) / String.join(separator, list)\r\n// What:   static method: puts the separator between every piece, with none at the ends\r\n// Use:    the opposite of split: to build \"a, b, c\" from a list\r\nSystem.out.println(String.join(\", \", \"Zoya\", \"Jane\", \"Doe\"));\r\n\r\nList<String> cities = List.of(\"Mumbai\", \"Delhi\", \"Pune\");\r\nSystem.out.println(String.join(\" -> \", cities));\r\nSystem.out.println(\"-\".repeat(20));",
+      "metadata": {
+        "language": "java",
+        "id": "b8458b52-8bc7-4c9a-b1d6-d6d357563c76",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "--------------------\r\nababab\r\nZoya, Jane, Doe\r\nMumbai -> Delhi -> Pune\r\n--------------------\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "1bb9d983-39b5-4719-8295-0e170cb0f841",
+      "cell_type": "markdown",
+      "source": "# Convert and format – methods\r\n\r\nGoing **between text and other types**, and building text with placeholders.\r\n\r\n- Number → text: `String.valueOf(42)`, `Integer.toString(42)`, or simply `42 + \"\"`.\r\n- Text → number: `Integer.parseInt(\"42\")`, `Double.parseDouble(\"3.5\")`. Fails with `NumberFormatException` if the text is not a number.\r\n- `toCharArray()` → `char[]`, and `new String(char[])` back again.\r\n- `String.format(...)` / `\"...\".formatted(...)` → fill placeholders like `%s` and `%d`.\r\n- Text blocks `\"\"\" ... \"\"\"` (Java 15+) → multi-line strings without `\\n`.\r\n- `Character.isDigit`, `Character.isLetter`, `Character.toUpperCase` → questions about a single `char`.",
+      "metadata": {
+        "language": "markdown",
+        "id": "1bb9d983-39b5-4719-8295-0e170cb0f841"
+      }
+    },
+    {
+      "id": "b1610228-252a-4d76-93af-bce6f4e596df",
+      "cell_type": "code",
+      "source": "int age = 20;\r\ndouble price = 99.5;\r\nboolean active = true;\r\n\r\n//this is to turn a number (or anything) into text\r\n// Method: String.valueOf(x) / Integer.toString(n)\r\n// What:   static methods that return the value as a String\r\n// Use:    before calling String methods on a number (e.g. to count its digits), or to build messages\r\nString ageText = String.valueOf(age);\r\nSystem.out.println(\"digits in age: \" + ageText.length());\r\nSystem.out.println(\"Integer.toString(age): \" + Integer.toString(age));\r\nSystem.out.println(\"String.valueOf(price): \" + String.valueOf(price));\r\nSystem.out.println(\"String.valueOf(active): \" + String.valueOf(active));\r\n\r\n// the shortcut: joining with \"\" also converts\r\nString quick = age + \"\";\r\nSystem.out.println(\"age + \\\"\\\" -> \\\"\" + quick + \"\\\" (length \" + quick.length() + \")\");",
+      "metadata": {
+        "language": "java",
+        "id": "b1610228-252a-4d76-93af-bce6f4e596df",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "digits in age: 2\r\nInteger.toString(age): 20\r\nString.valueOf(price): 99.5\r\nString.valueOf(active): true\r\nage + \"\" -> \"20\" (length 2)\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "id": "cd53238e-c682-43a5-8dad-c9b864b5cca3",
+      "cell_type": "code",
+      "source": "String ageText = \"20\";\r\nString priceText = \"99.5\";\r\n\r\n//this is to turn text into a number\r\n// Method: Integer.parseInt(text) / Double.parseDouble(text)\r\n// What:   static methods that read the text and return an int / double; throw NumberFormatException if the text is not a number\r\n// Use:    user input and file contents always arrive as text; convert before doing maths\r\nint age = Integer.parseInt(ageText);\r\ndouble price = Double.parseDouble(priceText);\r\n\r\nSystem.out.println(\"age + 1 as text:   \" + (ageText + 1)); // \"201\": text joining, not maths\r\nSystem.out.println(\"age + 1 as number: \" + (age + 1));     // 21\r\nSystem.out.println(\"price * 2:         \" + (price * 2));\r\n\r\n// Integer.parseInt(\"abc\");   // ❌ NumberFormatException: For input string: \"abc\"\r\n// Integer.parseInt(\" 20 \");  // ❌ spaces are not allowed either; use \" 20 \".trim() first",
+      "metadata": {
+        "language": "java",
+        "id": "cd53238e-c682-43a5-8dad-c9b864b5cca3",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "age + 1 as text:   201\r\nage + 1 as number: 21\r\nprice * 2:         199.0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "ccc7f57b-f535-4eb8-8f3c-623c1f59e785",
+      "cell_type": "code",
+      "source": "String name = \"John Wick\";\r\nint movies = 4;\r\ndouble rating = 7.45;\r\n\r\n//this is to build text with placeholders\r\n// Method: String.format(template, values...) / template.formatted(values...)  [formatted: Java 15+]\r\n// What:   %s = any value as text, %d = whole number, %.1f = decimal with 1 digit after the point, %n = new line\r\n// Use:    to build neat messages and tables without many + signs\r\nString line = String.format(\"%s acted in %d movies with a rating of %.1f\", name, movies, rating);\r\nSystem.out.println(line);\r\nSystem.out.println(\"%s acted in %d movies\".formatted(name, movies));\r\n\r\n// width: %-10s pads to 10 characters on the right, %5d pads to 5 on the left\r\nSystem.out.println(String.format(\"|%-10s|%5d|\", \"Name\", 1));\r\nSystem.out.println(String.format(\"|%-10s|%5d|\", \"John Wick\", 4));",
+      "metadata": {
+        "language": "java",
+        "id": "ccc7f57b-f535-4eb8-8f3c-623c1f59e785",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "John Wick acted in 4 movies with a rating of 7.5\r\nJohn Wick acted in 4 movies\r\n|Name      |    1|\r\n|John Wick |    4|\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "605a0f65-af58-4ba1-b014-afc7aa616ee7",
+      "cell_type": "code",
+      "source": "//this is to write a multi-line string\r\n// Method: text block \"\"\" ... \"\"\"  [Java 15+]\r\n// What:   everything between the opening \"\"\" (on its own line) and the closing \"\"\" is the string, line breaks included\r\n// Use:    for HTML, JSON, SQL or any text that spans several lines, instead of many \"...\" + \"\\\\n\"\r\nString json = \"\"\"\r\n    {\r\n      \"name\": \"John Wick\",\r\n      \"movies\": 4\r\n    }\r\n    \"\"\";\r\nSystem.out.println(json);\r\n\r\n// the old way, for comparison\r\nString oldWay = \"{\\n\" +\r\n                \"  \\\"name\\\": \\\"John Wick\\\",\\n\" +\r\n                \"  \\\"movies\\\": 4\\n\" +\r\n                \"}\";\r\nSystem.out.println(oldWay.equals(json.strip()));",
+      "metadata": {
+        "language": "java",
+        "id": "605a0f65-af58-4ba1-b014-afc7aa616ee7",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "{\r\n  \"name\": \"John Wick\",\r\n  \"movies\": 4\r\n}\r\n\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "43a72aba-539a-4897-98a2-cdeae2cffd29",
+      "cell_type": "code",
+      "source": "String password = \"Wick2024\";\r\nint letters = 0;\r\nint digits = 0;\r\nint capitals = 0;\r\n\r\n//this is to ask questions about a single character\r\n// Method: Character.isLetter(ch) / Character.isDigit(ch) / Character.isUpperCase(ch)\r\n// What:   static helper methods on the Character class that return true / false for one char\r\n// Use:    to validate passwords, count letters vs digits, check input one character at a time\r\nfor (char ch : password.toCharArray()) {\r\n    if (Character.isLetter(ch)) letters++;\r\n    if (Character.isDigit(ch)) digits++;\r\n    if (Character.isUpperCase(ch)) capitals++;\r\n}\r\nSystem.out.println(\"letters: \" + letters + \", digits: \" + digits + \", capitals: \" + capitals);\r\n\r\n//this is to change the case of one character\r\n// Method: Character.toUpperCase(ch) / Character.toLowerCase(ch)\r\n// What:   returns the changed char (the String versions change the whole string)\r\n// Use:    to capitalise only the first letter of a word\r\nString word = \"mumbai\";\r\nString capitalised = Character.toUpperCase(word.charAt(0)) + word.substring(1);\r\nSystem.out.println(capitalised);",
+      "metadata": {
+        "language": "java",
+        "id": "43a72aba-539a-4897-98a2-cdeae2cffd29",
+        "executionSummary": {
+          "executionOrder": 20,
+          "success": true
+        }
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "letters: 4, digits: 4, capitals: 1\r\nMumbai\r\n"
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "id": "bca8e46a-96f3-4247-aadd-95b241e790d2",
+      "cell_type": "markdown",
+      "source": "# StringBuilder – properties and methods\r\n\r\n`StringBuilder` (from `java.lang`) is a **mutable** piece of text: unlike `String`, its methods change the object itself.\r\n\r\n**Properties**\r\n- **Mutable**: `append`, `insert`, `delete`, `reverse`… change the builder in place and also return it, so calls can be chained: `sb.append(\"a\").append(\"b\")`.\r\n- Much **faster** than `+=` inside a loop. `s += \"x\"` creates a brand-new `String` every time; `sb.append(\"x\")` just adds to the same buffer.\r\n- Has a **capacity** (default 16 characters) that grows automatically, like an `ArrayList`.\r\n- Call `toString()` to get a normal `String` at the end.\r\n- **Not synchronized** (not thread-safe). Its thread-safe twin is `StringBuffer` (same methods, slower).\r\n- No `equals` by content: `sb1.equals(sb2)` compares references. Compare with `sb1.toString().equals(sb2.toString())` or `sb1.compareTo(sb2)` (Java 11+).",
+      "metadata": {
+        "language": "markdown",
+        "id": "bca8e46a-96f3-4247-aadd-95b241e790d2"
+      }
+    },
+    {
+      "id": "6574565f-e6b9-4773-a297-9115a027cad7",
+      "cell_type": "code",
+      "source": "//Syntax\r\n//StringBuilder variable_name = new StringBuilder();\r\n\r\n//this is to create an empty builder\r\n// Method: new StringBuilder() / new StringBuilder(\"start text\")\r\n// What:   creates a mutable text buffer (default capacity 16, grows when needed)\r\n// Use:    when you will add to the text many times\r\nStringBuilder sb = new StringBuilder();\r\n\r\n//this is to add text to the end\r\n// Method: append(x)\r\n// What:   adds x (any type: String, char, int, boolean…) at the end and returns the same builder, so calls can be chained\r\n// Use:    to build a result step by step\r\nsb.append(\"John\").append(' ').append(\"Wick\").append(' ').append(4);\r\nSystem.out.println(\"builder: \" + sb);\r\nSystem.out.println(\"length:  \" + sb.length());\r\n\r\n//this is to get a normal String back\r\n// Method: toString()\r\n// What:   returns the current content as an immutable String\r\n// Use:    when you are done building and need a String (to store, compare or return it)\r\nString result = sb.toString();\r\nSystem.out.println(\"string:  \" + result);",
+      "metadata": {
+        "language": "java",
+        "id": "6574565f-e6b9-4773-a297-9115a027cad7",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "builder: John Wick 4\r\nlength:  11\r\nstring:  John Wick 4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "b04d1dbd-0591-442c-8f15-487060afd7cd",
+      "cell_type": "code",
+      "source": "StringBuilder sb = new StringBuilder(\"John Wick\");\r\n\r\n//this is to add text at a position\r\n// Method: insert(index, x)\r\n// What:   puts x at index and shifts the rest to the right (changes the builder itself)\r\n// Use:    to add a prefix or a word in the middle\r\nsb.insert(0, \"Mr. \");\r\nSystem.out.println(sb);\r\n\r\n//this is to replace a range of characters\r\n// Method: replace(start, end, text)\r\n// What:   removes the characters from start up to (not including) end and puts text there\r\n// Use:    to change a part of the text by position (String.replace works by content instead)\r\nsb.replace(4, 8, \"Neo\");\r\nSystem.out.println(sb);\r\n\r\n//this is to remove characters\r\n// Method: delete(start, end) / deleteCharAt(index)\r\n// What:   delete removes a range (end excluded); deleteCharAt removes one character\r\n// Use:    to cut text out without building a new string\r\nsb.delete(0, 4);\r\nSystem.out.println(sb);\r\nsb.deleteCharAt(sb.length() - 1);\r\nSystem.out.println(sb);",
+      "metadata": {
+        "language": "java",
+        "id": "b04d1dbd-0591-442c-8f15-487060afd7cd",
+        "executionSummary": {
+          "executionOrder": 22,
+          "success": true
+        }
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Mr. John Wick\r\nMr. Neo Wick\r\nNeo Wick\r\nNeo Wic\r\n"
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "id": "6f772889-d8d7-48e6-9909-bf2756e626e7",
+      "cell_type": "code",
+      "source": "StringBuilder sb = new StringBuilder(\"level\");\r\n\r\n//this is to flip the text\r\n// Method: reverse()\r\n// What:   reverses the characters in place and returns the builder\r\n// Use:    to check for palindromes or reverse a word (String has no reverse method)\r\nString reversed = sb.reverse().toString();\r\nSystem.out.println(\"reversed: \" + reversed);\r\nSystem.out.println(\"is 'level' a palindrome? \" + \"level\".equals(reversed));\r\n\r\n//this is to change one character\r\n// Method: setCharAt(index, ch) / charAt(index)\r\n// What:   setCharAt overwrites the character at index (a String cannot do this); charAt reads it\r\n// Use:    to fix a single letter without rebuilding the text\r\nStringBuilder name = new StringBuilder(\"jack\");\r\nname.setCharAt(0, Character.toUpperCase(name.charAt(0)));\r\nSystem.out.println(\"fixed:    \" + name);",
+      "metadata": {
+        "language": "java",
+        "id": "6f772889-d8d7-48e6-9909-bf2756e626e7",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "reversed: level\r\nis 'level' a palindrome? true\r\nfixed:    Jack\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "id": "646d563c-8b9d-4ad1-894f-6a6acf37c26d",
+      "cell_type": "code",
+      "source": "List<String> names = List.of(\"Zoya\", \"Jane\", \"Doe\", \"Arbaz\");\r\n\r\n//this is to build text in a loop the slow way\r\n// Method: += on a String\r\n// What:   every += creates a NEW String and copies all the old characters into it\r\n// Use:    fine for 2 or 3 joins; avoid inside loops with many iterations\r\nString slow = \"\";\r\nfor (String n : names) {\r\n    slow += n + \", \";\r\n}\r\nSystem.out.println(\"with +=:            \" + slow);\r\n\r\n//this is to build text in a loop the fast way\r\n// Method: StringBuilder.append in a loop + setLength(n)\r\n// What:   append adds to the same buffer; setLength(n) cuts the text to n characters (here: drops the last \", \")\r\n// Use:    whenever you join many pieces: logs, reports, CSV lines\r\nStringBuilder sb = new StringBuilder();\r\nfor (String n : names) {\r\n    sb.append(n).append(\", \");\r\n}\r\nsb.setLength(sb.length() - 2);\r\nSystem.out.println(\"with StringBuilder: \" + sb);\r\n\r\n// Same result in one line, when you only need a separator:\r\nSystem.out.println(\"with String.join:   \" + String.join(\", \", names));",
+      "metadata": {
+        "language": "java",
+        "id": "646d563c-8b9d-4ad1-894f-6a6acf37c26d",
+        "executionSummary": {
+          "executionOrder": 24,
+          "success": true
+        }
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "with +=:            Zoya, Jane, Doe, Arbaz, \r\nwith StringBuilder: Zoya, Jane, Doe, Arbaz\r\nwith String.join:   Zoya, Jane, Doe, Arbaz\r\n"
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "id": "b97e14e6-6195-4d21-9afb-97e2583a3425",
+      "cell_type": "markdown",
+      "source": "# String vs StringBuilder vs StringBuffer\r\n\r\n| | `String` | `StringBuilder` | `StringBuffer` |\r\n|---|---|---|---|\r\n| Can it change? | ❌ Immutable (methods return a new string) | ✅ Mutable (methods change it in place) | ✅ Mutable |\r\n| Thread-safe | ✅ (because it never changes) | ❌ | ✅ Synchronized |\r\n| Speed when building text in a loop | Slow (`+=` copies every time) | Fastest | Slower than `StringBuilder` (locking) |\r\n| Compare content | `equals(other)` | `toString().equals(...)` or `compareTo` | `toString().equals(...)` or `compareTo` |\r\n| Package | `java.lang` | `java.lang` | `java.lang` |\r\n| Use when | Text that does not change: names, messages, keys | Building or editing text step by step | Same, but shared between threads (rare) |\r\n\r\n**Rule of thumb:** use `String` everywhere by default. Switch to `StringBuilder` only when you build text in a loop or edit it many times.",
+      "metadata": {
+        "language": "markdown",
+        "id": "b97e14e6-6195-4d21-9afb-97e2583a3425"
+      }
     }
   ]
 }
