@@ -1325,6 +1325,29 @@
       ]
     },
     {
+      "id": "94ffc0a1-e869-4e3b-a73b-c5c6300e9f5c",
+      "cell_type": "code",
+      "source": "String str = \"Hello, World!\";\r\n\r\nString[] data = str.split(\",\");\r\nSystem.out.println(\"The array is: \" + Arrays.toString(data));\r\n\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The array is: [Hello,  World!]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
       "id": "c4647e36-a656-4c3c-8b67-a2e968bd0b27",
       "cell_type": "markdown",
       "source": "# Array vs ArrayList vs List vs Vector\r\n\r\n| | Array (`String[]`) | `ArrayList` | `List` | `Vector` |\r\n|---|---|---|---|---|\r\n| What it is | Built-in language feature | Class | Interface | Class (legacy) |\r\n| Size | Fixed | Grows by ~50% | Depends on implementation | Grows ×2 (or by `capacityIncrement`) |\r\n| Stores primitives (`int`) | ✅ Yes | ❌ No, use `Integer` | ❌ No, use `Integer` | ❌ No, use `Integer` |\r\n| Length / size | `arr.length` | `list.size()` | `list.size()` | `vector.size()` |\r\n| Read item | `arr[i]` | `list.get(i)` | `list.get(i)` | `vector.get(i)` / `elementAt(i)` |\r\n| Thread-safe | ❌ | ❌ | Depends | ✅ Synchronized |\r\n| Speed | Fastest | Fast | Depends | Slower (locking) |\r\n| Use when | Size is known and fixed | Default choice for a list | Declaring variables and parameters | Maintaining old code |",

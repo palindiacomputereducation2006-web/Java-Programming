@@ -118,6 +118,7 @@
       "source": "ArrayList<String> arr = new ArrayList<String>();\r\nString [] names = {\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"};\r\narr.addAll(List.of(names));\r\n\r\nSystem.out.println(\"these are the names : \" + arr);\r\n\r\nint index = 5;\r\nString change_name = \"Javed\";\r\n\r\nfor (String name : arr){\r\n    int indexOfName = arr.indexOf(name);\r\n    if(indexOfName == index){\r\n        arr.set(indexOfName,change_name);\r\n        break;\r\n    }\r\n}\r\n\r\nSystem.out.println(\"these are the names after the change : \" + arr);",
       "metadata": {
         "language": "java",
+        "id": "f017985e-7945-4b8d-8965-e32906d54550",
         "executionSummary": {
           "executionOrder": 5,
           "success": true
@@ -141,6 +142,7 @@
       "source": "ArrayList<String> arr = new ArrayList<String>();\r\nString [] names = {\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"};\r\narr.addAll(List.of(names));\r\n\r\nSystem.out.println(\"these are the inital names : \" + arr);\r\n\r\nList<Integer> data_array = new ArrayList<Integer>();\r\ndata_array.addAll(List.of(0,1,2,3,4,5,6));\r\n\r\nList<String> replacement_names = new ArrayList<String>();\r\nreplacement_names.addAll(List.of(\"Junaid\",\"Humaira\",\"Ali\",\"Ayesha\",\"Hassan\",\"Hina\",\"Sana\"));\r\n\r\nfor (int i = 0; i < data_array.size(); i++){\r\n    for (String name : arr){\r\n        int indexOfName = arr.indexOf(name);\r\n        if(indexOfName == data_array.get(i)){\r\n            arr.set(indexOfName,replacement_names.get(i));\r\n            break;\r\n        }\r\n\r\n    }\r\n}\r\n\r\nSystem.out.println(\"these are the names after the change Final names : \" + arr);\r\n",
       "metadata": {
         "language": "java",
+        "id": "a06d3ef8-3ca7-4382-a894-142c1a7a1c51",
         "executionSummary": {
           "executionOrder": 11,
           "success": true
@@ -155,6 +157,126 @@
           },
           "metadata": {},
           "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "16e3c9bd-4e7c-4edd-a685-9484d028a156",
+      "cell_type": "code",
+      "source": "//Syntax\r\n\r\n// while(condition){\r\n    //Block of code\r\n// }\r\n\r\n\r\nArrayList<String> arr = new ArrayList<String>();\r\narr.addAll(List.of(\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"));\r\n\r\nwhile(arr.size() > 0){\r\n    System.out.println(\"the number of iterations for :\" + arr);\r\n    arr.remove(0);\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "16e3c9bd-4e7c-4edd-a685-9484d028a156",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the number of iterations for :[John, Jane, Jack, Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jane, Jack, Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jack, Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jill, James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[James, Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jenny, Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Joe, Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jasmine, Jordan, Javier]\r\nthe number of iterations for :[Jordan, Javier]\r\nthe number of iterations for :[Javier]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "a1e98a5c-061c-429e-8f34-f470e0a2b479",
+      "cell_type": "code",
+      "source": "//Syntax\r\n\r\n// while(condition){\r\n    //Block of code\r\n// }\r\nArrayList<Integer> arr = new ArrayList<Integer>();\r\nint limit = 5;\r\nwhile(arr.size() <= (limit - 1)){\r\n    Scanner scn = new Scanner(System.in);\r\n    int num = scn.nextInt();\r\n    arr.add(num);\r\n}\r\n\r\nSystem.out.println(\"the numbers entered are : \" + arr);",
+      "metadata": {
+        "language": "java",
+        "id": "a1e98a5c-061c-429e-8f34-f470e0a2b479",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the numbers entered are : [12, 12, 45, 65, 32]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "a60e250c-9219-4b25-8f0d-2e30850b969e",
+      "cell_type": "code",
+      "source": "int interation = 10;\r\n\r\nwhile(interation > 0){\r\n    System.out.println(\"Iteration remaining: \" + interation);\r\n    interation--;\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "a60e250c-9219-4b25-8f0d-2e30850b969e",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Iteration remaining: 10\r\nIteration remaining: 9\r\nIteration remaining: 8\r\nIteration remaining: 7\r\nIteration remaining: 6\r\nIteration remaining: 5\r\nIteration remaining: 4\r\nIteration remaining: 3\r\nIteration remaining: 2\r\nIteration remaining: 1\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "2a4bdb6b-726a-497f-b3c5-8c344bba225b",
+      "cell_type": "code",
+      "source": "Scanner scn = new Scanner(System.in);\r\nint age;\r\ndo {\r\n    System.out.print(\"Please enter your age (Must be between 1 and 120): \");\r\n    age = scn.nextInt();\r\n    \r\n    // if (age < 1 || age > 120) {\r\n    //     System.out.println(\"Error: That age is physically impossible!\");\r\n    // }else{\r\n    //     System.out.println(\"Thank you! Your age is: \" + age);\r\n    // }\r\n\r\n    System.out.println(\"Thank you! Your age is: \" + age);\r\n            \r\n} while (age < 1 || age > 120);",
+      "metadata": {
+        "language": "java",
+        "id": "2a4bdb6b-726a-497f-b3c5-8c344bba225b",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Please enter your age (Must be between 1 and 120): Thank you! Your age is: 0\r\nPlease enter your age (Must be between 1 and 120): Thank you! Your age is: 12\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "34975a48-32d3-42d1-8124-496cb2c594ce",
+      "cell_type": "code",
+      "source": "ArrayList<String> arr = new ArrayList<String>();\r\narr.addAll(List.of(\"John\", \"Jane\", \"Jack\", \"Jill\", \"James\",\"Jenny\", \"Joe\", \"Jasmine\", \"Jordan\", \"Javier\"));\r\n\r\nint i = 0;\r\nint arr_length = arr.size();\r\ndo{\r\n    String current_name = arr.get(i);\r\n    System.out.println(\"the number of iterations for :\" + current_name);\r\n    if(current_name == \"Jill\"){\r\n        System.out.println(\"the name is found at index : \" + i);\r\n        break;\r\n    }else{\r\n        System.out.println(\"the name is not found at index : \" + i);\r\n        i++;\r\n    }\r\n    \r\n}while(arr_length != i);",
+      "metadata": {
+        "language": "java",
+        "id": "34975a48-32d3-42d1-8124-496cb2c594ce",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "the number of iterations for :John\r\nthe name is not found at index : 0\r\nthe number of iterations for :Jane\r\nthe name is not found at index : 1\r\nthe number of iterations for :Jack\r\nthe name is not found at index : 2\r\nthe number of iterations for :Jill\r\nthe name is found at index : 3\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
         }
       ]
     }
