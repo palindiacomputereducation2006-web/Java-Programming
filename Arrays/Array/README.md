@@ -26,7 +26,8 @@ The notebook is grouped by type. Each group starts with a **text cell that lists
 | 2. ArrayList | 1 text + 24 code | Create, add and print, your examples, then one operation per cell |
 | 3. List | 1 text + 13 code | `List` interface, `List.of`, `Arrays.asList`, `List.copyOf`, Java 21 methods |
 | 4. Vector | 1 text + 15 code | Capacity and legacy methods |
-| 5. Comparison | 1 text cell | Array vs `ArrayList` vs `List` vs `Vector` |
+| 5. String → array | 1 code | `split(",")` turns a `String` into a `String[]`; `Arrays.toString` prints it |
+| 6. Comparison | 1 text cell | Array vs `ArrayList` vs `List` vs `Vector` |
 
 Each code cell **creates its own list first**, so every cell can be run on its own and in any order.
 
@@ -254,6 +255,44 @@ System.out.println(colors.capacity());      // 10
 
 ---
 
+## Part 5 – From a `String` to an array with `split`
+
+A normal array (Part 1) does not have to be typed out by hand. Any text can be **cut into pieces**, and the pieces come back as a `String[]`.
+
+**Code**
+
+```java
+String str = "Hello, World!";
+
+String[] data = str.split(",");
+System.out.println("The array is: " + Arrays.toString(data));
+```
+
+**How it runs**
+
+- `split(",")` looks for every comma in the text and cuts there. The commas themselves are thrown away.
+- `"Hello, World!"` has one comma, so the result is an array of **2** items: `"Hello"` and `" World!"`.
+- `Arrays.toString(data)` turns the array into readable text. Printing `data` directly would only show a memory address like `[Ljava.lang.String;@1b6d3586`.
+
+**Output**
+
+```
+The array is: [Hello,  World!]
+```
+
+> Look closely at the output: there are **two spaces** before `World!`. One is the separator `Arrays.toString` always prints, the other is the space that came after the comma in the original text. `split` keeps it. To cut it off, split on `", "` (comma and space) or `trim()` each piece.
+
+| Method | What it does | Example |
+|---|---|---|
+| `str.split(separator)` | Cuts a `String` into a `String[]` at every separator | `"a,b,c".split(",")` → `[a, b, c]` |
+| `Arrays.toString(array)` | Readable text for any array | `[Hello,  World!]` |
+| `data.length` | Number of pieces | `2` |
+| `data[0]` | First piece | `Hello` |
+
+`split` is a `String` method; the [Strings](../../Strings/README.md#part-4--change-text) lesson covers it in more detail (splitting on spaces, keeping empty pieces, limiting the number of pieces) together with its opposite, `String.join`.
+
+---
+
 ## Summary
 
 | | Array | `ArrayList` | `List` | `Vector` |
@@ -270,6 +309,7 @@ System.out.println(colors.capacity());      // 10
 
 - **Array cell:** the comment says `// Output: The first name is: John`, but the array starts with `"Zoya"`, so the real output is `Zoya`.
 - **ArrayList – `clear` cell:** has an unfinished line `namesList.` before the last `println`. The saved output is from before that line was added. Delete the line, or the cell will not run.
+- **`split` cell (after Vector):** sits between the last `Vector` cell and the comparison table, but it is about a plain `String[]`, not `Vector`. It belongs with Part 1 (Array). Move it up, or read it as a stand-alone extra.
 - **ArrayList – `contains` cell:** declares `boolean is_exist` three times. A notebook allows this (each one replaces the last), but in a normal `.java` file it is a compile error. Use a different name for each, or declare it once and reassign it. Its saved output also has an extra `The list is: …` line from an older version of the code. Run the cell again to refresh it.
 
 **Previous lesson:** [Conditionals](../../Conditionals/README.md) · **Next lesson:** [Sets](../Sets/README.md)

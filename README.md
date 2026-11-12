@@ -7,11 +7,11 @@ This repository is a set of beginner Java lessons. They are written as **interac
 | [variables](variables/README.md) | `variable.ijnb` | Data types, declaring variables, constants (`final`), reassigning values |
 | [Operators](Operators/README.md) | `Operators.ijnb` | Comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) and logical operators (`&&`, `\|\|`, `!`) |
 | [Conditionals](Conditionals/README.md) | `conditionals.ijnb` | `if`, `if … else`, `if … else if … else` |
-| [Arrays](Arrays/Array/README.md) | `Arrays/Array/Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method |
+| [Arrays](Arrays/Array/README.md) | `Arrays/Array/Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method; `String.split` → `String[]` |
 | [Sets](Arrays/Sets/README.md) | `Arrays/Sets/Sets.ijnb` | `Set`, `HashSet`, `LinkedHashSet` and `TreeSet`: unique values, set operations, sorted sets |
 | [Maps](Arrays/Maps/README.md) | `Arrays/Maps/Maps.ijnb` | `Map`, `HashMap`, `LinkedHashMap` and `TreeMap`: key → value pairs, counting, sorted keys |
-| [Loops](Loops/README.md) | `Loops/loops.ijnb` | `for` and for-each loops, `break`, nested loops over `ArrayList` and `List` |
-| [Strings](Strings/README.md) | `Strings/String.ijnb` | `String` methods: `contains`, `trim`, `substring`, `split`, `toUpperCase`, `charAt`, `concat`, `compareTo`, `startsWith`, `endsWith`, `length` |
+| [Loops](Loops/README.md) | `Loops/loops.ijnb` | `for`, for-each, `while` and `do … while` loops, `break`, nested loops over `ArrayList` and `List`, keyboard input with `Scanner` |
+| [Strings](Strings/README.md) | `Strings/String.ijnb` | `String` methods (`contains`, `trim`, `substring`, `split`, `indexOf`, `replace`, `equals`, `format`, …), `StringBuilder`, text blocks |
 
 Suggested order: **variables → Operators → Conditionals → Arrays → Sets → Maps → Loops → Strings**
 
