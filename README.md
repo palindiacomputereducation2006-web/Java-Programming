@@ -10,8 +10,10 @@ This repository is a set of beginner Java lessons. They are written as **interac
 | [Arrays](Arrays/Array/README.md) | `Arrays/Array/Arrays.ijnb` | Arrays (`String[]`), `ArrayList`, `List` (`List.of`, `Arrays.asList`, `List.copyOf`) and `Vector`, with one cell per method |
 | [Sets](Arrays/Sets/README.md) | `Arrays/Sets/Sets.ijnb` | `Set`, `HashSet`, `LinkedHashSet` and `TreeSet`: unique values, set operations, sorted sets |
 | [Maps](Arrays/Maps/README.md) | `Arrays/Maps/Maps.ijnb` | `Map`, `HashMap`, `LinkedHashMap` and `TreeMap`: key → value pairs, counting, sorted keys |
+| [Loops](Loops/README.md) | `Loops/loops.ijnb` | `for` and for-each loops, `break`, nested loops over `ArrayList` and `List` |
+| [Strings](Strings/README.md) | `Strings/String.ijnb` | `String` methods: `contains`, `trim`, `substring`, `split`, `toUpperCase`, `charAt`, `concat`, `compareTo`, `startsWith`, `endsWith`, `length` |
 
-Suggested order: **variables → Operators → Conditionals → Arrays → Sets → Maps**
+Suggested order: **variables → Operators → Conditionals → Arrays → Sets → Maps → Loops → Strings**
 
 This guide has three parts:
 
