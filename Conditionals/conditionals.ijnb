@@ -78,6 +78,30 @@
           "execution_count": 15
         }
       ]
+    },
+    {
+      "id": "2f44b267-63ef-43a8-96c4-a2ad4db3448a",
+      "cell_type": "code",
+      "source": "try{\r\n    Scanner scn = new Scanner(System.in);\r\n    int age = scn.nextInt();\r\n\r\n    if(age >= 18){\r\n    System.out.println(\"You are eligible to vote.\");\r\n    }else{\r\n        System.out.println(\"You are not eligible to vote.\");\r\n    }\r\n}catch(Exception e){\r\n    System.out.println(\"Please enter a valid age.\");\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "2f44b267-63ef-43a8-96c4-a2ad4db3448a",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "You are not eligible to vote.\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
     }
   ]
 }

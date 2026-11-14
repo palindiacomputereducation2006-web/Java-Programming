@@ -1,0 +1,135 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "c3db96bc-25b2-45b2-bcbe-5d94c32c0e25",
+      "cell_type": "markdown",
+      "source": "# Methods Notebook",
+      "metadata": {
+        "language": "markdown",
+        "id": "c3db96bc-25b2-45b2-bcbe-5d94c32c0e25"
+      }
+    },
+    {
+      "id": "e5bf297c-0c0a-40cc-8362-d61f4907a441",
+      "cell_type": "code",
+      "source": "//Syntax\r\n\r\n// access_modifier DataType MethodName(Parameter1, Parameter2, ...) {\r\n//     // Method body\r\n//     // Code to be executed\r\n//     return value; // if the method has a return type other than void\r\n// }\r\n\r\n// Example\r\n\r\npublic String greet(String name) {\r\n    String greeting = \"Hello, \" + name + \"!\";\r\n    return greeting;\r\n}\r\n\r\nSystem.out.println(greet(\"Alice\")); // This will print \"Hello, Alice!\"",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello, Alice!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "430d33f1-b8f1-48cb-8c8a-e6608126acbc",
+      "cell_type": "code",
+      "source": "ArrayList<String> UsersNames = new ArrayList<>();\r\nUsersNames.addAll(Arrays.asList(\"Alice\", \"Bob\", \"Charlie\",\"David\", \"Eve\", \"Frank\", \"Grace\", \"Heidi\", \"Ivan\", \"Judy\"));\r\n\r\nSystem.out.println(\"Names in the list: \" + UsersNames);\r\n\r\npublic ArrayList<String> ChangeAndFilterName (ArrayList<String> names){\r\n    for (String name :names){\r\n        if(name.equals(\"Eve\")){\r\n            int index = names.indexOf(name);\r\n            names.set(index,\"Arbaz\");\r\n        }\r\n    }\r\n    return names;\r\n}\r\nArrayList<String> ChangedNames = ChangeAndFilterName(UsersNames);\r\nSystem.out.println(\"Changed Names in the list: \" + ChangedNames);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Names in the list: [Alice, Bob, Charlie, David, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\nChanged Names in the list: [Alice, Bob, Charlie, David, Arbaz, Frank, Grace, Heidi, Ivan, Judy]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "aa1a5383-f1b0-4e04-9438-8f316b8c4b25",
+      "cell_type": "code",
+      "source": "ArrayList<String> UsersNames = new ArrayList<>();\r\nUsersNames.addAll(Arrays.asList(\"Alice\", \"Bob\", \"Charlie\",\"David\", \"Eve\", \"Frank\", \"Grace\", \"Heidi\", \"Ivan\", \"Judy\"));\r\n\r\nSystem.out.println(\"Names in the list: \" + UsersNames);\r\n\r\nprivate int FindNamePosition (String name_for_position ,ArrayList<String> names){\r\n    int position = 0;\r\n    for (String name :names){\r\n        if(name.equals(name_for_position)){\r\n            int index = names.indexOf(name);\r\n            position = index;\r\n            break;\r\n        }else{\r\n            continue;\r\n        }\r\n    }\r\n    return position;\r\n}\r\nint data = FindNamePosition(\"Ivan\",UsersNames);\r\nSystem.out.println(\"Changed Names in the list: \" + data);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Names in the list: [Alice, Bob, Charlie, David, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\nChanged Names in the list: 8\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "c3df8e95-7f3e-4f19-8aee-681e73eaf287",
+      "cell_type": "code",
+      "source": "ArrayList<String> UsersNames = new ArrayList<>();\r\nUsersNames.addAll(Arrays.asList(\"Alice\", \"Bob\", \"Charlie\",\"David\", \"Eve\", \"Frank\", \"Grace\", \"Heidi\", \"Ivan\", \"Judy\"));\r\n\r\nSystem.out.println(\"Names in the list: \" + UsersNames);\r\n\r\nArrayList<String> ChangeAndFilterName (ArrayList<String> names){\r\n    for (String name :names){\r\n        if(name.equals(\"Eve\")){\r\n            int index = names.indexOf(name);\r\n            names.set(index,\"Soniya\");\r\n        }else{\r\n            continue;\r\n        }\r\n    }\r\n    return names;\r\n}\r\n\r\nArrayList<String> ChangedNames = ChangeAndFilterName(UsersNames);\r\nSystem.out.println(\"Changed Names in the list: \" + ChangedNames);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Names in the list: [Alice, Bob, Charlie, David, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\nChanged Names in the list: [Alice, Bob, Charlie, David, Soniya, Frank, Grace, Heidi, Ivan, Judy]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "1bbc0100-10a6-44a6-963a-2036b2beec58",
+      "cell_type": "code",
+      "source": "int index = 3;\r\nArrayList<String> UsersNames = new ArrayList<>();\r\nUsersNames.addAll(Arrays.asList(\"Alice\", \"Bob\", \"Charlie\",\"David\", \"Eve\", \"Frank\", \"Grace\", \"Heidi\", \"Ivan\", \"Judy\"));\r\n\r\nSystem.out.println(\"Names in the list: \" + UsersNames);\r\n\r\nprotected String FindNameByPosition (int index ,ArrayList<String> names){\r\n    String name = \"\";\r\n    for (int i = 0; i < names.size(); i++){\r\n        if(i == index){\r\n            name = names.get(i);\r\n            break;\r\n        }\r\n    }\r\n    return name;\r\n}\r\nString data = FindNameByPosition(index,UsersNames);\r\nSystem.out.println(\"Name at position \" + index + \" : \" + data);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Names in the list: [Alice, Bob, Charlie, David, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\nName at position 3 : David\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    }
+  ]
+}

@@ -1330,6 +1330,7 @@
       "source": "String str = \"Hello, World!\";\r\n\r\nString[] data = str.split(\",\");\r\nSystem.out.println(\"The array is: \" + Arrays.toString(data));\r\n\r\n",
       "metadata": {
         "language": "java",
+        "id": "94ffc0a1-e869-4e3b-a73b-c5c6300e9f5c",
         "executionSummary": {
           "executionOrder": 5,
           "success": true
@@ -1341,6 +1342,29 @@
           "output_type": "execute_result",
           "data": {
             "text/plain": "The array is: [Hello,  World!]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "55c06281-672a-401f-b52e-3495f64ed4f7",
+      "cell_type": "code",
+      "source": "ArrayList<String> names = new ArrayList<>();\r\nnames.addAll(Arrays.asList(\"Alice\", \"Bob\", \"Charlie\", \"David\", \"Eve\", \"Frank\", \"Grace\", \"Heidi\", \"Ivan\", \"Judy\"));\r\n\r\nSystem.out.println(\"The list is: \" + names);\r\n\r\nnames.forEach((name)->{\r\n    if(name.equals(\"David\")){\r\n        int index = names.indexOf(name);\r\n        names.set(index, \"Daniel\");\r\n    }  \r\n});\r\nSystem.out.println(\"After replacing David with Daniel: \" + names);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "The list is: [Alice, Bob, Charlie, David, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\nAfter replacing David with Daniel: [Alice, Bob, Charlie, Daniel, Eve, Frank, Grace, Heidi, Ivan, Judy]\r\n"
           },
           "metadata": {},
           "execution_count": 5
